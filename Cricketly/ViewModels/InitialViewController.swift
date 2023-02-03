@@ -19,6 +19,13 @@ class InitialViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.viewControllers.removeAll(where: {
+            $0 == self
+        })
+    }
+    
     
 
 }

@@ -9,10 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var bannerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        self.navigationController?.isNavigationBarHidden = true
+        UIFunctions.setViewCornerRadius(view: bannerView, cornerRadius: 20, edgeType: [.layerMaxXMinYCorner,.layerMaxXMaxYCorner])
     }
 
 
