@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var searchField: SearchField!
     
     
     @IBOutlet weak var bannerView: UIView!

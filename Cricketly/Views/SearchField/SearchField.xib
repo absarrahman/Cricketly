@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchField" customModule="Cricketly" customModuleProvider="target">
+            <connections>
+                <outlet property="searchImageView" destination="Mdj-eF-0lO" id="gwF-Rq-bNh"/>
+                <outlet property="textfield" destination="TtF-OP-SbS" id="hQD-Ee-FQF"/>
+                <outlet property="view" destination="iN0-l3-epB" id="9jJ-Un-hAn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mdj-eF-0lO">
+                    <rect key="frame" x="171" y="24.000000000000007" width="24" height="22.33333333333335"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Mdj-eF-0lO" secondAttribute="height" id="sTE-iX-Wqr"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Yeeet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-OP-SbS">
+                    <rect key="frame" x="5" y="23" width="161" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Mdj-eF-0lO" firstAttribute="leading" secondItem="TtF-OP-SbS" secondAttribute="trailing" constant="5" id="7D7-ZV-8dA"/>
+                <constraint firstItem="Mdj-eF-0lO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="L5l-JD-NBd"/>
+                <constraint firstAttribute="trailing" secondItem="Mdj-eF-0lO" secondAttribute="trailing" constant="5" id="P5T-tp-hbt"/>
+                <constraint firstItem="TtF-OP-SbS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Sbb-7m-bAW"/>
+                <constraint firstItem="TtF-OP-SbS" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.805" id="jVC-v2-d8k"/>
+                <constraint firstItem="Mdj-eF-0lO" firstAttribute="top" secondItem="TtF-OP-SbS" secondAttribute="top" id="k0c-1A-RKs"/>
+                <constraint firstItem="TtF-OP-SbS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lkJ-Uf-zfp"/>
+                <constraint firstItem="Mdj-eF-0lO" firstAttribute="bottom" secondItem="TtF-OP-SbS" secondAttribute="bottom" id="sw8-qf-dN5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-29.007633587786259" y="606.33802816901414"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

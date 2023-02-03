@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Cricketly" customModuleProvider="target">
             <connections>
                 <outlet property="bannerView" destination="VoP-rW-ghy" id="vDE-1d-ehh"/>
+                <outlet property="searchField" destination="NQV-XM-7dt" id="Lya-HC-m81"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,28 +26,46 @@
                     <color key="backgroundColor" name="PrimaryActionColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VoP-rW-ghy" userLabel="Banner View">
-                    <rect key="frame" x="0.0" y="110.5" width="262.5" height="133.5"/>
+                    <rect key="frame" x="0.0" y="110.5" width="262.5" height="142"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE Match Updates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TX-dm-hmm">
-                            <rect key="frame" x="10" y="10" width="242.5" height="21"/>
+                            <rect key="frame" x="10" y="20" width="242.5" height="21"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" name="PrimaryActionColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With Quick Score!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfC-7n-BRc">
-                            <rect key="frame" x="10" y="41" width="242.5" height="21"/>
+                            <rect key="frame" x="10" y="51" width="242.5" height="21"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQV-XM-7dt" customClass="SearchField" customModule="Cricketly" customModuleProvider="target">
+                            <rect key="frame" x="10" y="92" width="242.5" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="bEe-Rl-Xqz"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="searchIconColor">
+                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="searchBarBackgroundColor">
+                                    <color key="value" systemColor="secondarySystemBackgroundColor"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="1TX-dm-hmm" firstAttribute="top" secondItem="VoP-rW-ghy" secondAttribute="top" constant="10" id="EC5-3Y-JL9"/>
+                        <constraint firstItem="NQV-XM-7dt" firstAttribute="leading" secondItem="1TX-dm-hmm" secondAttribute="leading" id="7ze-EO-rcH"/>
+                        <constraint firstItem="1TX-dm-hmm" firstAttribute="top" secondItem="VoP-rW-ghy" secondAttribute="top" constant="20" id="EC5-3Y-JL9"/>
                         <constraint firstItem="mfC-7n-BRc" firstAttribute="leading" secondItem="1TX-dm-hmm" secondAttribute="leading" id="HQm-8M-gvF"/>
                         <constraint firstItem="1TX-dm-hmm" firstAttribute="leading" secondItem="VoP-rW-ghy" secondAttribute="leading" constant="10" id="NJw-Yo-kef"/>
+                        <constraint firstItem="NQV-XM-7dt" firstAttribute="top" secondItem="mfC-7n-BRc" secondAttribute="bottom" constant="20" id="PdY-O2-nB3"/>
+                        <constraint firstItem="NQV-XM-7dt" firstAttribute="trailing" secondItem="1TX-dm-hmm" secondAttribute="trailing" id="RJQ-fF-9Hv"/>
                         <constraint firstAttribute="trailing" secondItem="1TX-dm-hmm" secondAttribute="trailing" constant="10" id="VvQ-vy-7fZ"/>
                         <constraint firstItem="mfC-7n-BRc" firstAttribute="trailing" secondItem="1TX-dm-hmm" secondAttribute="trailing" id="ZxK-Jw-9Sb"/>
+                        <constraint firstAttribute="bottom" secondItem="NQV-XM-7dt" secondAttribute="bottom" constant="10" id="bcm-Ss-ddf"/>
                         <constraint firstItem="mfC-7n-BRc" firstAttribute="top" secondItem="1TX-dm-hmm" secondAttribute="bottom" constant="10" id="hym-Vs-KWk"/>
                     </constraints>
                 </view>
@@ -57,18 +76,22 @@
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="B48-Qb-NI8"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.816794" id="Jri-oH-yLZ"/>
                 <constraint firstItem="VoP-rW-ghy" firstAttribute="top" secondItem="6Ir-Qs-5fK" secondAttribute="bottom" constant="-60" id="Mcc-5O-p6l"/>
-                <constraint firstItem="VoP-rW-ghy" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.2" id="NqF-vM-aFh"/>
                 <constraint firstItem="VoP-rW-ghy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rkm-LX-1HM"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="np1-6b-q8L"/>
                 <constraint firstItem="VoP-rW-ghy" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="rVy-Tf-pdN"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.255869" id="xtT-ps-QkW"/>
             </constraints>
-            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+            <point key="canvasLocation" x="130.40000000000001" y="-12.143928035982009"/>
         </view>
     </objects>
+    <designables>
+        <designable name="NQV-XM-7dt">
+            <size key="intrinsicContentSize" width="200" height="70"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="PrimaryActionColor">
-            <color red="0.93799561259999997" green="0.13802340630000001" blue="0.23608112340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93800002336502075" green="0.1379999965429306" blue="0.23600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
