@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Cricketly" customModuleProvider="target">
             <connections>
                 <outlet property="bannerView" destination="VoP-rW-ghy" id="vDE-1d-ehh"/>
+                <outlet property="collectionView" destination="Gcj-VZ-b7G" id="W9t-Hd-YXG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,15 +52,40 @@
                         <constraint firstItem="mfC-7n-BRc" firstAttribute="top" secondItem="1TX-dm-hmm" secondAttribute="bottom" constant="10" id="hym-Vs-KWk"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAd-uW-Q78">
+                    <rect key="frame" x="20" y="222.5" width="335" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gcj-VZ-b7G">
+                    <rect key="frame" x="0.0" y="256.5" width="375" height="220"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="bda-dx-29C"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VT9-xK-ef0">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Gcj-VZ-b7G" firstAttribute="top" secondItem="wAd-uW-Q78" secondAttribute="bottom" constant="10" id="4Ik-KU-dBU"/>
+                <constraint firstItem="wAd-uW-Q78" firstAttribute="top" secondItem="VoP-rW-ghy" secondAttribute="bottom" constant="20" id="7EF-c5-Jji"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="B48-Qb-NI8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gcj-VZ-b7G" secondAttribute="trailing" id="B6T-Pt-gg5"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.816794" id="Jri-oH-yLZ"/>
                 <constraint firstItem="VoP-rW-ghy" firstAttribute="top" secondItem="6Ir-Qs-5fK" secondAttribute="bottom" constant="-60" id="Mcc-5O-p6l"/>
                 <constraint firstItem="VoP-rW-ghy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rkm-LX-1HM"/>
+                <constraint firstItem="Gcj-VZ-b7G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eqj-LM-ohR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wAd-uW-Q78" secondAttribute="trailing" constant="20" id="nUt-6b-dwL"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="np1-6b-q8L"/>
+                <constraint firstItem="wAd-uW-Q78" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oFe-cp-pDb"/>
                 <constraint firstItem="6Ir-Qs-5fK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.255869" id="xtT-ps-QkW"/>
             </constraints>
             <point key="canvasLocation" x="130.40000000000001" y="-12.143928035982009"/>

@@ -11,6 +11,10 @@
 		5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD19298CD7620012690C /* CommonFunctions.swift */; };
 		5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD1B298CD7700012690C /* UIFunctions.swift */; };
 		5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1543FE29975F9200DC70CF /* ViewControllerFactory.swift */; };
+		5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1544012997675F00DC70CF /* MatchesViewController.swift */; };
+		5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1544022997675F00DC70CF /* MatchesViewController.xib */; };
+		5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B154405299773F500DC70CF /* FixturesCollectionViewCell.swift */; };
+		5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B154406299773F500DC70CF /* FixturesCollectionViewCell.xib */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
@@ -29,6 +33,10 @@
 		5B08BD19298CD7620012690C /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		5B08BD1B298CD7700012690C /* UIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFunctions.swift; sourceTree = "<group>"; };
 		5B1543FE29975F9200DC70CF /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		5B1544012997675F00DC70CF /* MatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		5B1544022997675F00DC70CF /* MatchesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchesViewController.xib; sourceTree = "<group>"; };
+		5B154405299773F500DC70CF /* FixturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B154406299773F500DC70CF /* FixturesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FixturesCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +71,24 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		5B15440B299796C000DC70CF /* FixturesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5B154405299773F500DC70CF /* FixturesCollectionViewCell.swift */,
+				5B154406299773F500DC70CF /* FixturesCollectionViewCell.xib */,
+			);
+			path = FixturesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		5B15440C299796D500DC70CF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5B16A7F5298D215B00D2AA77 /* SearchField */,
+				5B15440B299796C000DC70CF /* FixturesCollectionViewCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		5B16A7F5298D215B00D2AA77 /* SearchField */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,9 +101,10 @@
 		5B7B825E298CAAC800A6BDA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5BF49A04298CADB90051723E /* HomeViewController.xib */,
 				5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */,
-				5B16A7F5298D215B00D2AA77 /* SearchField */,
+				5BF49A04298CADB90051723E /* HomeViewController.xib */,
+				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
+				5B15440C299796D500DC70CF /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -85,6 +112,7 @@
 		5B7B825F298CAAE100A6BDA4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
 				5BF49A03298CADB90051723E /* HomeViewController.swift */,
 				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
@@ -192,10 +220,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
 				5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */,
 				5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */,
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
+				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
 				5B7240BB298D1523000DD128 /* SearchField.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,11 +237,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */,
 				5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */,
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
+				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
