@@ -10,10 +10,12 @@
 		5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD17298CD5120012690C /* ColorExtension.swift */; };
 		5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD19298CD7620012690C /* CommonFunctions.swift */; };
 		5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD1B298CD7700012690C /* UIFunctions.swift */; };
+		5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1543FE29975F9200DC70CF /* ViewControllerFactory.swift */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
 		5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */; };
+		5B9438592996DEE9000D546B /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9438582996DEE9000D546B /* TabbarController.swift */; };
 		5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */; };
 		5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7057298CA79500EEF6F3 /* Assets.xcassets */; };
 		5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */; };
@@ -26,10 +28,12 @@
 		5B08BD17298CD5120012690C /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		5B08BD19298CD7620012690C /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		5B08BD1B298CD7700012690C /* UIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFunctions.swift; sourceTree = "<group>"; };
+		5B1543FE29975F9200DC70CF /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
+		5B9438582996DEE9000D546B /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		5BCD704B298CA79400EEF6F3 /* Cricketly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cricketly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BCD7057298CA79500EEF6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B15440029975F9700DC70CF /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				5B1543FE29975F9200DC70CF /* ViewControllerFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		5B16A7F5298D215B00D2AA77 /* SearchField */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +87,7 @@
 			children = (
 				5BF49A03298CADB90051723E /* HomeViewController.swift */,
 				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
+				5B9438582996DEE9000D546B /* TabbarController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -99,12 +112,13 @@
 			isa = PBXGroup;
 			children = (
 				5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */,
+				5B15440029975F9700DC70CF /* Factory */,
 				5B7B825E298CAAC800A6BDA4 /* Views */,
 				5B7B825F298CAAE100A6BDA4 /* ViewModels */,
+				5BF49A09298CADEB0051723E /* Utils */,
 				5BCD7057298CA79500EEF6F3 /* Assets.xcassets */,
 				5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */,
 				5BCD705C298CA79500EEF6F3 /* Info.plist */,
-				5BF49A09298CADEB0051723E /* Utils */,
 			);
 			path = Cricketly;
 			sourceTree = "<group>";
@@ -194,12 +208,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */,
+				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
+				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
 				5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
