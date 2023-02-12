@@ -20,6 +20,7 @@
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
 		5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */; };
 		5B9438592996DEE9000D546B /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9438582996DEE9000D546B /* TabbarController.swift */; };
+		5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */; };
 		5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */; };
 		5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7057298CA79500EEF6F3 /* Assets.xcassets */; };
 		5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
 		5B9438582996DEE9000D546B /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlExtension.swift; sourceTree = "<group>"; };
 		5BCD704B298CA79400EEF6F3 /* Cricketly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cricketly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BCD7057298CA79500EEF6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				5B08BD17298CD5120012690C /* ColorExtension.swift */,
 				5B08BD19298CD7620012690C /* CommonFunctions.swift */,
 				5B08BD1B298CD7700012690C /* UIFunctions.swift */,
+				5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
+				5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */,
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,

@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         UIFunctions.setViewCornerRadius(view: bannerView, cornerRadius: 20, edgeType: [.layerMaxXMinYCorner,.layerMaxXMaxYCorner])
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 310, height: 210)
+        layout.itemSize = CGSize(width: collectionView.bounds.width * 0.8, height: 210)
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         collectionView.collectionViewLayout = layout

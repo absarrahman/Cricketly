@@ -46,7 +46,7 @@ class TabbarController: UITabBarController {
     }
     
     func createHomeVC() -> UIViewController {
-        let homeVC = HomeViewController()
+        let homeVC = vcFactory.createVC(vcType: .homeVC)
         homeVC.title = "Home"
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
         
@@ -54,11 +54,11 @@ class TabbarController: UITabBarController {
     }
     
     func createMatchVC() -> UIViewController {
-        let searchVC = HomeViewController()
-        searchVC.title = "Matches"
-        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
+        let matchVC = vcFactory.createVC(vcType: .matchVC)
+        matchVC.title = "Matches"
+        matchVC.tabBarItem = UITabBarItem(title: "Matches", image: UIImage(systemName: "cricket.ball.fill"), tag: 0)
         
-        return searchVC
+        return matchVC
     }
     
 }

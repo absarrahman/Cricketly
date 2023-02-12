@@ -17,7 +17,7 @@ struct ViewControllerFactory {
         case .homeVC:
             return HomeViewController()
         case .matchVC:
-            return HomeViewController()
+            return MatchesViewController()
         }
     }
 }
