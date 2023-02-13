@@ -113,8 +113,7 @@
 			children = (
 				5B16A7F5298D215B00D2AA77 /* SearchField */,
 				5B15440B299796C000DC70CF /* FixturesCollectionViewCell */,
-				5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */,
-				5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */,
+				5B21EB9A299A5329005EF98C /* MatchInfoTableViewCell */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -148,14 +147,23 @@
 			path = MatchesView;
 			sourceTree = "<group>";
 		};
+		5B21EB9A299A5329005EF98C /* MatchInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */,
+				5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */,
+			);
+			path = MatchInfoTableViewCell;
+			sourceTree = "<group>";
+		};
 		5B7B825E298CAAC800A6BDA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */,
 				5BF49A04298CADB90051723E /* HomeViewController.xib */,
 				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
-				5B15440C299796D500DC70CF /* Components */,
 				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
+				5B15440C299796D500DC70CF /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
