@@ -116,13 +116,13 @@ class Service {
         }
     }
     
-    func getAllFixtures(startDate: String, endDate: String, completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
+    func getAllFixtures(startDate: String, endDate: String, completion: @escaping (Result<([FixtureModel]?), Error>) -> (), isRecent: Bool = false) {
         //2023-01-15, 2023-02-8
         // TODO: Add start date and end date
         let endpoint = APIEndPoints.fixturesEndPoint
         let parameters = [
             "api_token": Secrets.apiKey,
-            "sort": "-starting_at",
+            "sort": isRecent ? "-starting_at" : "starting_at",
             "filter[starts_between]": "\(startDate),\(endDate)",
             "fields[fixtures]": "id,round,localteam_id,visitorteam_id,starting_at,type,status,note,toss_won_team_id,winner_team_id,man_of_match_id,man_of_series_id,elected,total_overs_played,league_id,season_id",
             "include": "runs.team, localteam,visitorteam,venue,season,league"
@@ -155,5 +155,13 @@ class Service {
                 completion(.success(data.data))
             }
         }
+    }
+    
+    func getUpcomingMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
+        getAllFixtures(startDate: "2023-02-12", endDate: "2023-03-7",completion: completion)
+    }
+    
+    func getRecentMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
+        getAllFixtures(startDate: "2023-01-15", endDate: "2023-02-7",completion: completion,isRecent: true)
     }
 }

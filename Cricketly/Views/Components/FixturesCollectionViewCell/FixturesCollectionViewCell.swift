@@ -38,7 +38,7 @@ class FixturesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var cellTitle: UILabel!
     
 
-    @IBOutlet weak private var localTeamImageView: UIImageView!
+    @IBOutlet weak var localTeamImageView: UIImageView!
     
     
     @IBOutlet weak private var vistorTeamImageView: UIImageView!
@@ -86,12 +86,12 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         visitorTeamCodeLabel.text = model.visitorTeamCode
         
         // scores
-        localTeamScore.text = "\(model.localTeamRun)/\(model.localTeamWicket)"
-        visitorTeamScore.text = "\(model.visitorTeamRun)/\(model.visitorTeamWicket)"
+        localTeamScore.text = model.localTeamRun.isEmpty ? "" : "\(model.localTeamRun)/\(model.localTeamWicket)"
+        visitorTeamScore.text = model.visitorTeamRun.isEmpty ? "" : "\(model.visitorTeamRun)/\(model.visitorTeamWicket)"
         
         // overs
-        localTeamOverLabel.text = "\(model.localTeamOver) overs"
-        vistorTeamOverLabel.text = "\(model.visitorTeamOver) overs"
+        localTeamOverLabel.text = model.localTeamOver.isEmpty ? "" : "\(model.localTeamOver) overs"
+        vistorTeamOverLabel.text = model.visitorTeamOver.isEmpty ? "" : "\(model.visitorTeamOver) overs"
         
         // note
         matchNoteLabel.text = model.matchNote
