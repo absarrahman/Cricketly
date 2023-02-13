@@ -15,6 +15,14 @@
 		5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1544022997675F00DC70CF /* MatchesViewController.xib */; };
 		5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B154405299773F500DC70CF /* FixturesCollectionViewCell.swift */; };
 		5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B154406299773F500DC70CF /* FixturesCollectionViewCell.xib */; };
+		5B21EB7D2999D90F005EF98C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB7C2999D90F005EF98C /* Service.swift */; };
+		5B21EB802999D9FA005EF98C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5B21EB7F2999D9FA005EF98C /* Alamofire */; };
+		5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB812999DA3A005EF98C /* Secrets+Endpoints.swift */; };
+		5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB832999DA80005EF98C /* PlayerModel.swift */; };
+		5B21EB862999DBA4005EF98C /* PlayerDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB852999DBA4005EF98C /* PlayerDetailsModel.swift */; };
+		5B21EB882999DC3B005EF98C /* FixtureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB872999DC3B005EF98C /* FixtureModel.swift */; };
+		5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */; };
+		5B21EB8E2999F0F8005EF98C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5B21EB8D2999F0F8005EF98C /* SDWebImage */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
@@ -38,6 +46,12 @@
 		5B1544022997675F00DC70CF /* MatchesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchesViewController.xib; sourceTree = "<group>"; };
 		5B154405299773F500DC70CF /* FixturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B154406299773F500DC70CF /* FixturesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FixturesCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B21EB7C2999D90F005EF98C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5B21EB812999DA3A005EF98C /* Secrets+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Secrets+Endpoints.swift"; sourceTree = "<group>"; };
+		5B21EB832999DA80005EF98C /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		5B21EB852999DBA4005EF98C /* PlayerDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsModel.swift; sourceTree = "<group>"; };
+		5B21EB872999DC3B005EF98C /* FixtureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureModel.swift; sourceTree = "<group>"; };
+		5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureDetailsModel.swift; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B21EB8E2999F0F8005EF98C /* SDWebImage in Frameworks */,
+				5B21EB802999D9FA005EF98C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +114,17 @@
 				5B7240BC298D153A000DD128 /* SearchField.swift */,
 			);
 			path = SearchField;
+			sourceTree = "<group>";
+		};
+		5B21EB8B2999DCA4005EF98C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B21EB832999DA80005EF98C /* PlayerModel.swift */,
+				5B21EB852999DBA4005EF98C /* PlayerDetailsModel.swift */,
+				5B21EB872999DC3B005EF98C /* FixtureModel.swift */,
+				5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5B7B825E298CAAC800A6BDA4 /* Views */ = {
@@ -143,6 +170,7 @@
 			children = (
 				5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */,
 				5B15440029975F9700DC70CF /* Factory */,
+				5B21EB8B2999DCA4005EF98C /* Models */,
 				5B7B825E298CAAC800A6BDA4 /* Views */,
 				5B7B825F298CAAE100A6BDA4 /* ViewModels */,
 				5BF49A09298CADEB0051723E /* Utils */,
@@ -161,6 +189,8 @@
 				5B08BD19298CD7620012690C /* CommonFunctions.swift */,
 				5B08BD1B298CD7700012690C /* UIFunctions.swift */,
 				5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */,
+				5B21EB7C2999D90F005EF98C /* Service.swift */,
+				5B21EB812999DA3A005EF98C /* Secrets+Endpoints.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -181,6 +211,10 @@
 			dependencies = (
 			);
 			name = Cricketly;
+			packageProductDependencies = (
+				5B21EB7F2999D9FA005EF98C /* Alamofire */,
+				5B21EB8D2999F0F8005EF98C /* SDWebImage */,
+			);
 			productName = Cricketly;
 			productReference = 5BCD704B298CA79400EEF6F3 /* Cricketly.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +243,10 @@
 				Base,
 			);
 			mainGroup = 5BCD7042298CA79400EEF6F3;
+			packageReferences = (
+				5B21EB7E2999D9FA005EF98C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5B21EB8C2999F0F8005EF98C /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 5BCD704C298CA79400EEF6F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,15 +279,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */,
+				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
 				5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */,
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
+				5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */,
+				5B21EB862999DBA4005EF98C /* PlayerDetailsModel.swift in Sources */,
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
 				5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */,
+				5B21EB882999DC3B005EF98C /* FixtureModel.swift in Sources */,
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
+				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
+				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
 				5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */,
@@ -460,6 +504,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B21EB7E2999D9FA005EF98C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		5B21EB8C2999F0F8005EF98C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B21EB7F2999D9FA005EF98C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B21EB7E2999D9FA005EF98C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		5B21EB8D2999F0F8005EF98C /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B21EB8C2999F0F8005EF98C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BCD7043298CA79400EEF6F3 /* Project object */;
 }

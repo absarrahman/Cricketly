@@ -185,7 +185,18 @@
             </constraints>
             <size key="customSize" width="310" height="209"/>
             <connections>
+                <outlet property="cellTitle" destination="7h1-l8-Yz9" id="kUo-gE-p3l"/>
+                <outlet property="liveView" destination="oKe-l0-6Pp" id="Nic-34-DAy"/>
+                <outlet property="localTeamCodeLabel" destination="yjx-B9-lt2" id="aqw-gz-dfp"/>
+                <outlet property="localTeamImageView" destination="DCH-qa-ACD" id="WvR-Fa-M6T"/>
+                <outlet property="localTeamOverLabel" destination="aAs-27-FCC" id="HzB-Td-SpC"/>
+                <outlet property="localTeamScore" destination="7Js-RE-sIb" id="fvK-09-MYQ"/>
+                <outlet property="matchNoteLabel" destination="rRD-MZ-Gd3" id="6h9-t0-o3y"/>
                 <outlet property="rootView" destination="K8M-Yh-fGd" id="Coe-ZP-LlC"/>
+                <outlet property="visitorTeamCodeLabel" destination="G5Z-J8-gsW" id="Es3-GJ-VJ4"/>
+                <outlet property="visitorTeamScore" destination="gcg-U6-F8J" id="gSD-hA-W3j"/>
+                <outlet property="vistorTeamImageView" destination="lGK-Zn-T05" id="IST-B3-cJQ"/>
+                <outlet property="vistorTeamOverLabel" destination="K1D-QJ-y8U" id="sd2-cq-QpG"/>
             </connections>
             <point key="canvasLocation" x="303.81679389312978" y="43.661971830985919"/>
         </collectionViewCell>
