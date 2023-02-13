@@ -9,14 +9,15 @@ import UIKit
 
 
 enum RouteMap{
-    case initialViewController, tabBarViewController
+    case initialViewController, tabBarViewController, matchDetailsViewController
 }
 
 class Routes {
     
     private static let routes:[RouteMap: UIViewController] = [
         .initialViewController: InitialViewController(),
-        .tabBarViewController: TabbarController()
+        .tabBarViewController: TabbarController(),
+        .matchDetailsViewController: MatchDetailsViewController()
     ]
     
     private init() {}

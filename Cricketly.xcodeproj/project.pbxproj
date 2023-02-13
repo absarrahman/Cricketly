@@ -24,6 +24,10 @@
 		5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */; };
 		5B21EB8E2999F0F8005EF98C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5B21EB8D2999F0F8005EF98C /* SDWebImage */; };
 		5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB90299A0DC7005EF98C /* MatchesViewModel.swift */; };
+		5B21EB94299A37F9005EF98C /* MatchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */; };
+		5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */; };
+		5B21EB98299A4C95005EF98C /* MatchInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */; };
+		5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
@@ -54,6 +58,10 @@
 		5B21EB872999DC3B005EF98C /* FixtureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureModel.swift; sourceTree = "<group>"; };
 		5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureDetailsModel.swift; sourceTree = "<group>"; };
 		5B21EB90299A0DC7005EF98C /* MatchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewModel.swift; sourceTree = "<group>"; };
+		5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewController.swift; sourceTree = "<group>"; };
+		5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailsViewController.xib; sourceTree = "<group>"; };
+		5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoTableViewCell.swift; sourceTree = "<group>"; };
+		5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchInfoTableViewCell.xib; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +113,8 @@
 			children = (
 				5B16A7F5298D215B00D2AA77 /* SearchField */,
 				5B15440B299796C000DC70CF /* FixturesCollectionViewCell */,
+				5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */,
+				5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -145,6 +155,7 @@
 				5BF49A04298CADB90051723E /* HomeViewController.xib */,
 				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
 				5B15440C299796D500DC70CF /* Components */,
+				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +166,7 @@
 				5B21EB8F299A0C8F005EF98C /* MatchesView */,
 				5BF49A03298CADB90051723E /* HomeViewController.swift */,
 				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
+				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
 			);
 			path = ViewModels;
@@ -273,7 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
+				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
+				5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */,
 				5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */,
 				5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */,
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
@@ -292,8 +306,10 @@
 				5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */,
 				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
 				5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */,
+				5B21EB98299A4C95005EF98C /* MatchInfoTableViewCell.swift in Sources */,
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
+				5B21EB94299A37F9005EF98C /* MatchDetailsViewController.swift in Sources */,
 				5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */,
 				5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */,
 				5B21EB862999DBA4005EF98C /* PlayerDetailsModel.swift in Sources */,
