@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchesViewController" customModule="Cricketly" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="nql-dl-CIg" id="6e1-v3-LWP"/>
                 <outlet property="segmentedControl" destination="JKg-0j-JYq" id="z1J-1x-h5z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,9 +33,9 @@
                         <action selector="segmentedControlValueChanged:" destination="-1" eventType="valueChanged" id="cli-Zg-3xh"/>
                     </connections>
                 </segmentedControl>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nql-dl-CIg">
-                    <rect key="frame" x="10" y="110" width="373" height="708"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nql-dl-CIg">
+                    <rect key="frame" x="10" y="110" width="373" height="742"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mkf-QV-Uvw">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -52,7 +53,7 @@
                 <constraint firstItem="JKg-0j-JYq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="cMO-Ij-d2A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JKg-0j-JYq" secondAttribute="trailing" constant="10" id="vHT-d7-1a8"/>
                 <constraint firstItem="nql-dl-CIg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="wRg-61-emb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nql-dl-CIg" secondAttribute="bottom" id="yDN-E0-VPx"/>
+                <constraint firstAttribute="bottom" secondItem="nql-dl-CIg" secondAttribute="bottom" id="yDN-E0-VPx"/>
             </constraints>
             <point key="canvasLocation" x="152" y="-30"/>
         </view>
@@ -63,9 +64,6 @@
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -90,8 +90,8 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         visitorTeamScore.text = "\(model.visitorTeamRun)/\(model.visitorTeamWicket)"
         
         // overs
-        localTeamOverLabel.text = model.localTeamOver
-        vistorTeamOverLabel.text = model.visitorTeamOver
+        localTeamOverLabel.text = "\(model.localTeamOver) overs"
+        vistorTeamOverLabel.text = "\(model.visitorTeamOver) overs"
         
         // note
         matchNoteLabel.text = model.matchNote

@@ -23,6 +23,7 @@
 		5B21EB882999DC3B005EF98C /* FixtureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB872999DC3B005EF98C /* FixtureModel.swift */; };
 		5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */; };
 		5B21EB8E2999F0F8005EF98C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5B21EB8D2999F0F8005EF98C /* SDWebImage */; };
+		5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB90299A0DC7005EF98C /* MatchesViewModel.swift */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
@@ -52,6 +53,7 @@
 		5B21EB852999DBA4005EF98C /* PlayerDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsModel.swift; sourceTree = "<group>"; };
 		5B21EB872999DC3B005EF98C /* FixtureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureModel.swift; sourceTree = "<group>"; };
 		5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureDetailsModel.swift; sourceTree = "<group>"; };
+		5B21EB90299A0DC7005EF98C /* MatchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewModel.swift; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5B21EB8F299A0C8F005EF98C /* MatchesView */ = {
+			isa = PBXGroup;
+			children = (
+				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
+				5B21EB90299A0DC7005EF98C /* MatchesViewModel.swift */,
+			);
+			path = MatchesView;
+			sourceTree = "<group>";
+		};
 		5B7B825E298CAAC800A6BDA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +152,7 @@
 		5B7B825F298CAAE100A6BDA4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
+				5B21EB8F299A0C8F005EF98C /* MatchesView */,
 				5BF49A03298CADB90051723E /* HomeViewController.swift */,
 				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
@@ -284,6 +295,7 @@
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */,
+				5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */,
 				5B21EB862999DBA4005EF98C /* PlayerDetailsModel.swift in Sources */,
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
 				5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */,
