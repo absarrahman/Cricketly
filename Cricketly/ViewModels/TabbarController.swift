@@ -45,6 +45,16 @@ class TabbarController: UITabBarController {
         setupTabBarLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     func createHomeVC() -> UIViewController {
         let homeVC = vcFactory.createVC(vcType: .homeVC)
         homeVC.title = "Home"

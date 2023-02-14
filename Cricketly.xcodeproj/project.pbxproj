@@ -159,10 +159,7 @@
 		5B7B825E298CAAC800A6BDA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */,
-				5BF49A04298CADB90051723E /* HomeViewController.xib */,
-				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
-				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
+				89780048299B9FA4006F80DD /* Screens */,
 				5B15440C299796D500DC70CF /* Components */,
 			);
 			path = Views;
@@ -224,6 +221,17 @@
 				5B21EB812999DA3A005EF98C /* Secrets+Endpoints.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		89780048299B9FA4006F80DD /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */,
+				5BF49A04298CADB90051723E /* HomeViewController.xib */,
+				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
+				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
