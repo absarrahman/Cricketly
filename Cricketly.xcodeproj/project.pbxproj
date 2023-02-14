@@ -141,7 +141,6 @@
 		5B21EB8F299A0C8F005EF98C /* MatchesView */ = {
 			isa = PBXGroup;
 			children = (
-				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
 				5B21EB90299A0DC7005EF98C /* MatchesViewModel.swift */,
 			);
 			path = MatchesView;
@@ -154,6 +153,18 @@
 				5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */,
 			);
 			path = MatchInfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		5B4A94A8299C11D8000D66FA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
+				5B9438582996DEE9000D546B /* TabbarController.swift */,
+				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
+				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
+				5BF49A03298CADB90051723E /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		5B7B825E298CAAC800A6BDA4 /* Views */ = {
@@ -169,10 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				5B21EB8F299A0C8F005EF98C /* MatchesView */,
-				5BF49A03298CADB90051723E /* HomeViewController.swift */,
-				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
-				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
-				5B9438582996DEE9000D546B /* TabbarController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 				5B15440029975F9700DC70CF /* Factory */,
 				5B21EB8B2999DCA4005EF98C /* Models */,
 				5B7B825E298CAAC800A6BDA4 /* Views */,
+				5B4A94A8299C11D8000D66FA /* ViewControllers */,
 				5B7B825F298CAAE100A6BDA4 /* ViewModels */,
 				5BF49A09298CADEB0051723E /* Utils */,
 				5BCD7057298CA79500EEF6F3 /* Assets.xcassets */,
