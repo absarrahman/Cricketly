@@ -25,20 +25,20 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pak" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-ip-efg">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                 </imageView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-EG-OnU">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-EG-OnU">
                     <rect key="frame" x="0.0" y="60" width="375" height="60"/>
                     <color key="backgroundColor" name="PrimaryActionColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="H5j-5T-FFD"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MKI-FV-z2V">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MKI-FV-z2V">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-0d-nM4">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-0d-nM4" userLabel="Container View">
                     <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
