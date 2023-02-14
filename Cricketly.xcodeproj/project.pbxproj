@@ -37,6 +37,9 @@
 		5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */; };
 		5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7057298CA79500EEF6F3 /* Assets.xcassets */; };
 		5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */; };
+		5BF01B96299C1787005DF5E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */; };
+		5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */; };
+		5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */; };
 		5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A03298CADB90051723E /* HomeViewController.swift */; };
 		5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF49A04298CADB90051723E /* HomeViewController.xib */; };
 		5BF49A08298CADE80051723E /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A07298CADE80051723E /* Routes.swift */; };
@@ -73,6 +76,9 @@
 		5BCD7057298CA79500EEF6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BCD705A298CA79500EEF6F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BCD705C298CA79500EEF6F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoViewController.swift; sourceTree = "<group>"; };
+		5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchInfoViewController.xib; sourceTree = "<group>"; };
 		5BF49A03298CADB90051723E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5BF49A04298CADB90051723E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5BF49A07298CADE80051723E /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -160,7 +166,7 @@
 			children = (
 				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
-				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
+				5BBB2EBD299C1D160006A77C /* MatchDetailsViewControllers */,
 				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
 				5BF49A03298CADB90051723E /* HomeViewController.swift */,
 			);
@@ -182,6 +188,15 @@
 				5B21EB8F299A0C8F005EF98C /* MatchesView */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5BBB2EBD299C1D160006A77C /* MatchDetailsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
+				5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */,
+			);
+			path = MatchDetailsViewControllers;
 			sourceTree = "<group>";
 		};
 		5BCD7042298CA79400EEF6F3 = {
@@ -217,6 +232,15 @@
 			path = Cricketly;
 			sourceTree = "<group>";
 		};
+		5BF01B9B299C1C49005DF5E9 /* MatchDetailsViews */ = {
+			isa = PBXGroup;
+			children = (
+				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
+				5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */,
+			);
+			path = MatchDetailsViews;
+			sourceTree = "<group>";
+		};
 		5BF49A09298CADEB0051723E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +251,7 @@
 				5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */,
 				5B21EB7C2999D90F005EF98C /* Service.swift */,
 				5B21EB812999DA3A005EF98C /* Secrets+Endpoints.swift */,
+				5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,7 +261,7 @@
 			children = (
 				5B7B825B298CAABD00A6BDA4 /* InitialViewController.xib */,
 				5BF49A04298CADB90051723E /* HomeViewController.xib */,
-				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
+				5BF01B9B299C1C49005DF5E9 /* MatchDetailsViews */,
 				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
 			);
 			path = Screens;
@@ -316,6 +341,7 @@
 				5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */,
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
 				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
+				5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */,
 				5B7240BB298D1523000DD128 /* SearchField.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,9 +369,11 @@
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
 				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
+				5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,
+				5BF01B96299C1787005DF5E9 /* UIViewExtension.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
 				5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */,
