@@ -33,7 +33,7 @@ class MatchesViewController: UIViewController {
         segmentedControl.selectedConfiguration(font: UIFont.systemFont(ofSize: 17), color: .white)
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.bounds.width * 0.95, height: 210)
+        layout.itemSize = CGSize(width: collectionView.bounds.width * 0.95, height: 177)
         collectionView.collectionViewLayout = layout
         layout.minimumLineSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
@@ -99,7 +99,7 @@ extension MatchesViewController : UICollectionViewDelegate {
             cell.layer.shadowColor = UIColor.gray.cgColor
             cell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
             cell.layer.shadowRadius = 2.0
-            cell.layer.shadowOpacity = 1.0
+        cell.layer.shadowOpacity = 0.5
             cell.layer.masksToBounds = false
             cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         

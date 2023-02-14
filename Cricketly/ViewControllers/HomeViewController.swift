@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         UIFunctions.setViewCornerRadius(view: bannerView, cornerRadius: 20, edgeType: [.layerMaxXMinYCorner,.layerMaxXMaxYCorner])
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.bounds.width * 0.8, height: collectionView.bounds.height * 0.9)
+        layout.itemSize = CGSize(width: collectionView.bounds.width * 0.8, height: collectionView.bounds.height)
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         collectionView.collectionViewLayout = layout
@@ -83,12 +83,12 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
                 if (100 > scrollView.contentOffset.y) {
                     print("Scrolled up")
                     
-                    if (self.matchesLabelTopConstraint.constant < 180) {
+                    if (self.matchesLabelTopConstraint.constant < 150) {
                         self.bannerTopConstraint.constant += 15
                         self.matchesLabelTopConstraint.constant += 10
                     } else {
-                        self.matchesLabelTopConstraint.constant = 180
-                        self.bannerTopConstraint.constant = 80
+                        self.matchesLabelTopConstraint.constant = 150
+                        self.bannerTopConstraint.constant = 40
                     }
                     
                 } else if (100 < scrollView.contentOffset.y) {
