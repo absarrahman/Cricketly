@@ -36,6 +36,11 @@ class MatchDetailsViewController: UIViewController {
     
     var selectedTab: SectionTabs = .info
     
+    var sectionsMap: [SectionTabs:UIViewController] = [
+        .info: MatchInfoViewController(),
+        //.scoreboard:
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.layer.cornerRadius = 20
@@ -72,4 +77,10 @@ extension MatchDetailsViewController: UICollectionViewDataSource {
         return cell
     }
 
+}
+
+extension MatchDetailsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //
+    }
 }

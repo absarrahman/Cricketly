@@ -29,11 +29,23 @@ class MatchInfoViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: MatchInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: MatchInfoTableViewCell.identifier)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         parentVC = self.parent as? MatchDetailsViewController
         print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
         setupBinders()
         viewModel.fetchMatchInfo(id: parentVC.selectedFixtureId ?? -1)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        // Reset values
+        seriesCellList = []
+        venueCellList = []
     }
     
     func setupBinders() {

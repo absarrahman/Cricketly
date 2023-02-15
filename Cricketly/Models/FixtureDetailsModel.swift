@@ -214,9 +214,9 @@ class Player: Codable {
     let firstname, lastname, fullname: String?
     let imagePath: String?
     let dateofbirth: String?
-    let gender: Gender?
-    let battingstyle: Battingstyle?
-    let bowlingstyle: Bowlingstyle?
+    let gender: String?
+    let battingstyle: String?
+    let bowlingstyle: String?
     let position: Position?
     let updatedAt: String?
     let lineup: Lineup?
@@ -231,7 +231,7 @@ class Player: Codable {
         case lineup
     }
 
-    init(resource: ManofmatchResource?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, imagePath: String?, dateofbirth: String?, gender: Gender?, battingstyle: Battingstyle?, bowlingstyle: Bowlingstyle?, position: Position?, updatedAt: String?, lineup: Lineup?) {
+    init(resource: ManofmatchResource?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, imagePath: String?, dateofbirth: String?, gender: String?, battingstyle: String?, bowlingstyle: String?, position: Position?, updatedAt: String?, lineup: Lineup?) {
         self.resource = resource
         self.id = id
         self.countryID = countryID
@@ -249,21 +249,6 @@ class Player: Codable {
     }
 }
 
-enum Battingstyle: String, Codable {
-    case leftHandBat = "left-hand-bat"
-    case rightHandBat = "right-hand-bat"
-}
-
-enum Bowlingstyle: String, Codable {
-    case leftArmFastMedium = "left-arm-fast-medium"
-    case rightArmFastMedium = "right-arm-fast-medium"
-    case rightArmOffbreak = "right-arm-offbreak"
-    case slowLeftArmOrthodox = "slow-left-arm-orthodox"
-}
-
-enum Gender: String, Codable {
-    case m = "m"
-}
 
 // MARK: - Lineup
 class Lineup: Codable {
@@ -411,7 +396,7 @@ class Firstumpire: Codable {
     let resource: String?
     let id, countryID: Int?
     let firstname, lastname, fullname, dateofbirth: String?
-    let gender: Gender?
+    let gender: String?
     let updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
@@ -421,7 +406,7 @@ class Firstumpire: Codable {
         case updatedAt = "updated_at"
     }
 
-    init(resource: String?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, dateofbirth: String?, gender: Gender?, updatedAt: String?) {
+    init(resource: String?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, dateofbirth: String?, gender: String?, updatedAt: String?) {
         self.resource = resource
         self.id = id
         self.countryID = countryID
