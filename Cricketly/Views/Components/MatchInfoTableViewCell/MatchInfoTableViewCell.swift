@@ -7,10 +7,23 @@
 
 import UIKit
 
+
+struct MatchInfoTableViewCellModel {
+    let title: String
+    let content: String
+}
+
 class MatchInfoTableViewCell: UITableViewCell {
     
     static let identifier = "MatchInfoTableViewCell"
-
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,4 +35,8 @@ class MatchInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setInfoCellModel(infoModel: MatchInfoTableViewCellModel) {
+        titleLabel.text = infoModel.title
+        contentLabel.text = infoModel.content
+    }
 }

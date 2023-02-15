@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchInfoViewController" customModule="Cricketly" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="ng4-bl-9yx" id="Sld-qY-9af"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,14 +18,26 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ng4-bl-9yx">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBlueColor"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ng4-bl-9yx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="L7D-Wy-hNL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ng4-bl-9yx" secondAttribute="trailing" id="fQ4-Nx-LVd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ng4-bl-9yx" secondAttribute="bottom" id="gph-oo-d5r"/>
+                <constraint firstItem="ng4-bl-9yx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="w7y-ML-cT7"/>
+            </constraints>
             <point key="canvasLocation" x="-16" y="-11"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

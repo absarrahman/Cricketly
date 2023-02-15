@@ -86,7 +86,9 @@ extension MatchesViewController: UICollectionViewDataSource {
 extension MatchesViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = Routes.getViewControllerBy(routeMap: .matchDetailsViewController)
+        let selectedFixtureID = selectedList[indexPath.row].id
+        let vc = Routes.getViewControllerBy(routeMap: .matchDetailsViewController) as! MatchDetailsViewController
+        vc.selectedFixtureId = selectedFixtureID
         navigationController?.pushViewController(vc, animated: true)
     }
     

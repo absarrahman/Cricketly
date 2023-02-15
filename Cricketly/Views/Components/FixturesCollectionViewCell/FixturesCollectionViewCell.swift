@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 struct FixtureCellModel {
+    let id: Int
     let isLive: Bool
     let localTeamCode: String
     let visitorTeamCode: String

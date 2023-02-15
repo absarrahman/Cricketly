@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchDetailsViewController" customModule="Cricketly" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImageView" destination="Ude-ip-efg" id="Rau-0l-f9i"/>
                 <outlet property="collectionView" destination="BCX-EG-OnU" id="3yO-rC-l3d"/>
                 <outlet property="collectionViewTopConstraint" destination="WMT-fn-32x" id="sgB-jv-9lr"/>
                 <outlet property="containerView" destination="ZJh-0d-nM4" id="R9G-ct-Sf7"/>
@@ -19,15 +19,19 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pak" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-ip-efg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-ip-efg">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="139"/>
                 </imageView>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2x-I0-YbW" userLabel="Shade View">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="139"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-EG-OnU">
-                    <rect key="frame" x="0.0" y="60" width="375" height="60"/>
-                    <color key="backgroundColor" name="PrimaryActionColor"/>
+                    <rect key="frame" x="0.0" y="119" width="393" height="60"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="H5j-5T-FFD"/>
                     </constraints>
@@ -39,16 +43,20 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-0d-nM4" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                    <rect key="frame" x="0.0" y="179" width="393" height="639"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="x2x-I0-YbW" firstAttribute="trailing" secondItem="Ude-ip-efg" secondAttribute="trailing" id="2Ou-fH-YcM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BCX-EG-OnU" secondAttribute="trailing" id="4K1-CD-OVz"/>
+                <constraint firstItem="x2x-I0-YbW" firstAttribute="bottom" secondItem="Ude-ip-efg" secondAttribute="bottom" id="4fi-oy-2lX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZJh-0d-nM4" secondAttribute="trailing" id="DpM-kf-OzU"/>
                 <constraint firstItem="BCX-EG-OnU" firstAttribute="top" secondItem="Ude-ip-efg" secondAttribute="bottom" constant="-20" id="GlN-ht-vR0"/>
+                <constraint firstItem="x2x-I0-YbW" firstAttribute="leading" secondItem="Ude-ip-efg" secondAttribute="leading" id="J0i-YA-5qn"/>
+                <constraint firstItem="x2x-I0-YbW" firstAttribute="top" secondItem="Ude-ip-efg" secondAttribute="top" id="K1q-hW-bzK"/>
                 <constraint firstItem="Ude-ip-efg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LRr-B1-1H5"/>
                 <constraint firstItem="ZJh-0d-nM4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ND8-0Z-LgT"/>
                 <constraint firstItem="ZJh-0d-nM4" firstAttribute="top" secondItem="BCX-EG-OnU" secondAttribute="bottom" id="S2a-dH-v3P"/>
@@ -62,10 +70,6 @@
         </view>
     </objects>
     <resources>
-        <image name="pak" width="225" height="225"/>
-        <namedColor name="PrimaryActionColor">
-            <color red="0.93800002336502075" green="0.1379999965429306" blue="0.23600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

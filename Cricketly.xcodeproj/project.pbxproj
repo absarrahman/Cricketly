@@ -45,6 +45,7 @@
 		5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A03298CADB90051723E /* HomeViewController.swift */; };
 		5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF49A04298CADB90051723E /* HomeViewController.xib */; };
 		5BF49A08298CADE80051723E /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A07298CADE80051723E /* Routes.swift */; };
+		89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		5BF49A03298CADB90051723E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5BF49A04298CADB90051723E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5BF49A07298CADE80051723E /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				5B21EB8F299A0C8F005EF98C /* MatchesView */,
+				89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */,
 				5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */,
 				5B21EB862999DBA4005EF98C /* PlayerDetailsModel.swift in Sources */,
+				89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */,
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
 				5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */,
 				5B21EB882999DC3B005EF98C /* FixtureModel.swift in Sources */,

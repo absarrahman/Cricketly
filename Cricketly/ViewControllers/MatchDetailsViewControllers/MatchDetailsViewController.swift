@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SDWebImage
+import Combine
 
 class MatchDetailsViewController: UIViewController {
 
@@ -20,9 +22,16 @@ class MatchDetailsViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    let viewModel = MatchDetailsViewModel()
+    var cancellables: Set<AnyCancellable> = []
+    
+    var selectedFixtureId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.layer.cornerRadius = 10
+        collectionView.layer.cornerRadius = 20
         collectionView.clipsToBounds = true
         collectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
