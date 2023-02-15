@@ -24,7 +24,7 @@ class FixtureDetailsModel: Codable {
     let localteamID, visitorteamID: Int?
     let startingAt, type: String?
     let live: Bool?
-    let status: String?
+    let status: Status?
     let note: String?
     let venueID, tossWonTeamID, winnerTeamID: Int?
     let drawNoresult: String?
@@ -81,7 +81,7 @@ class FixtureDetailsModel: Codable {
         case league, season, localteam, visitorteam, batting, bowling, runs, lineup, manofmatch, manofseries, referee, firstumpire, secondumpire, tvumpire, winnerteam, tosswon, venue
     }
 
-    init(resource: String?, id: Int?, leagueID: Int?, seasonID: Int?, stageID: Int?, round: String?, localteamID: Int?, visitorteamID: Int?, startingAt: String?, type: String?, live: Bool?, status: String?, note: String?, venueID: Int?, tossWonTeamID: Int?, winnerTeamID: Int?, drawNoresult: String?, firstUmpireID: Int?, secondUmpireID: Int?, tvUmpireID: Int?, refereeID: Int?, manOfMatchID: Int?, manOfSeriesID: Int?, totalOversPlayed: Int?, elected: String?, superOver: Bool?, followOn: Bool?, localteamDLData: TeamDLData?, visitorteamDLData: TeamDLData?, rpcOvers: String?, rpcTarget: String?, league: Team?, season: Season?, localteam: Team?, visitorteam: Team?, batting: [Batting]?, bowling: [Bowling]?, runs: [Run]?, lineup: [Player]?, manofmatch: Player?, manofseries: Player?, referee: Firstumpire?, firstumpire: Firstumpire?, secondumpire: Firstumpire?, tvumpire: Firstumpire?, winnerteam: Team?, tosswon: Team?, venue: Venue?) {
+    init(resource: String?, id: Int?, leagueID: Int?, seasonID: Int?, stageID: Int?, round: String?, localteamID: Int?, visitorteamID: Int?, startingAt: String?, type: String?, live: Bool?, status: Status?, note: String?, venueID: Int?, tossWonTeamID: Int?, winnerTeamID: Int?, drawNoresult: String?, firstUmpireID: Int?, secondUmpireID: Int?, tvUmpireID: Int?, refereeID: Int?, manOfMatchID: Int?, manOfSeriesID: Int?, totalOversPlayed: Int?, elected: String?, superOver: Bool?, followOn: Bool?, localteamDLData: TeamDLData?, visitorteamDLData: TeamDLData?, rpcOvers: String?, rpcTarget: String?, league: Team?, season: Season?, localteam: Team?, visitorteam: Team?, batting: [Batting]?, bowling: [Bowling]?, runs: [Run]?, lineup: [Player]?, manofmatch: Player?, manofseries: Player?, referee: Firstumpire?, firstumpire: Firstumpire?, secondumpire: Firstumpire?, tvumpire: Firstumpire?, winnerteam: Team?, tosswon: Team?, venue: Venue?) {
         self.resource = resource
         self.id = id
         self.leagueID = leagueID
