@@ -60,6 +60,10 @@
                 <constraint firstItem="8XU-NG-dfG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wY5-z2-148"/>
             </constraints>
             <size key="customSize" width="285" height="130"/>
+            <connections>
+                <outlet property="circularView" destination="Q0D-uq-czQ" id="Nku-kV-dL5"/>
+                <outlet property="sectionLabel" destination="pq2-wZ-D8Q" id="jkb-ht-Tut"/>
+            </connections>
             <point key="canvasLocation" x="149" y="52"/>
         </collectionViewCell>
     </objects>

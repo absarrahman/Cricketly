@@ -9,8 +9,13 @@ import UIKit
 import SDWebImage
 import Combine
 
-class MatchDetailsViewController: UIViewController {
 
+enum SectionTabs: String, CaseIterable {
+    case info, scoreboard
+}
+
+class MatchDetailsViewController: UIViewController {
+    
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,6 +34,8 @@ class MatchDetailsViewController: UIViewController {
     
     var selectedFixtureId: Int?
     
+    var selectedTab: SectionTabs = .info
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.layer.cornerRadius = 20
@@ -45,19 +52,24 @@ class MatchDetailsViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.dataSource = self
     }
-
+    
 }
 
 extension MatchDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        SectionTabs.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchDetailsSectionLabelCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchDetailsSectionLabelCollectionViewCell.identifier, for: indexPath) as! MatchDetailsSectionLabelCollectionViewCell
+        
+        let currentSection = SectionTabs.allCases[indexPath.row]
+        
+        let model = MatchDetailsSectionCollectionCellModel(sectionTitle: currentSection.rawValue.capitalized, isSelected: currentSection == selectedTab)
+        
+        cell.setupCellModel(model: model)
         
         return cell
     }
-    
-    
+
 }
