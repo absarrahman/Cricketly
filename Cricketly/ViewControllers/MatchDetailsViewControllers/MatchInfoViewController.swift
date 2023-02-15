@@ -28,16 +28,17 @@ class MatchInfoViewController: UIViewController {
         // get match info
         
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: MatchInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: MatchInfoTableViewCell.identifier)
-        
+        parentVC = self.parent as? MatchDetailsViewController
+        print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
+        setupBinders()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        parentVC = self.parent as? MatchDetailsViewController
-        print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
-        setupBinders()
         viewModel.fetchMatchInfo(id: parentVC.selectedFixtureId ?? -1)
+        tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,4 +119,15 @@ extension MatchInfoViewController: UITableViewDataSource {
     }
     
     
+}
+
+extension MatchInfoViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+
+        UIView.animate(withDuration: 0.5, delay: 0.1 * Double(indexPath.row), options: [.curveEaseInOut], animations: {
+            cell.alpha = 1
+            cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
 }

@@ -142,7 +142,7 @@ class Service {
         let endpoint = APIEndPoints.getFixtureEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,
-            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam"
+            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam,batting.result"
         ]
         
         fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixtureDetailsDataModel, Error>) in

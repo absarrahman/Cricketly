@@ -38,7 +38,7 @@ class MatchDetailsViewController: UIViewController {
     
     var sectionsMap: [SectionTabs:UIViewController] = [
         .info: MatchInfoViewController(),
-        //.scoreboard:
+        .scoreboard: MatchScoreViewController()
     ]
     
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class MatchDetailsViewController: UIViewController {
         collectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         // TODO: Keep all container vc in one list
-        let vc = MatchInfoViewController()
+        let vc = sectionsMap[.info]!
         setContainerViewController(containerViewController: vc, containerView: containerView)
         collectionView.register(UINib(nibName: MatchDetailsSectionLabelCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MatchDetailsSectionLabelCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
@@ -56,6 +56,7 @@ class MatchDetailsViewController: UIViewController {
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
         collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
 }
@@ -76,11 +77,23 @@ extension MatchDetailsViewController: UICollectionViewDataSource {
         
         return cell
     }
-
+    
 }
 
 extension MatchDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //
+        selectedTab = SectionTabs.allCases[indexPath.row]
+        setContainerViewController(containerViewController: sectionsMap[selectedTab]!, containerView: containerView)
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+
+        UIView.animate(withDuration: 1, delay: 0.1 * Double(indexPath.row), options: [.curveEaseInOut], animations: {
+            cell.alpha = 1
+            cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
     }
 }

@@ -46,6 +46,8 @@
 		5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF49A04298CADB90051723E /* HomeViewController.xib */; };
 		5BF49A08298CADE80051723E /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A07298CADE80051723E /* Routes.swift */; };
 		89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */; };
+		89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */; };
+		89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		5BF49A04298CADB90051723E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5BF49A07298CADE80051723E /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
+		89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreViewController.swift; sourceTree = "<group>"; };
+		89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchScoreViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
+				89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */,
 				5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */,
 			);
 			path = MatchDetailsViewControllers;
@@ -246,6 +251,7 @@
 			children = (
 				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
 				5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */,
+				89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */,
 			);
 			path = MatchDetailsViews;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
+				89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */,
 				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
 				5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */,
@@ -385,6 +392,7 @@
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,
+				89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */,
 				5BF01B96299C1787005DF5E9 /* UIViewExtension.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,

@@ -153,6 +153,7 @@ class Batting: Codable {
     let bowler, catchstump: Player?
     let batsmanout: Player?
     let runoutby: Player?
+    let result: BattingResult?
 
     enum CodingKeys: String, CodingKey {
         case resource, id, sort
@@ -173,10 +174,10 @@ class Batting: Codable {
         case fowBalls = "fow_balls"
         case rate
         case updatedAt = "updated_at"
-        case team, batsman, bowler, catchstump, batsmanout, runoutby
+        case team, batsman, bowler, catchstump, batsmanout, runoutby,result
     }
 
-    init(resource: BattingResource?, id: Int?, sort: Int?, fixtureID: Int?, teamID: Int?, active: Bool?, scoreboard: String?, playerID: Int?, ball: Int?, scoreID: Int?, score: Int?, fourX: Int?, sixX: Int?, catchStumpPlayerID: Int?, runoutByID: Int?, batsmanoutID: Int?, bowlingPlayerID: Int?, fowScore: Int?, fowBalls: Double?, rate: Int?, updatedAt: String?, team: Team?, batsman: Player?, bowler: Player?, catchstump: Player?, batsmanout: Player?, runoutby: Player?) {
+    init(resource: BattingResource?, id: Int?, sort: Int?, fixtureID: Int?, teamID: Int?, active: Bool?, scoreboard: String?, playerID: Int?, ball: Int?, scoreID: Int?, score: Int?, fourX: Int?, sixX: Int?, catchStumpPlayerID: Int?, runoutByID: Int?, batsmanoutID: Int?, bowlingPlayerID: Int?, fowScore: Int?, fowBalls: Double?, rate: Int?, updatedAt: String?, team: Team?, batsman: Player?, bowler: Player?, catchstump: Player?, batsmanout: Player?, runoutby: Player?, result: BattingResult?) {
         self.resource = resource
         self.id = id
         self.sort = sort
@@ -204,6 +205,43 @@ class Batting: Codable {
         self.catchstump = catchstump
         self.batsmanout = batsmanout
         self.runoutby = runoutby
+        self.result = result
+    }
+}
+
+// MARK: - Result
+class BattingResult: Codable {
+    let resource: String?
+    let id: Int?
+    let name: String?
+    let runs: Int?
+    let four, six: Bool?
+    let bye, legBye, noball, noballRuns: Int?
+    let isWicket, ball, out: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case resource, id, name, runs, four, six, bye
+        case legBye = "leg_bye"
+        case noball
+        case noballRuns = "noball_runs"
+        case isWicket = "is_wicket"
+        case ball, out
+    }
+
+    init(resource: String?, id: Int?, name: String?, runs: Int?, four: Bool?, six: Bool?, bye: Int?, legBye: Int?, noball: Int?, noballRuns: Int?, isWicket: Bool?, ball: Bool?, out: Bool?) {
+        self.resource = resource
+        self.id = id
+        self.name = name
+        self.runs = runs
+        self.four = four
+        self.six = six
+        self.bye = bye
+        self.legBye = legBye
+        self.noball = noball
+        self.noballRuns = noballRuns
+        self.isWicket = isWicket
+        self.ball = ball
+        self.out = out
     }
 }
 
