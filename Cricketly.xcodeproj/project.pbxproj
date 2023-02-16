@@ -36,6 +36,8 @@
 		5BA44A00299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA449FE299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift */; };
 		5BA44A01299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA449FF299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib */; };
 		5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */; };
+		5BCBF592299D9A9100B770D7 /* ScoreboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCBF590299D9A9100B770D7 /* ScoreboardTableViewCell.swift */; };
+		5BCBF593299D9A9100B770D7 /* ScoreboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCBF591299D9A9100B770D7 /* ScoreboardTableViewCell.xib */; };
 		5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */; };
 		5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7057298CA79500EEF6F3 /* Assets.xcassets */; };
 		5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */; };
@@ -78,6 +80,8 @@
 		5BA449FE299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsSectionLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BA449FF299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailsSectionLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlExtension.swift; sourceTree = "<group>"; };
+		5BCBF590299D9A9100B770D7 /* ScoreboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardTableViewCell.swift; sourceTree = "<group>"; };
+		5BCBF591299D9A9100B770D7 /* ScoreboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreboardTableViewCell.xib; sourceTree = "<group>"; };
 		5BCD704B298CA79400EEF6F3 /* Cricketly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cricketly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BCD7057298CA79500EEF6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				5B21EB9A299A5329005EF98C /* MatchInfoTableViewCell */,
 				5BA449FE299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift */,
 				5BA449FF299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib */,
+				5BCBF590299D9A9100B770D7 /* ScoreboardTableViewCell.swift */,
+				5BCBF591299D9A9100B770D7 /* ScoreboardTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCBF593299D9A9100B770D7 /* ScoreboardTableViewCell.xib in Resources */,
 				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
 				89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */,
 				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
@@ -389,6 +396,7 @@
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
 				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
 				5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */,
+				5BCBF592299D9A9100B770D7 /* ScoreboardTableViewCell.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,

@@ -14,6 +14,9 @@ class MatchScoreViewController: UIViewController {
     
     var cancellables: Set<AnyCancellable> = []
     var parentVC: MatchDetailsViewController!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +25,22 @@ class MatchScoreViewController: UIViewController {
         parentVC = self.parent as? MatchDetailsViewController
         print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
         viewModel.fetchMatchScore(id: parentVC.selectedFixtureId ?? -1)
+        
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: ScoreboardTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ScoreboardTableViewCell.identifier)
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MatchScoreViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ScoreboardTableViewCell.identifier, for: indexPath)
+        return cell
+    }
+    
+    
 }
