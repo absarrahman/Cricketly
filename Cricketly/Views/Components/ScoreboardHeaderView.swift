@@ -8,13 +8,32 @@
 import UIKit
 
 class ScoreboardHeaderView: UITableViewHeaderFooterView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    static let identifier = "ScoreboardHeaderView"
+    
+    @IBOutlet weak var sectionHeaderLabel: UILabel!
+    
+    @IBOutlet var stackLabels: [UILabel]!
+    
+    
+    let battingStackLabels = ["R", "B", "4S", "6S", "SR"]
+    let bowlingStackLabels = ["O", "M", "R", "W", "ER"]
+    
+    func setSectionLabelType(type: ScoreboardHeaderViewType) {
+        sectionHeaderLabel.text = type.rawValue.capitalized
+        
+        for index in 0..<stackLabels.count {
+            if (type == .batting) {
+                stackLabels[index].text = battingStackLabels[index]
+            } else {
+                stackLabels[index].text = bowlingStackLabels[index]
+            }
+        }
+        
     }
-    */
+    
+}
 
+enum ScoreboardHeaderViewType:String {
+    case batting, bowling
 }

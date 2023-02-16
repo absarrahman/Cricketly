@@ -21,6 +21,11 @@ class MatchDetailsViewModel {
     @Published var firstTeamBowlingCellModels: [ScoreTableViewCellModel] = []
     @Published var secondTeamBowlingCellModels: [ScoreTableViewCellModel] = []
     
+    
+    //TEAM NAMES
+    @Published var localTeamName: String = ""
+    @Published var visitorTeamName: String = ""
+    
     @Published var error: Error?
     
     
@@ -112,6 +117,9 @@ class MatchDetailsViewModel {
                 let secondTeamBatting = data?.batting?.filter({ batting in
                     batting.teamID == data?.runs?.last?.teamID
                 })
+                
+                self.localTeamName = firstTeamBatting?.first?.team?.name ?? ""
+                self.visitorTeamName = secondTeamBatting?.first?.team?.name ?? ""
                 print(firstTeamBatting?.count,secondTeamBatting?.count)
                 
                 // last batting == first bowling
