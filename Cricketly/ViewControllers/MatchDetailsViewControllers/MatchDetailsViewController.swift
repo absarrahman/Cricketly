@@ -59,6 +59,21 @@ class MatchDetailsViewController: UIViewController {
         collectionView.delegate = self
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        for childVC in sectionsMap.values {
+//            // Remove the child view controller from the parent view controller
+//            childVC.removeFromParent()
+//
+//            // Remove the child view controller's view from the view hierarchy
+//            childVC.view.removeFromSuperview()
+//
+//            // Notify the child view controller that it has been removed from the parent view controller
+//            childVC.didMove(toParent: nil)
+//        }
+//    }
+    
 }
 
 extension MatchDetailsViewController: UICollectionViewDataSource {

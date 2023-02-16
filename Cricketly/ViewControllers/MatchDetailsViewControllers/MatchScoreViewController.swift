@@ -51,6 +51,27 @@ class MatchScoreViewController: UIViewController {
         setupBinders()
     }
     
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        toggleSwitch.isOn = false
+//        setLabelVisibility(toggleSwitch.isOn)
+//        parentVC = self.parent as? MatchDetailsViewController
+//        print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
+//        viewModel.fetchMatchScore(id: parentVC.selectedFixtureId ?? -1)
+//        tableView.reloadData()
+//    }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        // Clear data
+//        firstTeamBattingCellModels = []
+//        secondTeamBattingCellModels = []
+//        firstTeamBowlingCellModels = []
+//        secondTeamBowlingCellModels = []
+//
+//    }
+    
     fileprivate func setLabelVisibility(_ isSelected: Bool) {
         if (isSelected) {
             visitorTeamNameLabel.alpha = 1

@@ -33,21 +33,9 @@ class MatchInfoViewController: UIViewController {
         parentVC = self.parent as? MatchDetailsViewController
         print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
         setupBinders()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         viewModel.fetchMatchInfo(id: parentVC.selectedFixtureId ?? -1)
-        tableView.reloadData()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Reset values
-        seriesCellList = []
-        venueCellList = []
-    }
+
     
     func setupBinders() {
         viewModel.$venueImageUrl.sink { [weak self] result in

@@ -14,18 +14,27 @@ enum RouteMap{
 
 class Routes {
     
-    private static let routes:[RouteMap: UIViewController] = [
-        .initialViewController: InitialViewController(),
-        .tabBarViewController: TabbarController(),
-        .matchDetailsViewController: MatchDetailsViewController()
-    ]
+//    private static let routes:[RouteMap: UIViewController] = [
+//
+//    ]
     
     private init() {}
     
     static func getViewControllerBy(routeMap:RouteMap) -> UIViewController {
+//        .initialViewController: InitialViewController(),
+//        .tabBarViewController: TabbarController(),
+//        .matchDetailsViewController: MatchDetailsViewController()
+        let vc: UIViewController
+        switch routeMap {
+        case .initialViewController:
+            vc = InitialViewController()
+        case .tabBarViewController:
+            vc = TabbarController()
+        case .matchDetailsViewController:
+            vc = MatchDetailsViewController()
+        }
         
-        guard let viewController = routes[routeMap] else { return UIViewController() }
         
-        return viewController
+        return vc
     }
 }

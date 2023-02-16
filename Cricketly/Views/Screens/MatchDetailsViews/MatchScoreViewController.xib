@@ -33,6 +33,7 @@
                         </label>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fM1-Dn-rwE">
                             <rect key="frame" x="162" y="0.0" width="51" height="31"/>
+                            <color key="onTintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="switchButtonTapped:" destination="-1" eventType="valueChanged" id="Ye2-ra-ODy"/>
                             </connections>

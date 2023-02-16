@@ -118,8 +118,8 @@ class MatchDetailsViewModel {
                     batting.teamID == data?.runs?.last?.teamID
                 })
                 
-                self.localTeamName = firstTeamBatting?.first?.team?.name ?? ""
-                self.visitorTeamName = secondTeamBatting?.first?.team?.name ?? ""
+                self.localTeamName = "\(firstTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "")"
+                self.visitorTeamName = "\(secondTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "")"
                 print(firstTeamBatting?.count,secondTeamBatting?.count)
                 
                 // last batting == first bowling
