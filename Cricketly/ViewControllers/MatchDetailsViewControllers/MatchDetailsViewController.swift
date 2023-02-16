@@ -11,7 +11,7 @@ import Combine
 
 
 enum SectionTabs: String, CaseIterable {
-    case info, scoreboard
+    case info, scoreboard, squad
 }
 
 class MatchDetailsViewController: UIViewController {
@@ -38,7 +38,8 @@ class MatchDetailsViewController: UIViewController {
     
     var sectionsMap: [SectionTabs:UIViewController] = [
         .info: MatchInfoViewController(),
-        .scoreboard: MatchScoreViewController()
+        .scoreboard: MatchScoreViewController(),
+        .squad: MatchSquadViewController()
     ]
     
     override func viewDidLoad() {

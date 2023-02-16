@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B07616E299EB537007108DA /* SquardPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07616C299EB537007108DA /* SquardPlayerCollectionViewCell.swift */; };
+		5B07616F299EB537007108DA /* SquardPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07616D299EB537007108DA /* SquardPlayerCollectionViewCell.xib */; };
+		5B076172299EB680007108DA /* MatchSquadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B076170299EB680007108DA /* MatchSquadViewController.swift */; };
+		5B076173299EB680007108DA /* MatchSquadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B076171299EB680007108DA /* MatchSquadViewController.xib */; };
 		5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD17298CD5120012690C /* ColorExtension.swift */; };
 		5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD19298CD7620012690C /* CommonFunctions.swift */; };
 		5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08BD1B298CD7700012690C /* UIFunctions.swift */; };
@@ -56,6 +60,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B07616C299EB537007108DA /* SquardPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquardPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B07616D299EB537007108DA /* SquardPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquardPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B076170299EB680007108DA /* MatchSquadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSquadViewController.swift; sourceTree = "<group>"; };
+		5B076171299EB680007108DA /* MatchSquadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchSquadViewController.xib; sourceTree = "<group>"; };
 		5B08BD17298CD5120012690C /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		5B08BD19298CD7620012690C /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		5B08BD1B298CD7700012690C /* UIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFunctions.swift; sourceTree = "<group>"; };
@@ -117,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B07616B299EB4C8007108DA /* ScoreboardHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				8948B8EC299DD997007AE6E9 /* ScoreboardHeaderView.swift */,
+				8948B8EE299DDA18007AE6E9 /* ScoreboardHeaderView.xib */,
+			);
+			path = ScoreboardHeaderView;
+			sourceTree = "<group>";
+		};
 		5B15440029975F9700DC70CF /* Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +159,9 @@
 				5B21EB9A299A5329005EF98C /* MatchInfoTableViewCell */,
 				8948B8E8299DC092007AE6E9 /* MatchDetailsSectionLabelCollectionViewCell */,
 				8948B8E9299DC0B1007AE6E9 /* ScoreboardTableViewCell */,
-				8948B8EC299DD997007AE6E9 /* ScoreboardHeaderView.swift */,
-				8948B8EE299DDA18007AE6E9 /* ScoreboardHeaderView.xib */,
+				5B07616B299EB4C8007108DA /* ScoreboardHeaderView */,
+				5B07616C299EB537007108DA /* SquardPlayerCollectionViewCell.swift */,
+				5B07616D299EB537007108DA /* SquardPlayerCollectionViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,6 +282,8 @@
 				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
 				5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */,
 				89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */,
+				5B076170299EB680007108DA /* MatchSquadViewController.swift */,
+				5B076171299EB680007108DA /* MatchSquadViewController.xib */,
 			);
 			path = MatchDetailsViews;
 			sourceTree = "<group>";
@@ -386,9 +406,11 @@
 				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
 				5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */,
+				5B076173299EB680007108DA /* MatchSquadViewController.xib in Resources */,
 				5BA44A01299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib in Resources */,
 				5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */,
 				5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */,
+				5B07616F299EB537007108DA /* SquardPlayerCollectionViewCell.xib in Resources */,
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
 				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
 				5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */,
@@ -406,6 +428,7 @@
 				5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */,
 				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
 				5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */,
+				5B076172299EB680007108DA /* MatchSquadViewController.swift in Sources */,
 				5B21EB98299A4C95005EF98C /* MatchInfoTableViewCell.swift in Sources */,
 				5BA44A00299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift in Sources */,
 				8948B8ED299DD997007AE6E9 /* ScoreboardHeaderView.swift in Sources */,
@@ -424,6 +447,7 @@
 				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
 				5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */,
 				5BCBF592299D9A9100B770D7 /* ScoreboardTableViewCell.swift in Sources */,
+				5B07616E299EB537007108DA /* SquardPlayerCollectionViewCell.swift in Sources */,
 				5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */,
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,
