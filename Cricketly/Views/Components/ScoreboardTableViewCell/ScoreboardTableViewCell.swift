@@ -13,7 +13,7 @@ struct ScoreTableViewCellModel {
     let imgUrl: String
     let playerName: String
     let playerNote: String
-    let stackInfos: [String]
+    let stackInfos: [String?]
 }
 
 class ScoreboardTableViewCell: UITableViewCell {
@@ -48,6 +48,7 @@ class ScoreboardTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
         rootView.layer.cornerRadius = 10
+        playerCellImageView.layer.cornerRadius = playerCellImageView.frame.height / 2
     }
     
     func setPlayerModel(model: ScoreTableViewCellModel) {
@@ -55,8 +56,9 @@ class ScoreboardTableViewCell: UITableViewCell {
         playerNameLabel.text = model.playerName
         scoreNoteLabel.text = model.playerNote
         
+        print(stackInfoLabels.count,model.stackInfos)
         for i in (0..<stackInfoLabels.count) {
-            stackInfoLabels[i].text = model.stackInfos[i]
+            stackInfoLabels[i].text = model.stackInfos[i] ?? ""
         }
     }
     

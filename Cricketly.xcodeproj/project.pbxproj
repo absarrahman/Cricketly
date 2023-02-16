@@ -134,10 +134,8 @@
 				5B16A7F5298D215B00D2AA77 /* SearchField */,
 				5B15440B299796C000DC70CF /* FixturesCollectionViewCell */,
 				5B21EB9A299A5329005EF98C /* MatchInfoTableViewCell */,
-				5BA449FE299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift */,
-				5BA449FF299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib */,
-				5BCBF590299D9A9100B770D7 /* ScoreboardTableViewCell.swift */,
-				5BCBF591299D9A9100B770D7 /* ScoreboardTableViewCell.xib */,
+				8948B8E8299DC092007AE6E9 /* MatchDetailsSectionLabelCollectionViewCell */,
+				8948B8E9299DC0B1007AE6E9 /* ScoreboardTableViewCell */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,6 +273,24 @@
 				5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8948B8E8299DC092007AE6E9 /* MatchDetailsSectionLabelCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5BA449FE299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift */,
+				5BA449FF299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib */,
+			);
+			path = MatchDetailsSectionLabelCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		8948B8E9299DC0B1007AE6E9 /* ScoreboardTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5BCBF590299D9A9100B770D7 /* ScoreboardTableViewCell.swift */,
+				5BCBF591299D9A9100B770D7 /* ScoreboardTableViewCell.xib */,
+			);
+			path = ScoreboardTableViewCell;
 			sourceTree = "<group>";
 		};
 		89780048299B9FA4006F80DD /* Screens */ = {
