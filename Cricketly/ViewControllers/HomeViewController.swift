@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
 }
 
 extension HomeViewController : UICollectionViewDataSource {
@@ -74,36 +74,29 @@ extension HomeViewController : UITableViewDataSource {
     }
     
 }
+
 extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            UIView.animate(withDuration: 0.1, delay: 0) {[weak self] in
-                guard let self = self else {
-                    return
-                }
-                if (100 > scrollView.contentOffset.y) {
-                    print("Scrolled up")
-                    
-                    if (self.matchesLabelTopConstraint.constant < 150) {
-                        self.bannerTopConstraint.constant += 15
-                        self.matchesLabelTopConstraint.constant += 10
-                    } else {
-                        self.matchesLabelTopConstraint.constant = 150
-                        self.bannerTopConstraint.constant = 40
-                    }
-                    
-                } else if (100 < scrollView.contentOffset.y) {
-                    print("Scrolled down")
-                    if (self.matchesLabelTopConstraint.constant > 0) {
-                        self.bannerTopConstraint.constant -= 15
-                        self.matchesLabelTopConstraint.constant -= 10
-                    } else {
-                        self.matchesLabelTopConstraint.constant = 0
-                        self.bannerTopConstraint.constant = -500
-                    }
-                    
-                }
+        UIView.animate(withDuration: 0.5, delay: 0) {[weak self] in
+            guard let self = self else {
+                return
             }
-            
-            //self.lastContentOffset = scrollView.contentOffset.y
+            if (100 > scrollView.contentOffset.y) {
+                print("Scrolled up")
+                
+                self.matchesLabelTopConstraint.constant = 150
+                self.bannerTopConstraint.constant = 40
+                self.view.layoutIfNeeded()
+                
+            } else if (100 < scrollView.contentOffset.y) {
+                print("Scrolled down")
+                self.matchesLabelTopConstraint.constant = 0
+                self.bannerTopConstraint.constant = -500
+                self.view.layoutIfNeeded()
+                
+            }
         }
+        
+        //self.lastContentOffset = scrollView.contentOffset.y
+    }
 }
