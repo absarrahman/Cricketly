@@ -41,12 +41,13 @@
 		5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD704E298CA79400EEF6F3 /* AppDelegate.swift */; };
 		5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7057298CA79500EEF6F3 /* Assets.xcassets */; };
 		5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */; };
-		5BF01B96299C1787005DF5E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */; };
+		5BF01B96299C1787005DF5E9 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01B95299C1787005DF5E9 /* UIViewControllerExtension.swift */; };
 		5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */; };
 		5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */; };
 		5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A03298CADB90051723E /* HomeViewController.swift */; };
 		5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF49A04298CADB90051723E /* HomeViewController.xib */; };
 		5BF49A08298CADE80051723E /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A07298CADE80051723E /* Routes.swift */; };
+		8948B8EB299DD26D007AE6E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */; };
 		89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */; };
 		89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */; };
 		89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */; };
@@ -87,12 +88,13 @@
 		5BCD7057298CA79500EEF6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BCD705A298CA79500EEF6F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BCD705C298CA79500EEF6F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		5BF01B95299C1787005DF5E9 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoViewController.swift; sourceTree = "<group>"; };
 		5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchInfoViewController.xib; sourceTree = "<group>"; };
 		5BF49A03298CADB90051723E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5BF49A04298CADB90051723E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5BF49A07298CADE80051723E /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
 		89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreViewController.swift; sourceTree = "<group>"; };
 		89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchScoreViewController.xib; sourceTree = "<group>"; };
@@ -270,7 +272,8 @@
 				5BB9D71129989BA800280951 /* SegmentedControlExtension.swift */,
 				5B21EB7C2999D90F005EF98C /* Service.swift */,
 				5B21EB812999DA3A005EF98C /* Secrets+Endpoints.swift */,
-				5BF01B95299C1787005DF5E9 /* UIViewExtension.swift */,
+				5BF01B95299C1787005DF5E9 /* UIViewControllerExtension.swift */,
+				8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -417,7 +420,8 @@
 				5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */,
 				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,
 				89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */,
-				5BF01B96299C1787005DF5E9 /* UIViewExtension.swift in Sources */,
+				8948B8EB299DD26D007AE6E9 /* UIViewExtension.swift in Sources */,
+				5BF01B96299C1787005DF5E9 /* UIViewControllerExtension.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
 				5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */,

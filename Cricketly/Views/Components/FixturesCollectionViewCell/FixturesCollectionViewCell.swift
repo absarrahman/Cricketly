@@ -71,6 +71,7 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         rootView.layer.cornerRadius = 10
+        applyShadow(cornerRadius: 10)
     }
     
     func setup(model:FixtureCellModel) {
