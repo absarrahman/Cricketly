@@ -8,6 +8,14 @@
 import Foundation
 
 
+struct SquadCollectionCellModel {
+    let id: Int
+    let name: String
+    let position: String
+    let isCaptain: Bool
+    let isWicketKeeper: Bool
+}
+
 class MatchDetailsViewModel {
     @Published var venueImageUrl: String?
     
@@ -28,7 +36,8 @@ class MatchDetailsViewModel {
     
     
     // SQUAD
-    
+    @Published var localTeamSquadCellModels: [SquadCollectionCellModel] = []
+    @Published var visitorTeamSquadCellModels: [SquadCollectionCellModel] = []
     
     @Published var error: Error?
     
@@ -179,6 +188,31 @@ class MatchDetailsViewModel {
                 })
                 
                 self.generateScoreBoard(firstTeamBatting, secondTeamBatting, firstTeamBowling, secondTeamBowling)
+                
+//                let firstTeamBatting = data?.batting?.filter({ batting in
+//                    batting.teamID == data?.runs?.first?.teamID
+//                })
+//                let secondTeamBatting = data?.batting?.filter({ batting in
+//                    batting.teamID == data?.runs?.last?.teamID
+//                })
+                
+                let localTeamSquad = data?.lineup?.filter({ player in
+                    player.lineup?.teamID == data?.runs?.first?.teamID
+                })
+                
+                let visitorTeamSquad = data?.lineup?.filter({ player in
+                    player.lineup?.teamID == data?.runs?.last?.teamID
+                })
+                
+                self.localTeamSquadCellModels = localTeamSquad?.compactMap({ player in
+                    SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false)
+                }) ?? []
+                
+                self.visitorTeamSquadCellModels = visitorTeamSquad?.compactMap({ player in
+                    SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false)
+                }) ?? []
+                
+                print("LOCAL TEAMS \(self.localTeamSquadCellModels)")
                 
             case .failure(let error):
                 print(error)

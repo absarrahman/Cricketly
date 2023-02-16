@@ -97,7 +97,7 @@ extension MatchesViewController : UICollectionViewDelegate {
         
         cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
-        UIView.animate(withDuration: 0.2, delay: 0.07 * Double(indexPath.row), options: [.curveEaseInOut]) {
+        UIView.animate(withDuration: 0.2, delay: 0.07 * Double(indexPath.row) / 3.5, options: [.curveEaseInOut]) {
             cell.alpha = 1
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)
         }

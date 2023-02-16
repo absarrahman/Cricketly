@@ -221,7 +221,7 @@ extension MatchScoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
 
-        UIView.animate(withDuration: 0.3, delay: 0.1 * Double(indexPath.row), options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.1 * Double(indexPath.row) / 3.5, options: [.curveEaseInOut], animations: {
             cell.alpha = 1
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
