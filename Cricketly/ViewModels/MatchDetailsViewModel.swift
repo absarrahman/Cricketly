@@ -26,6 +26,10 @@ class MatchDetailsViewModel {
     @Published var localTeamName: String = ""
     @Published var visitorTeamName: String = ""
     
+    
+    // SQUAD
+    
+    
     @Published var error: Error?
     
     
@@ -103,6 +107,49 @@ class MatchDetailsViewModel {
         }
     }
     
+    fileprivate func generateScoreBoard(_ firstTeamBatting: [Batting]?, _ secondTeamBatting: [Batting]?, _ firstTeamBowling: [Bowling]?, _ secondTeamBowling: [Bowling]?) {
+        
+        firstTeamBattingCellModels = firstTeamBatting?.compactMap({ batting in
+            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: "", stackInfos: [
+                batting.score?.description,
+                batting.ball?.description,
+                batting.fourX?.description,
+                batting.sixX?.description,
+                batting.rate?.description
+            ])
+        }) ?? []
+        
+        secondTeamBattingCellModels = secondTeamBatting?.compactMap({ batting in
+            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: "", stackInfos: [
+                batting.score?.description,
+                batting.ball?.description,
+                batting.fourX?.description,
+                batting.sixX?.description,
+                batting.rate?.description
+            ])
+        }) ?? []
+        
+        firstTeamBowlingCellModels = firstTeamBowling?.compactMap({ bowling in
+            ScoreTableViewCellModel(id: bowling.playerID ?? -1, imgUrl: bowling.bowler?.imagePath ?? "", playerName: bowling.bowler?.lastname ?? "", playerNote: "", stackInfos: [
+                bowling.overs?.description,
+                bowling.medians?.description,
+                bowling.runs?.description,
+                bowling.wickets?.description,
+                bowling.rate?.description
+            ])
+        }) ?? []
+        
+        secondTeamBowlingCellModels = secondTeamBowling?.compactMap({ bowling in
+            ScoreTableViewCellModel(id: bowling.playerID ?? -1, imgUrl: bowling.bowler?.imagePath ?? "", playerName: bowling.bowler?.lastname ?? "", playerNote: "", stackInfos: [
+                bowling.overs?.description,
+                bowling.medians?.description,
+                bowling.runs?.description,
+                bowling.wickets?.description,
+                bowling.rate?.description
+            ])
+        }) ?? []
+    }
+    
     func fetchMatchScore(id: Int) {
         fetchFixtureDetailsFrom(id: id) {[weak self] result in
             guard let self = self else {
@@ -131,45 +178,7 @@ class MatchDetailsViewModel {
                     bowling.teamID == data?.runs?.first?.teamID
                 })
                 
-                self.firstTeamBattingCellModels = firstTeamBatting?.compactMap({ batting in
-                    ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: "", stackInfos: [
-                        batting.score?.description,
-                        batting.ball?.description,
-                        batting.fourX?.description,
-                        batting.sixX?.description,
-                        batting.rate?.description
-                    ])
-                }) ?? []
-                
-                self.secondTeamBattingCellModels = secondTeamBatting?.compactMap({ batting in
-                    ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: "", stackInfos: [
-                        batting.score?.description,
-                        batting.ball?.description,
-                        batting.fourX?.description,
-                        batting.sixX?.description,
-                        batting.rate?.description
-                    ])
-                }) ?? []
-                
-                self.firstTeamBowlingCellModels = firstTeamBowling?.compactMap({ bowling in
-                    ScoreTableViewCellModel(id: bowling.playerID ?? -1, imgUrl: bowling.bowler?.imagePath ?? "", playerName: bowling.bowler?.lastname ?? "", playerNote: "", stackInfos: [
-                        bowling.overs?.description,
-                        bowling.medians?.description,
-                        bowling.runs?.description,
-                        bowling.wickets?.description,
-                        bowling.rate?.description
-                    ])
-                }) ?? []
-                
-                self.secondTeamBowlingCellModels = secondTeamBowling?.compactMap({ bowling in
-                    ScoreTableViewCellModel(id: bowling.playerID ?? -1, imgUrl: bowling.bowler?.imagePath ?? "", playerName: bowling.bowler?.lastname ?? "", playerNote: "", stackInfos: [
-                        bowling.overs?.description,
-                        bowling.medians?.description,
-                        bowling.runs?.description,
-                        bowling.wickets?.description,
-                        bowling.rate?.description
-                    ])
-                }) ?? []
+                self.generateScoreBoard(firstTeamBatting, secondTeamBatting, firstTeamBowling, secondTeamBowling)
                 
             case .failure(let error):
                 print(error)

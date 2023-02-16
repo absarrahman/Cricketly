@@ -146,7 +146,7 @@ class Batting: Codable {
     let bowlingPlayerID: Int?
     let fowScore: Int?
     let fowBalls: Double?
-    let rate: Int?
+    let rate: Double?
     let updatedAt: String?
     let team: Team?
     let batsman: Player?
@@ -177,7 +177,7 @@ class Batting: Codable {
         case team, batsman, bowler, catchstump, batsmanout, runoutby,result
     }
 
-    init(resource: BattingResource?, id: Int?, sort: Int?, fixtureID: Int?, teamID: Int?, active: Bool?, scoreboard: String?, playerID: Int?, ball: Int?, scoreID: Int?, score: Int?, fourX: Int?, sixX: Int?, catchStumpPlayerID: Int?, runoutByID: Int?, batsmanoutID: Int?, bowlingPlayerID: Int?, fowScore: Int?, fowBalls: Double?, rate: Int?, updatedAt: String?, team: Team?, batsman: Player?, bowler: Player?, catchstump: Player?, batsmanout: Player?, runoutby: Player?, result: BattingResult?) {
+    init(resource: BattingResource?, id: Int?, sort: Int?, fixtureID: Int?, teamID: Int?, active: Bool?, scoreboard: String?, playerID: Int?, ball: Int?, scoreID: Int?, score: Int?, fourX: Int?, sixX: Int?, catchStumpPlayerID: Int?, runoutByID: Int?, batsmanoutID: Int?, bowlingPlayerID: Int?, fowScore: Int?, fowBalls: Double?, rate: Double?, updatedAt: String?, team: Team?, batsman: Player?, bowler: Player?, catchstump: Player?, batsmanout: Player?, runoutby: Player?, result: BattingResult?) {
         self.resource = resource
         self.id = id
         self.sort = sort
