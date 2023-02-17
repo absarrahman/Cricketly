@@ -29,19 +29,27 @@ class MatchSquadViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: horizontalGroup)
         
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        
+    
+        section.boundarySupplementaryItems = [header]
+        
         let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
         
         return compositionalLayout
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
+        
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: SquadPlayerCollectionHeaderView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier)
         
         parentVC = self.parent as? MatchDetailsViewController
         print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
@@ -73,7 +81,7 @@ class MatchSquadViewController: UIViewController {
             }
         }.store(in: &cancellables)
     }
-
+    
 }
 
 extension MatchSquadViewController: UICollectionViewDataSource {
@@ -102,10 +110,24 @@ extension MatchSquadViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-
+        
         UIView.animate(withDuration: 1, delay: 0.07 * Double(indexPath.row) / 3.5, options: [.curveEaseInOut], animations: {
             cell.alpha = 1
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier, for: indexPath)
+        return headerView
+    }
+    
+    
+}
+
+extension MatchSquadViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 100)
+        
     }
 }

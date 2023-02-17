@@ -51,6 +51,8 @@
 		5BF49A05298CADB90051723E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A03298CADB90051723E /* HomeViewController.swift */; };
 		5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF49A04298CADB90051723E /* HomeViewController.xib */; };
 		5BF49A08298CADE80051723E /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF49A07298CADE80051723E /* Routes.swift */; };
+		89371581299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937157F299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift */; };
+		89371582299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89371580299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib */; };
 		8948B8EB299DD26D007AE6E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */; };
 		8948B8ED299DD997007AE6E9 /* ScoreboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948B8EC299DD997007AE6E9 /* ScoreboardHeaderView.swift */; };
 		8948B8EF299DDA18007AE6E9 /* ScoreboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8948B8EE299DDA18007AE6E9 /* ScoreboardHeaderView.xib */; };
@@ -104,6 +106,8 @@
 		5BF49A03298CADB90051723E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5BF49A04298CADB90051723E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5BF49A07298CADE80051723E /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		8937157F299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadPlayerCollectionHeaderView.swift; sourceTree = "<group>"; };
+		89371580299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquadPlayerCollectionHeaderView.xib; sourceTree = "<group>"; };
 		8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8948B8EC299DD997007AE6E9 /* ScoreboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardHeaderView.swift; sourceTree = "<group>"; };
 		8948B8EE299DDA18007AE6E9 /* ScoreboardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreboardHeaderView.xib; sourceTree = "<group>"; };
@@ -160,8 +164,9 @@
 				8948B8E8299DC092007AE6E9 /* MatchDetailsSectionLabelCollectionViewCell */,
 				8948B8E9299DC0B1007AE6E9 /* ScoreboardTableViewCell */,
 				5B07616B299EB4C8007108DA /* ScoreboardHeaderView */,
-				5B07616C299EB537007108DA /* SquardPlayerCollectionViewCell.swift */,
-				5B07616D299EB537007108DA /* SquardPlayerCollectionViewCell.xib */,
+				8937157E299F425B006D7FDD /* SquardPlayerCollectionViewCell */,
+				8937157F299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift */,
+				89371580299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,6 +309,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		8937157E299F425B006D7FDD /* SquardPlayerCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5B07616C299EB537007108DA /* SquardPlayerCollectionViewCell.swift */,
+				5B07616D299EB537007108DA /* SquardPlayerCollectionViewCell.xib */,
+			);
+			path = SquardPlayerCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		8948B8E8299DC092007AE6E9 /* MatchDetailsSectionLabelCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +423,7 @@
 				5B076173299EB680007108DA /* MatchSquadViewController.xib in Resources */,
 				5BA44A01299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib in Resources */,
 				5BCD7058298CA79500EEF6F3 /* Assets.xcassets in Resources */,
+				89371582299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib in Resources */,
 				5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */,
 				5B07616F299EB537007108DA /* SquardPlayerCollectionViewCell.xib in Resources */,
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
@@ -436,6 +451,7 @@
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5B21EB94299A37F9005EF98C /* MatchDetailsViewController.swift in Sources */,
 				5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */,
+				89371581299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift in Sources */,
 				5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */,
 				5B21EB862999DBA4005EF98C /* PlayerDetailsModel.swift in Sources */,
 				89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */,

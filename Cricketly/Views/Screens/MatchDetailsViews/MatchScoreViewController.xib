@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umW-qw-VSx">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umW-qw-VSx" userLabel="Local Team Label">
                     <rect key="frame" x="10" y="10" width="143" height="0.0"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <nil key="textColor"/>
@@ -35,14 +35,14 @@
                         <action selector="switchButtonTapped:" destination="-1" eventType="valueChanged" id="Ye2-ra-ODy"/>
                     </connections>
                 </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-eO-h3t">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-eO-h3t" userLabel="Visitor team Label">
                     <rect key="frame" x="222" y="10" width="143" height="0.0"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-3p-SZa">
-                    <rect key="frame" x="10" y="51" width="355" height="606"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-3p-SZa">
+                    <rect key="frame" x="10" y="40" width="355" height="617"/>
                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -54,7 +54,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SIe-eO-h3t" secondAttribute="trailing" constant="10" id="XBb-S0-eeI"/>
                 <constraint firstItem="fM1-Dn-rwE" firstAttribute="leading" secondItem="umW-qw-VSx" secondAttribute="trailing" constant="10" id="bHF-cd-pf9"/>
                 <constraint firstItem="SIe-eO-h3t" firstAttribute="leading" secondItem="fM1-Dn-rwE" secondAttribute="trailing" constant="10" id="gKm-C2-K8a"/>
-                <constraint firstItem="Wgz-3p-SZa" firstAttribute="top" secondItem="fM1-Dn-rwE" secondAttribute="bottom" constant="10" id="giS-Cf-FsT"/>
+                <constraint firstItem="Wgz-3p-SZa" firstAttribute="top" secondItem="umW-qw-VSx" secondAttribute="bottom" constant="30" id="giS-Cf-FsT"/>
                 <constraint firstItem="fM1-Dn-rwE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hCq-UO-7nY"/>
                 <constraint firstItem="SIe-eO-h3t" firstAttribute="top" secondItem="fM1-Dn-rwE" secondAttribute="top" id="i3q-9n-RhS"/>
                 <constraint firstItem="umW-qw-VSx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="i8w-jX-4yU"/>

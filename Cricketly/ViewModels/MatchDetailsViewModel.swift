@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct TeamViewDataModel {
+    let teamName: String
+    let teamImgUrl: String
+    let teamScore: String
+    let teamCode: String
+    let teamID: Int
+}
 
 class MatchDetailsViewModel {
     @Published var venueImageUrl: String?
