@@ -8,14 +8,6 @@
 import Foundation
 
 
-struct SquadCollectionCellModel {
-    let id: Int
-    let name: String
-    let position: String
-    let isCaptain: Bool
-    let isWicketKeeper: Bool
-}
-
 class MatchDetailsViewModel {
     @Published var venueImageUrl: String?
     
@@ -205,14 +197,12 @@ class MatchDetailsViewModel {
                 })
                 
                 self.localTeamSquadCellModels = localTeamSquad?.compactMap({ player in
-                    SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false)
+                    SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false, imageUrl: player.imagePath ?? "")
                 }) ?? []
                 
                 self.visitorTeamSquadCellModels = visitorTeamSquad?.compactMap({ player in
-                    SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false)
+                    SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false, imageUrl: player.imagePath ?? "")
                 }) ?? []
-                
-                print("LOCAL TEAMS \(self.localTeamSquadCellModels)")
                 
             case .failure(let error):
                 print(error)
