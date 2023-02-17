@@ -13,6 +13,7 @@ struct TeamViewDataModel {
     let teamScore: String
     let teamCode: String
     let teamID: Int
+    let matchStatus: String
 }
 
 class MatchDetailsViewModel {
@@ -174,9 +175,9 @@ class MatchDetailsViewModel {
                     batting.teamID == data?.runs?.last?.teamID
                 })
                 
-                let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.first?.team?.name ?? "", teamImgUrl: firstTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.first?.team?.code ?? "", teamID: firstTeamBatting?.first?.team?.id ?? -1)
+                let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.first?.team?.name ?? "", teamImgUrl: firstTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.first?.team?.code ?? "", teamID: firstTeamBatting?.first?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
                 
-                let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.first?.team?.name ?? "", teamImgUrl: secondTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.first?.team?.code ?? "", teamID: secondTeamBatting?.first?.team?.id ?? -1)
+                let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.first?.team?.name ?? "", teamImgUrl: secondTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.first?.team?.code ?? "", teamID: secondTeamBatting?.first?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
                 self.teamModels = [localTeamDataModel, visitorTeamDataModel]
 //                self.localTeamName = "\(firstTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "")"
 //                self.visitorTeamName = "\(secondTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "")"
