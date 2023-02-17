@@ -23,6 +23,7 @@ struct FixtureCellModel {
     let matchType: String
     let localTeamImageUrl: String
     let visitorTeamImageUrl: String
+    let isUpcoming: Bool
     
 }
 
@@ -67,6 +68,8 @@ class FixturesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak private var matchNoteLabel: UILabel!
     
+    var countdownTimer: Timer?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -96,7 +99,48 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         vistorTeamOverLabel.text = model.visitorTeamOver.isEmpty ? "" : "\(model.visitorTeamOver) overs"
         
         // note
-        matchNoteLabel.text = model.matchNote
+        if (model.isUpcoming) {
+            startTimer(time: model.matchNote)
+        } else {
+            matchNoteLabel.text = model.matchNote
+        }
     }
+    
+    func startTimer(time: String) {
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {[weak self] timer in
+            
+            guard let self = self else {
+                return
+            }
+            self.updateTime(time: time)
+            
+        }
+    }
+    
+    func updateTime(time: String) {
+        let difference = CommonFunctions.getDifference(from: time)
+        matchNoteLabel.text = "\(CommonFunctions.dateComponentFormatter.string(for: difference) ?? "")"
+        guard let differenceTime = difference else { return endTimer() }
+        if let date = Calendar.current.date(from: differenceTime) {
+            let timeInterval = date.timeIntervalSince1970
+            print("Time interval: \(timeInterval) seconds")
+            if timeInterval == 0 {
+                endTimer()
+            }
+        }
+        
+    }
+    
+    func endTimer() {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        endTimer()
+    }
+    
+    
 
 }

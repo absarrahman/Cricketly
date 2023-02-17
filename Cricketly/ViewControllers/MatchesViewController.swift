@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class MatchesViewController: UIViewController {
-
+    
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -26,7 +26,7 @@ class MatchesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         print(segmentedControl.numberOfSegments)
         segmentedControl.defaultConfiguration(font: UIFont.systemFont(ofSize: 10), color: .red)
@@ -44,7 +44,10 @@ class MatchesViewController: UIViewController {
         setupBinders()
         viewModel.fetchFixtureData(for: FixtureType(rawValue: segmentedControl.selectedSegmentIndex) ?? .recent)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
     func setupBinders() {
         viewModel.$error.sink { error in
             guard let error = error else {
@@ -61,7 +64,7 @@ class MatchesViewController: UIViewController {
             }
         }.store(in: &cancellables)
     }
-
+    
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         print(sender.selectedSegmentIndex)
         viewModel.fetchFixtureData(for: FixtureType(rawValue: sender.selectedSegmentIndex) ?? .live)
@@ -101,6 +104,14 @@ extension MatchesViewController : UICollectionViewDelegate {
             cell.alpha = 1
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
-          
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let customCell = cell as? FixturesCollectionViewCell {
+            if segmentedControl.selectedSegmentIndex == segmentedControl.numberOfSegments - 1 {
+                customCell.endTimer()
+            }
+        }
     }
 }
