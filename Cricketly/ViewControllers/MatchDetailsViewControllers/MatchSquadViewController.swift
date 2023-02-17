@@ -18,6 +18,8 @@ class MatchSquadViewController: UIViewController {
     var cancellables: Set<AnyCancellable> = []
     let viewModel = MatchDetailsViewModel()
     
+    var teamModels: [TeamViewDataModel] = []
+    
     var parentVC: MatchDetailsViewController!
     
     var gridLayout : UICollectionViewLayout {
@@ -25,7 +27,7 @@ class MatchSquadViewController: UIViewController {
         
         item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
         
-        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)), subitems: [item,item])
+        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.15)), subitems: [item,item])
         
         let section = NSCollectionLayoutSection(group: horizontalGroup)
         
@@ -80,6 +82,20 @@ class MatchSquadViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         }.store(in: &cancellables)
+        
+        viewModel.$teamModels.sink {[weak self] models in
+            guard let self = self else {
+                return
+            }
+            if (!models.isEmpty) {
+                self.teamModels = models
+            }
+            
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }.store(in: &cancellables)
     }
     
 }
@@ -118,7 +134,8 @@ extension MatchSquadViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier, for: indexPath) as! SquadPlayerCollectionHeaderView
+        headerView.setHeaderViewBasedOn(models: teamModels)
         return headerView
     }
     

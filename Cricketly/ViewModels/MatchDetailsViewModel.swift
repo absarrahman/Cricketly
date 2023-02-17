@@ -29,9 +29,10 @@ class MatchDetailsViewModel {
     @Published var secondTeamBowlingCellModels: [ScoreTableViewCellModel] = []
     
     
-    //TEAM NAMES
-    @Published var localTeamName: String = ""
-    @Published var visitorTeamName: String = ""
+//    //TEAM NAMES
+//    @Published var localTeamName: String = ""
+//    @Published var visitorTeamName: String = ""
+    @Published var teamModels: [TeamViewDataModel] = []
     
     
     // SQUAD
@@ -173,9 +174,13 @@ class MatchDetailsViewModel {
                     batting.teamID == data?.runs?.last?.teamID
                 })
                 
-                self.localTeamName = "\(firstTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "")"
-                self.visitorTeamName = "\(secondTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "")"
-                print(firstTeamBatting?.count,secondTeamBatting?.count)
+                let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.first?.team?.name ?? "", teamImgUrl: firstTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.first?.team?.code ?? "", teamID: firstTeamBatting?.first?.team?.id ?? -1)
+                
+                let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.first?.team?.name ?? "", teamImgUrl: secondTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.first?.team?.code ?? "", teamID: secondTeamBatting?.first?.team?.id ?? -1)
+                self.teamModels = [localTeamDataModel, visitorTeamDataModel]
+//                self.localTeamName = "\(firstTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "")"
+//                self.visitorTeamName = "\(secondTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "")"
+//                print(firstTeamBatting?.count,secondTeamBatting?.count)
                 
                 // last batting == first bowling
                 let firstTeamBowling = data?.bowling?.filter({ bowling in

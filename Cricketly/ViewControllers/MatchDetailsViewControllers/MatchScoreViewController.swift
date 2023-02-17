@@ -92,19 +92,27 @@ class MatchScoreViewController: UIViewController {
         
         // Set names
         
-        viewModel.$localTeamName.sink {[weak self] name in
+        viewModel.$teamModels.sink {[weak self] models in
             guard let self = self else {
                 return
             }
-            self.localTeamNameLabel.text = name
+            if (!models.isEmpty) {
+                self.localTeamNameLabel.text = "\(models[0].teamName) \n \(models[0].teamScore)"
+                self.visitorTeamNameLabel.text = "\(models[1].teamName) \n \(models[1].teamScore)"
+            }
+            
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }.store(in: &cancellables)
         
-        viewModel.$visitorTeamName.sink {[weak self] name in
-            guard let self = self else {
-                return
-            }
-            self.visitorTeamNameLabel.text = name
-        }.store(in: &cancellables)
+//        viewModel.$visitorTeamName.sink {[weak self] name in
+//            guard let self = self else {
+//                return
+//            }
+//            self.visitorTeamNameLabel.text = name
+//        }.store(in: &cancellables)
         
         
         // LOCAL TEAM
