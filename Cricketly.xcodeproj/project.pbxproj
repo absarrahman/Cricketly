@@ -238,6 +238,7 @@
 			children = (
 				5B21EB92299A37F9005EF98C /* MatchDetailsViewController.swift */,
 				89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */,
+				5B076170299EB680007108DA /* MatchSquadViewController.swift */,
 				5BF01B97299C194C005DF5E9 /* MatchInfoViewController.swift */,
 			);
 			path = MatchDetailsViewControllers;
@@ -282,7 +283,6 @@
 				5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */,
 				5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */,
 				89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */,
-				5B076170299EB680007108DA /* MatchSquadViewController.swift */,
 				5B076171299EB680007108DA /* MatchSquadViewController.xib */,
 			);
 			path = MatchDetailsViews;

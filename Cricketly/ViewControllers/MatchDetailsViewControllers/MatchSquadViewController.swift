@@ -39,6 +39,7 @@ class MatchSquadViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
         
@@ -94,4 +95,17 @@ extension MatchSquadViewController: UICollectionViewDataSource {
     }
     
     
+}
+
+extension MatchSquadViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+
+        UIView.animate(withDuration: 1, delay: 0.07 * Double(indexPath.row) / 3.5, options: [.curveEaseInOut], animations: {
+            cell.alpha = 1
+            cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
 }
