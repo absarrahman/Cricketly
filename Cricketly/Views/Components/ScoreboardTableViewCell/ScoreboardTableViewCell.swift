@@ -40,15 +40,14 @@ class ScoreboardTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        rootView.layer.cornerRadius = 10
+        playerCellImageView.layer.cornerRadius = playerCellImageView.frame.height / 2
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
-        rootView.layer.cornerRadius = 10
-        playerCellImageView.layer.cornerRadius = playerCellImageView.frame.height / 2
     }
     
     func setPlayerModel(model: ScoreTableViewCellModel) {

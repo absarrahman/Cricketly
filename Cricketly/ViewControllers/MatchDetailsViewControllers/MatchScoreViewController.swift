@@ -177,7 +177,7 @@ extension MatchScoreViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        (firstTeamBattingCellModels.isEmpty && secondTeamBattingCellModels.isEmpty && firstTeamBowlingCellModels.isEmpty && secondTeamBowlingCellModels.isEmpty) ? 0 : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
