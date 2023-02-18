@@ -33,7 +33,7 @@ class Routes {
         case .matchDetailsViewController:
             vc = MatchDetailsViewController()
         case .browsePlayersViewController:
-            vc = MatchDetailsViewController()
+            vc = BrowsePlayerViewController()
         }
         
         

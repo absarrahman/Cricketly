@@ -26,6 +26,10 @@ class MoreTabViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.layer.cornerRadius = 20
+        tableView.clipsToBounds = true
+        tableView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         tableView.register(UINib(nibName: MoreTabNavigationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: MoreTabNavigationTableViewCell.identifier)
     }
     
@@ -48,4 +52,13 @@ extension MoreTabViewController: UITableViewDataSource {
         return cell
     }
 
+}
+
+extension MoreTabViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = navigationMap[MoreTabBarType.allCases[indexPath.row]]!.routeID
+        let vc = Routes.getViewControllerBy(routeMap: id)
+        navigationController?.pushViewController(vc, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

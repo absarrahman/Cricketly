@@ -59,33 +59,24 @@ class Service {
     }
     
     
-    func getAllPlayers() {
+    func getAllPlayers(completion: @escaping (Result<([PlayerModel]?), Error>) -> ()) {
         
         let endpoint = APIEndPoints.playersEndPoint
         let parameters = [
             "api_token": Secrets.apiKey,
-            "fields[players]": "id,fullname,image_path"
+            "fields[players]": "id,fullname,image_path",
+            "include": "country"
         ]
         
-        sessionManager.request(endpoint,parameters: parameters).response { responseData in
-            print("RESPONSE DATA IS \(responseData)")
-            guard let data = responseData.data else {
-                return
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<PlayersDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
-            do {
-                let playerData = try JSONDecoder().decode(PlayersDataModel.self, from: data)
-                
-                //dump(dictionary)
-                print(playerData.data!.count)
-                print(playerData.data![0].fullname)
-                
-            } catch {
-                print("Error occurred \(error)")
-            }
-            
-            
         }
+        
     }
     
     func getPlayerById(id: Int)  {

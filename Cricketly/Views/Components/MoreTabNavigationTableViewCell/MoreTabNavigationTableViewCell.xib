@@ -47,9 +47,10 @@
                         <constraints>
                             <constraint firstItem="c6v-1c-T8u" firstAttribute="leading" secondItem="QMn-Pl-ydX" secondAttribute="trailing" constant="5" id="G5Q-mt-Uqb"/>
                             <constraint firstItem="c6v-1c-T8u" firstAttribute="width" secondItem="c6v-1c-T8u" secondAttribute="height" multiplier="1:1" id="LAC-5v-NK5"/>
+                            <constraint firstItem="ghA-zd-SfO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="R6E-ba-esz" secondAttribute="top" constant="10" id="MF2-eF-Lyh"/>
                             <constraint firstItem="c6v-1c-T8u" firstAttribute="centerY" secondItem="ghA-zd-SfO" secondAttribute="centerY" id="P8p-Qj-PJ7"/>
                             <constraint firstItem="QMn-Pl-ydX" firstAttribute="centerY" secondItem="R6E-ba-esz" secondAttribute="centerY" id="R8n-34-HuS"/>
-                            <constraint firstAttribute="height" constant="103" id="cQt-a8-6yZ"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ghA-zd-SfO" secondAttribute="bottom" constant="10" id="Z6S-fZ-QGw"/>
                             <constraint firstItem="QMn-Pl-ydX" firstAttribute="leading" secondItem="ghA-zd-SfO" secondAttribute="trailing" constant="5" id="idc-cZ-Hol"/>
                             <constraint firstItem="ghA-zd-SfO" firstAttribute="leading" secondItem="R6E-ba-esz" secondAttribute="leading" constant="10" id="jWi-6D-Qel"/>
                             <constraint firstItem="ghA-zd-SfO" firstAttribute="centerY" secondItem="R6E-ba-esz" secondAttribute="centerY" id="tp3-Yp-69O"/>

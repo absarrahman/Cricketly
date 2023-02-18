@@ -63,6 +63,8 @@
 		89B6E6A829A0881D00F50503 /* MoreTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */; };
 		89B6E6AB29A09CC400F50503 /* MoreTabNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6A929A09CC400F50503 /* MoreTabNavigationTableViewCell.swift */; };
 		89B6E6AC29A09CC400F50503 /* MoreTabNavigationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B6E6AA29A09CC400F50503 /* MoreTabNavigationTableViewCell.xib */; };
+		89B6E6B129A0B36600F50503 /* BrowsePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6AF29A0B36600F50503 /* BrowsePlayerViewController.swift */; };
+		89B6E6B229A0B36600F50503 /* BrowsePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTabViewController.xib; sourceTree = "<group>"; };
 		89B6E6A929A09CC400F50503 /* MoreTabNavigationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabNavigationTableViewCell.swift; sourceTree = "<group>"; };
 		89B6E6AA29A09CC400F50503 /* MoreTabNavigationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTabNavigationTableViewCell.xib; sourceTree = "<group>"; };
+		89B6E6AF29A0B36600F50503 /* BrowsePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePlayerViewController.swift; sourceTree = "<group>"; };
+		89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowsePlayerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +357,8 @@
 				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
 				89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */,
 				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
+				89B6E6AF29A0B36600F50503 /* BrowsePlayerViewController.swift */,
+				89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BCBF593299D9A9100B770D7 /* ScoreboardTableViewCell.xib in Resources */,
+				89B6E6B229A0B36600F50503 /* BrowsePlayerViewController.xib in Resources */,
 				8948B8EF299DDA18007AE6E9 /* ScoreboardHeaderView.xib in Resources */,
 				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
 				89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */,
@@ -500,6 +507,7 @@
 				5B21EB8A2999DC82005EF98C /* FixtureDetailsModel.swift in Sources */,
 				89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */,
 				8948B8EB299DD26D007AE6E9 /* UIViewExtension.swift in Sources */,
+				89B6E6B129A0B36600F50503 /* BrowsePlayerViewController.swift in Sources */,
 				5BF01B96299C1787005DF5E9 /* UIViewControllerExtension.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
