@@ -46,7 +46,6 @@ class RealmDBManager {
         var res: [T] = []
         
         for result in results {
-            print(result)
             res.append(result)
         }
         

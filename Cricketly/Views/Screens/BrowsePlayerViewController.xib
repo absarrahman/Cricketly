@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowsePlayerViewController" customModule="Cricketly" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="I2k-ns-Gkn" id="llj-3B-Y7H"/>
+                <outlet property="searchField" destination="Oji-tr-WDp" id="iAq-v7-Nl8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
