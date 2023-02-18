@@ -116,7 +116,7 @@ class Service {
         }
     }
     
-    func getAllFixtures(startDate: String, endDate: String, completion: @escaping (Result<([FixtureModel]?), Error>) -> (), isRecent: Bool = false) {
+    func getAllFixtures(startDate: String, endDate: String, isRecent: Bool = false, completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
         //2023-01-15, 2023-02-8
         // TODO: Add start date and end date
         let endpoint = APIEndPoints.fixturesEndPoint
@@ -166,6 +166,6 @@ class Service {
     func getRecentMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
         let startDate = CommonFunctions.getPreviousDate()
         let endDate = CommonFunctions.getCurrentDate()
-        getAllFixtures(startDate: startDate, endDate: endDate,completion: completion,isRecent: true)
+        getAllFixtures(startDate: startDate, endDate: endDate, isRecent: true, completion: completion)
     }
 }

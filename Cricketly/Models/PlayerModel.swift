@@ -22,11 +22,13 @@ class PlayerModel: Codable {
     let id: Int?
     let fullname: String?
     let imagePath: String?
+    let country: Country?
     let updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case resource, id, fullname
         case imagePath = "image_path"
+        case country
         case updatedAt = "updated_at"
     }
     
@@ -35,14 +37,41 @@ class PlayerModel: Codable {
     }
 
 
-    init(resource: Resource?, id: Int?, fullname: String?, imagePath: String?, updatedAt: String?) {
+    init(resource: Resource?, id: Int?, fullname: String?, imagePath: String?, country: Country?, updatedAt: String?) {
         self.resource = resource
         self.id = id
         self.fullname = fullname
         self.imagePath = imagePath
+        self.country = country
         self.updatedAt = updatedAt
     }
     
 }
 
+
+// MARK: - Country
+class Country: Codable {
+    let resource: String?
+    let id, continentID: Int?
+    let name: String?
+    let imagePath: String?
+    let updatedAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case resource, id
+        case continentID = "continent_id"
+        case name
+        case imagePath = "image_path"
+        case updatedAt = "updated_at"
+    }
+
+    init(resource: String?, id: Int?, continentID: Int?, name: String?, imagePath: String?, updatedAt: String?) {
+        self.resource = resource
+        self.id = id
+        self.continentID = continentID
+        self.name = name
+        self.imagePath = imagePath
+        self.updatedAt = updatedAt
+    }
+}
 

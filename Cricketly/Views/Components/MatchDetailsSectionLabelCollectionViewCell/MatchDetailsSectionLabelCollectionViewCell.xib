@@ -28,7 +28,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0D-uq-czQ" userLabel="Circular View">
                                 <rect key="frame" x="137.66666666666666" y="110" width="10" height="10"/>
-                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="PrimaryActionColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="IbF-fJ-svM"/>
                                     <constraint firstAttribute="width" constant="10" id="nvb-fb-v9B"/>
@@ -69,7 +69,7 @@
     </objects>
     <resources>
         <namedColor name="PrimaryActionColor">
-            <color red="0.93800002336502075" green="0.1379999965429306" blue="0.23600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

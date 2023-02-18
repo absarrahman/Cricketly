@@ -29,7 +29,7 @@ class MatchesViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         print(segmentedControl.numberOfSegments)
-        segmentedControl.defaultConfiguration(font: UIFont.systemFont(ofSize: 10), color: .red)
+        segmentedControl.defaultConfiguration(font: UIFont.systemFont(ofSize: 10), color: .kPrimaryActionColor!)
         segmentedControl.selectedConfiguration(font: UIFont.systemFont(ofSize: 17), color: .white)
         
         let layout = UICollectionViewFlowLayout()

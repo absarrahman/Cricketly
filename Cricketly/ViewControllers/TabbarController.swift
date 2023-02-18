@@ -40,7 +40,7 @@ class TabbarController: UITabBarController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        UITabBar.appearance().tintColor = .systemRed
+        UITabBar.appearance().tintColor = .kPrimaryActionColor
         self.viewControllers = [createHomeVC(), createMatchVC()]
         setupTabBarLayout()
     }
