@@ -173,8 +173,7 @@
 				8948B8E9299DC0B1007AE6E9 /* ScoreboardTableViewCell */,
 				5B07616B299EB4C8007108DA /* ScoreboardHeaderView */,
 				8937157E299F425B006D7FDD /* SquardPlayerCollectionViewCell */,
-				8937157F299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift */,
-				89371580299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib */,
+				89B6E6AD29A0B04600F50503 /* SquadPlayerCollectionHeaderView */,
 				89B6E6A929A09CC400F50503 /* MoreTabNavigationTableViewCell.swift */,
 				89B6E6AA29A09CC400F50503 /* MoreTabNavigationTableViewCell.xib */,
 			);
@@ -357,6 +356,15 @@
 				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		89B6E6AD29A0B04600F50503 /* SquadPlayerCollectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				8937157F299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift */,
+				89371580299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib */,
+			);
+			path = SquadPlayerCollectionHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
