@@ -48,6 +48,12 @@ class MatchesViewController: UIViewController {
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        collectionView.reloadData()
+    }
+    
     func setupBinders() {
         viewModel.$error.sink { error in
             guard let error = error else {
@@ -67,11 +73,6 @@ class MatchesViewController: UIViewController {
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         print(sender.selectedSegmentIndex)
-        for i in 0..<selectedList.count {
-            let indexPath = IndexPath(row: i, section: 0)
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixturesCollectionViewCell.identifier, for: indexPath) as! FixturesCollectionViewCell
-            cell.endTimer()
-        }
         selectedList = []
         collectionView.reloadData()
         viewModel.fetchFixtureData(for: FixtureType(rawValue: sender.selectedSegmentIndex) ?? .live)
