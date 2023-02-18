@@ -13,7 +13,7 @@ class TabbarController: UITabBarController {
     
     fileprivate func setupTabBarLayout() {
         let layer = CAShapeLayer()
-        layer.path = UIBezierPath(roundedRect: CGRect(x: 30, y: self.tabBar.bounds.minY, width: self.tabBar.bounds.width - 60, height: self.tabBar.bounds.height + 10), cornerRadius: (self.tabBar.frame.width/2)).cgPath
+        layer.path = UIBezierPath(roundedRect: CGRect(x: 30, y: self.tabBar.bounds.minY - 5, width: self.tabBar.bounds.width - 60, height: self.tabBar.bounds.height + 20), cornerRadius: (self.tabBar.frame.width/2)).cgPath
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         layer.shadowRadius = 25.0
@@ -22,9 +22,9 @@ class TabbarController: UITabBarController {
         layer.opacity = 1.0
         layer.isHidden = false
         layer.masksToBounds = false
-        layer.fillColor = UIColor.white.cgColor
-        
+        layer.fillColor = UIColor.kPrimaryActionColor?.cgColor
         self.tabBar.layer.insertSublayer(layer, at: 0)
+        tabBar.unselectedItemTintColor = .lightGray
         print(view.frame.height)
         //let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         //view.frame.height > 667 ? 0 : 50
@@ -40,8 +40,8 @@ class TabbarController: UITabBarController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        UITabBar.appearance().tintColor = .kPrimaryActionColor
-        self.viewControllers = [createHomeVC(), createMatchVC()]
+        UITabBar.appearance().tintColor = .white
+        self.viewControllers = [createHomeVC(), createMatchVC(), createMoreVC()]
         setupTabBarLayout()
     }
     
@@ -67,6 +67,14 @@ class TabbarController: UITabBarController {
         let matchVC = vcFactory.createVC(vcType: .matchVC)
         matchVC.title = "Matches"
         matchVC.tabBarItem = UITabBarItem(title: "Matches", image: UIImage(systemName: "cricket.ball.fill"), tag: 0)
+        
+        return matchVC
+    }
+    
+    func createMoreVC() -> UIViewController {
+        let matchVC = vcFactory.createVC(vcType: .moreVC)
+        matchVC.title = "More"
+        matchVC.tabBarItem = UITabBarItem(title: "More", image: UIImage(systemName: "ellipsis"), tag: 0)
         
         return matchVC
     }

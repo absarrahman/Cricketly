@@ -8,7 +8,7 @@
 import UIKit
 
 enum ViewControllerForTabs {
-    case homeVC, matchVC
+    case homeVC, matchVC, moreVC
 }
 
 struct ViewControllerFactory {
@@ -18,6 +18,8 @@ struct ViewControllerFactory {
             return HomeViewController()
         case .matchVC:
             return MatchesViewController()
+        case .moreVC:
+            return MoreTabViewController()
         }
     }
 }

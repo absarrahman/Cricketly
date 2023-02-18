@@ -7,23 +7,45 @@
 
 import UIKit
 
-class MoreTabViewController: UIViewController {
 
+enum MoreTabBarType: CaseIterable {
+    case browsePlayers
+}
+
+class MoreTabViewController: UIViewController {
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    let navigationMap: [MoreTabBarType: MoreTabNavigationCellModel] = [
+        .browsePlayers: MoreTabNavigationCellModel(title: "Browse players", image: UIImage(systemName: "figure.cricket"), routeID: .browsePlayersViewController)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: MoreTabNavigationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: MoreTabNavigationTableViewCell.identifier)
     }
+    
+    
+}
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MoreTabViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        MoreTabBarType.allCases.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MoreTabNavigationTableViewCell.identifier, for: indexPath) as! MoreTabNavigationTableViewCell
+        
+        let currentTab = MoreTabBarType.allCases[indexPath.row]
+        guard let model = navigationMap[currentTab] else { return cell }
+        
+        cell.setMoreTabCellModel(model: model)
+        
+        return cell
+    }
 
 }

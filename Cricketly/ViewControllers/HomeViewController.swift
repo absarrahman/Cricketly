@@ -82,14 +82,14 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
                 return
             }
             if (100 > scrollView.contentOffset.y) {
-                print("Scrolled up")
+                // Up
                 
                 self.matchesLabelTopConstraint.constant = 150
                 self.bannerTopConstraint.constant = 40
                 self.view.layoutIfNeeded()
                 
             } else if (100 < scrollView.contentOffset.y) {
-                print("Scrolled down")
+                // DOWN
                 self.matchesLabelTopConstraint.constant = 0
                 self.bannerTopConstraint.constant = -500
                 self.view.layoutIfNeeded()
