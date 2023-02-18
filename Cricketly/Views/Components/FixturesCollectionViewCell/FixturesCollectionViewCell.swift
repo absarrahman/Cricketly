@@ -98,6 +98,8 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         localTeamOverLabel.text = model.localTeamOver.isEmpty ? "" : "\(model.localTeamOver) overs"
         vistorTeamOverLabel.text = model.visitorTeamOver.isEmpty ? "" : "\(model.visitorTeamOver) overs"
         
+        // Show the user that it is calculating
+        matchNoteLabel.text = "Calculating ETA..."
         // note
         if (model.isUpcoming) {
             startTimer(time: model.matchNote)

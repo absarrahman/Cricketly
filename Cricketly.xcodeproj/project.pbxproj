@@ -59,6 +59,8 @@
 		89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */; };
 		89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */; };
 		89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */; };
+		89B6E6A729A0881D00F50503 /* MoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */; };
+		89B6E6A829A0881D00F50503 /* MoreTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
 		89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreViewController.swift; sourceTree = "<group>"; };
 		89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchScoreViewController.xib; sourceTree = "<group>"; };
+		89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabViewController.swift; sourceTree = "<group>"; };
+		89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTabViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +347,8 @@
 				5BF49A04298CADB90051723E /* HomeViewController.xib */,
 				5BF01B9B299C1C49005DF5E9 /* MatchDetailsViews */,
 				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
+				89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */,
+				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
 				5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */,
 				5B7240BB298D1523000DD128 /* SearchField.xib in Resources */,
+				89B6E6A829A0881D00F50503 /* MoreTabViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +480,7 @@
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
 				5B08BD18298CD5120012690C /* ColorExtension.swift in Sources */,
+				89B6E6A729A0881D00F50503 /* MoreTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
