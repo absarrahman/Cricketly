@@ -36,11 +36,18 @@ class MatchDetailsViewController: UIViewController {
     
     var selectedTab: SectionTabs = .info
     
+    var selectedVC: UIViewController!
+    
     var sectionsMap: [SectionTabs:UIViewController] = [
         .info: MatchInfoViewController(),
         .scoreboard: MatchScoreViewController(),
         .squad: MatchSquadViewController()
     ]
+    
+    fileprivate func addChildVC(_ vc: UIViewController) {
+        selectedVC = vc
+        setContainerViewController(containerViewController: vc, containerView: containerView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +57,7 @@ class MatchDetailsViewController: UIViewController {
         
         // TODO: Keep all container vc in one list
         let vc = sectionsMap[.info]!
-        setContainerViewController(containerViewController: vc, containerView: containerView)
+        addChildVC(vc)
         collectionView.register(UINib(nibName: MatchDetailsSectionLabelCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MatchDetailsSectionLabelCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -60,6 +67,7 @@ class MatchDetailsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
     
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillDisappear(animated)
@@ -100,7 +108,8 @@ extension MatchDetailsViewController: UICollectionViewDataSource {
 extension MatchDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedTab = SectionTabs.allCases[indexPath.row]
-        setContainerViewController(containerViewController: sectionsMap[selectedTab]!, containerView: containerView)
+        remove(asChildViewController: selectedVC)
+        addChildVC(sectionsMap[selectedTab]!)
         collectionView.reloadData()
     }
     

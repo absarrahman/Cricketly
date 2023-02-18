@@ -39,4 +39,37 @@ class CommonFunctions {
             return window?.safeAreaInsets
         }
     }
+    
+    static func getCurrentDate() -> String {
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        let dateString = df.string(from: date)
+        print(dateString)
+        return dateString
+    }
+    
+    static func getNextUpcomingDate() -> String{
+        let today = Date()
+        print(today)
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        let dateString = df.string(from: modifiedDate)
+        print(dateString)
+        return dateString
+    }
+    
+    static func getPreviousDate() -> String{
+        let today = Date()
+        print(today)
+//        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
+        
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: -20, to: today)!
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        let dateString = df.string(from: modifiedDate)
+        print(dateString)
+        return dateString
+    }
 }

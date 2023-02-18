@@ -158,10 +158,14 @@ class Service {
     }
     
     func getUpcomingMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
-        getAllFixtures(startDate: "2023-02-12", endDate: "2023-03-7",completion: completion)
+        let startDate = CommonFunctions.getCurrentDate()
+        let endDate = CommonFunctions.getNextUpcomingDate()
+        getAllFixtures(startDate: startDate, endDate: endDate,completion: completion)
     }
     
     func getRecentMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
-        getAllFixtures(startDate: "2023-01-15", endDate: "2023-02-7",completion: completion,isRecent: true)
+        let startDate = CommonFunctions.getPreviousDate()
+        let endDate = CommonFunctions.getCurrentDate()
+        getAllFixtures(startDate: startDate, endDate: endDate,completion: completion,isRecent: true)
     }
 }
