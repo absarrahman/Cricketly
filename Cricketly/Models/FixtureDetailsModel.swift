@@ -24,7 +24,7 @@ class FixtureDetailsModel: Codable {
     let localteamID, visitorteamID: Int?
     let startingAt, type: String?
     let live: Bool?
-    let status: String?
+    let status: Status?
     let note: String?
     let venueID, tossWonTeamID, winnerTeamID: Int?
     let drawNoresult: String?
@@ -81,7 +81,7 @@ class FixtureDetailsModel: Codable {
         case league, season, localteam, visitorteam, batting, bowling, runs, lineup, manofmatch, manofseries, referee, firstumpire, secondumpire, tvumpire, winnerteam, tosswon, venue
     }
 
-    init(resource: String?, id: Int?, leagueID: Int?, seasonID: Int?, stageID: Int?, round: String?, localteamID: Int?, visitorteamID: Int?, startingAt: String?, type: String?, live: Bool?, status: String?, note: String?, venueID: Int?, tossWonTeamID: Int?, winnerTeamID: Int?, drawNoresult: String?, firstUmpireID: Int?, secondUmpireID: Int?, tvUmpireID: Int?, refereeID: Int?, manOfMatchID: Int?, manOfSeriesID: Int?, totalOversPlayed: Int?, elected: String?, superOver: Bool?, followOn: Bool?, localteamDLData: TeamDLData?, visitorteamDLData: TeamDLData?, rpcOvers: String?, rpcTarget: String?, league: Team?, season: Season?, localteam: Team?, visitorteam: Team?, batting: [Batting]?, bowling: [Bowling]?, runs: [Run]?, lineup: [Player]?, manofmatch: Player?, manofseries: Player?, referee: Firstumpire?, firstumpire: Firstumpire?, secondumpire: Firstumpire?, tvumpire: Firstumpire?, winnerteam: Team?, tosswon: Team?, venue: Venue?) {
+    init(resource: String?, id: Int?, leagueID: Int?, seasonID: Int?, stageID: Int?, round: String?, localteamID: Int?, visitorteamID: Int?, startingAt: String?, type: String?, live: Bool?, status: Status?, note: String?, venueID: Int?, tossWonTeamID: Int?, winnerTeamID: Int?, drawNoresult: String?, firstUmpireID: Int?, secondUmpireID: Int?, tvUmpireID: Int?, refereeID: Int?, manOfMatchID: Int?, manOfSeriesID: Int?, totalOversPlayed: Int?, elected: String?, superOver: Bool?, followOn: Bool?, localteamDLData: TeamDLData?, visitorteamDLData: TeamDLData?, rpcOvers: String?, rpcTarget: String?, league: Team?, season: Season?, localteam: Team?, visitorteam: Team?, batting: [Batting]?, bowling: [Bowling]?, runs: [Run]?, lineup: [Player]?, manofmatch: Player?, manofseries: Player?, referee: Firstumpire?, firstumpire: Firstumpire?, secondumpire: Firstumpire?, tvumpire: Firstumpire?, winnerteam: Team?, tosswon: Team?, venue: Venue?) {
         self.resource = resource
         self.id = id
         self.leagueID = leagueID
@@ -146,13 +146,14 @@ class Batting: Codable {
     let bowlingPlayerID: Int?
     let fowScore: Int?
     let fowBalls: Double?
-    let rate: Int?
+    let rate: Double?
     let updatedAt: String?
     let team: Team?
     let batsman: Player?
     let bowler, catchstump: Player?
     let batsmanout: Player?
     let runoutby: Player?
+    let result: BattingResult?
 
     enum CodingKeys: String, CodingKey {
         case resource, id, sort
@@ -173,10 +174,10 @@ class Batting: Codable {
         case fowBalls = "fow_balls"
         case rate
         case updatedAt = "updated_at"
-        case team, batsman, bowler, catchstump, batsmanout, runoutby
+        case team, batsman, bowler, catchstump, batsmanout, runoutby,result
     }
 
-    init(resource: BattingResource?, id: Int?, sort: Int?, fixtureID: Int?, teamID: Int?, active: Bool?, scoreboard: String?, playerID: Int?, ball: Int?, scoreID: Int?, score: Int?, fourX: Int?, sixX: Int?, catchStumpPlayerID: Int?, runoutByID: Int?, batsmanoutID: Int?, bowlingPlayerID: Int?, fowScore: Int?, fowBalls: Double?, rate: Int?, updatedAt: String?, team: Team?, batsman: Player?, bowler: Player?, catchstump: Player?, batsmanout: Player?, runoutby: Player?) {
+    init(resource: BattingResource?, id: Int?, sort: Int?, fixtureID: Int?, teamID: Int?, active: Bool?, scoreboard: String?, playerID: Int?, ball: Int?, scoreID: Int?, score: Int?, fourX: Int?, sixX: Int?, catchStumpPlayerID: Int?, runoutByID: Int?, batsmanoutID: Int?, bowlingPlayerID: Int?, fowScore: Int?, fowBalls: Double?, rate: Double?, updatedAt: String?, team: Team?, batsman: Player?, bowler: Player?, catchstump: Player?, batsmanout: Player?, runoutby: Player?, result: BattingResult?) {
         self.resource = resource
         self.id = id
         self.sort = sort
@@ -204,6 +205,43 @@ class Batting: Codable {
         self.catchstump = catchstump
         self.batsmanout = batsmanout
         self.runoutby = runoutby
+        self.result = result
+    }
+}
+
+// MARK: - Result
+class BattingResult: Codable {
+    let resource: String?
+    let id: Int?
+    let name: String?
+    let runs: Int?
+    let four, six: Bool?
+    let bye, legBye, noball, noballRuns: Int?
+    let isWicket, ball, out: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case resource, id, name, runs, four, six, bye
+        case legBye = "leg_bye"
+        case noball
+        case noballRuns = "noball_runs"
+        case isWicket = "is_wicket"
+        case ball, out
+    }
+
+    init(resource: String?, id: Int?, name: String?, runs: Int?, four: Bool?, six: Bool?, bye: Int?, legBye: Int?, noball: Int?, noballRuns: Int?, isWicket: Bool?, ball: Bool?, out: Bool?) {
+        self.resource = resource
+        self.id = id
+        self.name = name
+        self.runs = runs
+        self.four = four
+        self.six = six
+        self.bye = bye
+        self.legBye = legBye
+        self.noball = noball
+        self.noballRuns = noballRuns
+        self.isWicket = isWicket
+        self.ball = ball
+        self.out = out
     }
 }
 
@@ -214,9 +252,9 @@ class Player: Codable {
     let firstname, lastname, fullname: String?
     let imagePath: String?
     let dateofbirth: String?
-    let gender: Gender?
-    let battingstyle: Battingstyle?
-    let bowlingstyle: Bowlingstyle?
+    let gender: String?
+    let battingstyle: String?
+    let bowlingstyle: String?
     let position: Position?
     let updatedAt: String?
     let lineup: Lineup?
@@ -231,7 +269,7 @@ class Player: Codable {
         case lineup
     }
 
-    init(resource: ManofmatchResource?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, imagePath: String?, dateofbirth: String?, gender: Gender?, battingstyle: Battingstyle?, bowlingstyle: Bowlingstyle?, position: Position?, updatedAt: String?, lineup: Lineup?) {
+    init(resource: ManofmatchResource?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, imagePath: String?, dateofbirth: String?, gender: String?, battingstyle: String?, bowlingstyle: String?, position: Position?, updatedAt: String?, lineup: Lineup?) {
         self.resource = resource
         self.id = id
         self.countryID = countryID
@@ -249,21 +287,6 @@ class Player: Codable {
     }
 }
 
-enum Battingstyle: String, Codable {
-    case leftHandBat = "left-hand-bat"
-    case rightHandBat = "right-hand-bat"
-}
-
-enum Bowlingstyle: String, Codable {
-    case leftArmFastMedium = "left-arm-fast-medium"
-    case rightArmFastMedium = "right-arm-fast-medium"
-    case rightArmOffbreak = "right-arm-offbreak"
-    case slowLeftArmOrthodox = "slow-left-arm-orthodox"
-}
-
-enum Gender: String, Codable {
-    case m = "m"
-}
 
 // MARK: - Lineup
 class Lineup: Codable {
@@ -411,7 +434,7 @@ class Firstumpire: Codable {
     let resource: String?
     let id, countryID: Int?
     let firstname, lastname, fullname, dateofbirth: String?
-    let gender: Gender?
+    let gender: String?
     let updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
@@ -421,7 +444,7 @@ class Firstumpire: Codable {
         case updatedAt = "updated_at"
     }
 
-    init(resource: String?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, dateofbirth: String?, gender: Gender?, updatedAt: String?) {
+    init(resource: String?, id: Int?, countryID: Int?, firstname: String?, lastname: String?, fullname: String?, dateofbirth: String?, gender: String?, updatedAt: String?) {
         self.resource = resource
         self.id = id
         self.countryID = countryID

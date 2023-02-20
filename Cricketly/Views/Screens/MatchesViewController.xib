@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JKg-0j-JYq">
-                    <rect key="frame" x="10" y="69" width="373" height="32"/>
+                    <rect key="frame" x="10" y="69" width="373" height="43.666666666666657"/>
                     <segments>
                         <segment title="Live"/>
                         <segment title="Recent"/>
@@ -34,7 +33,7 @@
                     </connections>
                 </segmentedControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nql-dl-CIg">
-                    <rect key="frame" x="10" y="110" width="373" height="742"/>
+                    <rect key="frame" x="10" y="121.66666666666669" width="373" height="730.33333333333326"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mkf-QV-Uvw">
                         <size key="itemSize" width="128" height="128"/>
@@ -45,10 +44,11 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="nql-dl-CIg" firstAttribute="top" secondItem="JKg-0j-JYq" secondAttribute="bottom" constant="10" id="4QC-2y-8jE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nql-dl-CIg" secondAttribute="trailing" constant="10" id="6fp-qg-Vr5"/>
+                <constraint firstItem="JKg-0j-JYq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="Wgk-8O-fRv"/>
                 <constraint firstItem="JKg-0j-JYq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ZAF-Ie-A7m"/>
                 <constraint firstItem="JKg-0j-JYq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="cMO-Ij-d2A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JKg-0j-JYq" secondAttribute="trailing" constant="10" id="vHT-d7-1a8"/>
@@ -60,10 +60,7 @@
     </objects>
     <resources>
         <namedColor name="PrimaryActionColor">
-            <color red="0.93800002336502075" green="0.1379999965429306" blue="0.23600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

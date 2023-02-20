@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MatchDetailsSectionLabelCollectionViewCell" customModule="Cricketly" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="285" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="285" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XU-NG-dfG">
+                        <rect key="frame" x="0.0" y="0.0" width="285" height="130"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq2-wZ-D8Q">
+                                <rect key="frame" x="10" y="10" width="265" height="95"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="PrimaryActionColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0D-uq-czQ" userLabel="Circular View">
+                                <rect key="frame" x="137.66666666666666" y="110" width="10" height="10"/>
+                                <color key="backgroundColor" name="PrimaryActionColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="IbF-fJ-svM"/>
+                                    <constraint firstAttribute="width" constant="10" id="nvb-fb-v9B"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q0D-uq-czQ" firstAttribute="centerX" secondItem="8XU-NG-dfG" secondAttribute="centerX" id="3hq-Yp-mBO"/>
+                            <constraint firstAttribute="trailing" secondItem="pq2-wZ-D8Q" secondAttribute="trailing" constant="10" id="Bt3-cP-3d1"/>
+                            <constraint firstAttribute="bottom" secondItem="Q0D-uq-czQ" secondAttribute="bottom" constant="10" id="NN6-Kt-TSK"/>
+                            <constraint firstItem="Q0D-uq-czQ" firstAttribute="top" secondItem="pq2-wZ-D8Q" secondAttribute="bottom" constant="5" id="Xcw-7Z-rET"/>
+                            <constraint firstItem="pq2-wZ-D8Q" firstAttribute="leading" secondItem="8XU-NG-dfG" secondAttribute="leading" constant="10" id="hvp-6L-5HB"/>
+                            <constraint firstItem="pq2-wZ-D8Q" firstAttribute="top" secondItem="8XU-NG-dfG" secondAttribute="top" constant="10" id="kjE-4v-Dc7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8XU-NG-dfG" secondAttribute="bottom" id="4FQ-PM-E0g"/>
+                <constraint firstAttribute="trailing" secondItem="8XU-NG-dfG" secondAttribute="trailing" id="6ar-Ie-4wB"/>
+                <constraint firstItem="8XU-NG-dfG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qZV-di-8kG"/>
+                <constraint firstItem="8XU-NG-dfG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wY5-z2-148"/>
+            </constraints>
+            <size key="customSize" width="285" height="130"/>
+            <connections>
+                <outlet property="circularView" destination="Q0D-uq-czQ" id="Nku-kV-dL5"/>
+                <outlet property="sectionLabel" destination="pq2-wZ-D8Q" id="jkb-ht-Tut"/>
+            </connections>
+            <point key="canvasLocation" x="149" y="52"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryActionColor">
+            <color red="0.0" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

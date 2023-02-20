@@ -59,33 +59,24 @@ class Service {
     }
     
     
-    func getAllPlayers() {
+    func getAllPlayers(completion: @escaping (Result<([PlayerModel]?), Error>) -> ()) {
         
         let endpoint = APIEndPoints.playersEndPoint
         let parameters = [
             "api_token": Secrets.apiKey,
-            "fields[players]": "id,fullname,image_path"
+            "fields[players]": "id,fullname,image_path",
+            "include": "country"
         ]
         
-        sessionManager.request(endpoint,parameters: parameters).response { responseData in
-            print("RESPONSE DATA IS \(responseData)")
-            guard let data = responseData.data else {
-                return
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<PlayersDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
-            do {
-                let playerData = try JSONDecoder().decode(PlayersDataModel.self, from: data)
-                
-                //dump(dictionary)
-                print(playerData.data!.count)
-                print(playerData.data![0].fullname)
-                
-            } catch {
-                print("Error occurred \(error)")
-            }
-            
-            
         }
+        
     }
     
     func getPlayerById(id: Int)  {
@@ -116,7 +107,7 @@ class Service {
         }
     }
     
-    func getAllFixtures(startDate: String, endDate: String, completion: @escaping (Result<([FixtureModel]?), Error>) -> (), isRecent: Bool = false) {
+    func getAllFixtures(startDate: String, endDate: String, isRecent: Bool = false, completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
         //2023-01-15, 2023-02-8
         // TODO: Add start date and end date
         let endpoint = APIEndPoints.fixturesEndPoint
@@ -142,7 +133,7 @@ class Service {
         let endpoint = APIEndPoints.getFixtureEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,
-            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam"
+            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam,batting.result"
         ]
         
         fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixtureDetailsDataModel, Error>) in
@@ -158,10 +149,14 @@ class Service {
     }
     
     func getUpcomingMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
-        getAllFixtures(startDate: "2023-02-12", endDate: "2023-03-7",completion: completion)
+        let startDate = CommonFunctions.getCurrentDate()
+        let endDate = CommonFunctions.getNextUpcomingDate()
+        getAllFixtures(startDate: startDate, endDate: endDate,completion: completion)
     }
     
     func getRecentMatchFixture(completion: @escaping (Result<([FixtureModel]?), Error>)->()) {
-        getAllFixtures(startDate: "2023-01-15", endDate: "2023-02-7",completion: completion,isRecent: true)
+        let startDate = CommonFunctions.getPreviousDate()
+        let endDate = CommonFunctions.getCurrentDate()
+        getAllFixtures(startDate: startDate, endDate: endDate, isRecent: true, completion: completion)
     }
 }
