@@ -125,7 +125,6 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         guard let differenceTime = difference else { return endTimer() }
         if let date = Calendar.current.date(from: differenceTime) {
             let timeInterval = date.timeIntervalSince1970
-            print("Time interval: \(timeInterval) seconds")
             if timeInterval == 0 {
                 endTimer()
             }

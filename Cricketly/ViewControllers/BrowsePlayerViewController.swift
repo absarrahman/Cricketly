@@ -41,10 +41,9 @@ class BrowsePlayerViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
+        
         collectionView.dataSource = self
-        // collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
         
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
@@ -68,13 +67,7 @@ class BrowsePlayerViewController: UIViewController {
             }
         }.store(in: &cancellables)
     }
-    
-    
-    @objc func handleTap() {
-        view.endEditing(true)
-    }
-    
-    
+        
 }
 
 extension BrowsePlayerViewController: UICollectionViewDataSource {
@@ -90,6 +83,14 @@ extension BrowsePlayerViewController: UICollectionViewDataSource {
     }
     
     
+}
+
+extension BrowsePlayerViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = Routes.getViewControllerBy(routeMap: .playerDetailsViewController) as! PlayerDetailsViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension BrowsePlayerViewController: UITextFieldDelegate {
