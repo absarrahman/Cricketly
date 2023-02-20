@@ -89,6 +89,9 @@ extension BrowsePlayerViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = Routes.getViewControllerBy(routeMap: .playerDetailsViewController) as! PlayerDetailsViewController
         
+        let id = playersList[indexPath.row].id
+        vc.id = id
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }

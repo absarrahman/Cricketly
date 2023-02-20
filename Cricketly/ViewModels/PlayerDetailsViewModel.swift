@@ -1,0 +1,76 @@
+//
+//  PlayerDetailsViewModel.swift
+//  Cricketly
+//
+//  Created by BJIT  on 20/2/23.
+//
+
+import Foundation
+
+
+
+class PlayerDetailsViewModel {
+    var playerName: String?
+    var playerCountry: String?
+    var countryImgUrl: String?
+    var playerImgUrl: String?
+    @Published var loadStatus: LoadingStatus = .notStarted
+    var personalInfoCellsModel: [MatchInfoTableViewCellModel] = []
+    
+    func fetchPlayerBasicInfo(id: Int) {
+        loadStatus = .loading
+        Service.shared.getPlayerById(id: id) {[weak self] result in
+            
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let data):
+                guard let data = data else { return }
+                self.playerName = data.fullname
+                self.playerCountry = data.country?.name
+                self.countryImgUrl = data.country?.imagePath
+                self.playerImgUrl = data.imagePath
+                self.loadStatus = .finished
+            case .failure(let error):
+                print(error)
+                self.loadStatus = .loadingFailed
+            }
+        }
+    }
+    
+    func fetchPlayerInfo(id: Int) {
+        loadStatus = .loading
+        Service.shared.getPlayerById(id: id) {[weak self] result in
+            
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let data):
+                guard let data = data else { return }
+                self.personalInfoCellsModel = [
+                    // BORN
+                    MatchInfoTableViewCellModel(title: "Born", content: data.dateofbirth ?? ""),
+                    // Nickname
+                    MatchInfoTableViewCellModel(title: "Nickname", content: data.lastname ?? ""),
+                    // ROLE
+                    MatchInfoTableViewCellModel(title: "Role", content: data.position?.name?.rawValue ?? ""),
+                    
+                    //Batting style
+                    MatchInfoTableViewCellModel(title: "Batting Style", content: data.battingstyle?.capitalized ?? ""),
+                    
+                    //Bowling Style
+                    MatchInfoTableViewCellModel(title: "Bowling Style", content: data.bowlingstyle?.capitalized ?? "")
+                    
+                ]
+                self.loadStatus = .finished
+            case .failure(let error):
+                print(error)
+                self.loadStatus = .loadingFailed
+            }
+        }
+    }
+}

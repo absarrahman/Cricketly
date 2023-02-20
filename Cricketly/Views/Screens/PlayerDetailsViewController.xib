@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="collectionView" destination="ctu-AG-xqS" id="BL4-KP-qqs"/>
                 <outlet property="containerView" destination="KH6-y2-8Tj" id="frG-Rv-05L"/>
+                <outlet property="countryBackgroundImage" destination="xX9-y8-KCj" id="pVi-vp-IDt"/>
                 <outlet property="playerCountryNameLabel" destination="xkI-up-NJ8" id="D6b-DB-TDg"/>
                 <outlet property="playerImageView" destination="l3q-Cy-Hfk" id="SGc-x3-7Rc"/>
                 <outlet property="playerNameLabel" destination="4tg-tn-cfK" id="EIn-f0-WqT"/>
@@ -24,33 +25,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pak" translatesAutoresizingMaskIntoConstraints="NO" id="xX9-y8-KCj" userLabel="BackgrounCountry Image View">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                 </imageView>
                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTC-3H-21M" userLabel="Shadow View">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3q-Cy-Hfk">
-                    <rect key="frame" x="154" y="10" width="67" height="66.5"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3q-Cy-Hfk">
+                    <rect key="frame" x="144" y="10" width="87" height="86.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="l3q-Cy-Hfk" secondAttribute="height" multiplier="1:1" id="Vls-gs-aZC"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tg-tn-cfK">
-                    <rect key="frame" x="20" y="86.5" width="335" height="24"/>
+                    <rect key="frame" x="20" y="106.5" width="335" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkI-up-NJ8">
-                    <rect key="frame" x="20" y="115.5" width="335" height="21"/>
+                    <rect key="frame" x="20" y="135.5" width="335" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH6-y2-8Tj">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH6-y2-8Tj" userLabel="Container View">
                     <rect key="frame" x="0.0" y="260" width="375" height="407"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ctu-AG-xqS">
                     <rect key="frame" x="0.0" y="200" width="375" height="60"/>
@@ -79,8 +80,8 @@
                 <constraint firstItem="4tg-tn-cfK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="H0z-eU-VCX"/>
                 <constraint firstItem="ctu-AG-xqS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IZj-vZ-t43"/>
                 <constraint firstItem="xkI-up-NJ8" firstAttribute="centerX" secondItem="4tg-tn-cfK" secondAttribute="centerX" id="J2V-vX-QNq"/>
-                <constraint firstItem="ctu-AG-xqS" firstAttribute="top" secondItem="xX9-y8-KCj" secondAttribute="bottom" id="JQb-PB-KVp"/>
                 <constraint firstItem="xkI-up-NJ8" firstAttribute="leading" secondItem="4tg-tn-cfK" secondAttribute="leading" id="KKp-FJ-8WQ"/>
+                <constraint firstItem="xX9-y8-KCj" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="KNP-xn-eTS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KH6-y2-8Tj" secondAttribute="trailing" id="KUn-Yu-HcH"/>
                 <constraint firstItem="4tg-tn-cfK" firstAttribute="top" secondItem="l3q-Cy-Hfk" secondAttribute="bottom" constant="10" id="TIt-Jk-U6F"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xX9-y8-KCj" secondAttribute="trailing" id="XzT-M6-jp5"/>
@@ -89,7 +90,7 @@
                 <constraint firstItem="xkI-up-NJ8" firstAttribute="top" secondItem="4tg-tn-cfK" secondAttribute="bottom" constant="5" id="fCX-9t-Hmm"/>
                 <constraint firstItem="xX9-y8-KCj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iql-be-84j"/>
                 <constraint firstItem="ctu-AG-xqS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="jS4-L1-d2o"/>
-                <constraint firstItem="l3q-Cy-Hfk" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.1" id="mqJ-Gw-WyC"/>
+                <constraint firstItem="l3q-Cy-Hfk" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.13" id="mqJ-Gw-WyC"/>
                 <constraint firstItem="KH6-y2-8Tj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oqM-9P-Etd"/>
                 <constraint firstItem="l3q-Cy-Hfk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rWR-2J-XQ0"/>
                 <constraint firstItem="l3q-Cy-Hfk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="yx0-zw-HiW"/>
@@ -99,11 +100,11 @@
     </objects>
     <resources>
         <image name="pak" width="225" height="225"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

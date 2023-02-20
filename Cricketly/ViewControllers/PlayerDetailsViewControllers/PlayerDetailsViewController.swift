@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import SDWebImage
+import Combine
 
 enum PlayerSectionTabs: String, CaseIterable {
     case info, career, stats
@@ -23,6 +24,7 @@ class PlayerDetailsViewController: UIViewController {
     
     @IBOutlet weak var playerImageView: UIImageView!
     
+    @IBOutlet weak var countryBackgroundImage: UIImageView!
     
     @IBOutlet weak var playerNameLabel: UILabel!
     
@@ -34,8 +36,15 @@ class PlayerDetailsViewController: UIViewController {
     var selectedTab: PlayerSectionTabs = .info
     
     var sectionsMap: [PlayerSectionTabs:UIViewController] = [
-        .info: PlayerDetailsInfoViewController()
+        .info: PlayerDetailsInfoViewController(),
+        .career: PlayerDetailsCareerViewController()
     ]
+    
+    var id = -1
+    
+    let viewModel = PlayerDetailsViewModel()
+    
+    var cancellables: Set<AnyCancellable> = []
     
     fileprivate func addChildVC(_ vc: UIViewController) {
         selectedVC = vc
@@ -59,8 +68,34 @@ class PlayerDetailsViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.dataSource = self
         collectionView.delegate = self
+        playerImageView.layer.cornerRadius = playerImageView.bounds.height / 2
+        viewModel.fetchPlayerBasicInfo(id: id)
+        setupBinders()
+    }
+    
+    func setupBinders()  {
+        viewModel.$loadStatus.sink {[weak self] status in
+            guard let self = self else {
+                return
+            }
+            
+            if status == .finished {
+                DispatchQueue.main.async {
+                    self.countryBackgroundImage.sd_setImage(with: URL(string: self.viewModel.countryImgUrl ?? ""),placeholderImage: nil,options: .progressiveLoad)
+                    self.playerNameLabel.text = self.viewModel.playerName
+                    self.playerCountryNameLabel.text = self.viewModel.playerCountry
+                    self.playerImageView.sd_setImage(with: URL(string: self.viewModel.playerImgUrl ?? ""),placeholderImage: nil, options: .progressiveLoad)
+                    
+                }
+            }
+            
+            
+        }.store(in: &cancellables)
     }
 }
+
+
+
 extension PlayerDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         PlayerSectionTabs.allCases.count

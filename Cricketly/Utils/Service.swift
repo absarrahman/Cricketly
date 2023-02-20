@@ -83,12 +83,12 @@ class Service {
         
     }
     
-    func getPlayerById(id: Int)  {
+    func getPlayerById(id: Int, completion: @escaping (Result<(PlayerDetailsModel?), Error>) -> ())  {
         //?\(apiToken)&include=career
         let endpoint = APIEndPoints.getPlayerEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,
-            "include": "career"
+            "include": "country,career,career.season,teams,currentteams"
         ]
         sessionManager.request(endpoint,parameters: parameters).validate().response { responseData in
             print("RESPONSE DATA IS \(responseData)")
@@ -102,9 +102,11 @@ class Service {
                 //dump(dictionary)
                 print(playerData.data!.fullname)
                 //print(playerData.data![0].fullname)
+                completion(.success(playerData.data))
                 
             } catch {
                 print("Error occurred \(error)")
+                completion(.failure(error))
             }
             
             

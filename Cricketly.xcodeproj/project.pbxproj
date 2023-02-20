@@ -72,6 +72,9 @@
 		89B6E6B229A0B36600F50503 /* BrowsePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */; };
 		89B6E6B529A0D65600F50503 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 89B6E6B429A0D65600F50503 /* RealmSwift */; };
 		89B6E6B729A0D71000F50503 /* RealmDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6B629A0D71000F50503 /* RealmDBManager.swift */; };
+		89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */; };
+		89EB9F4229A3814800ED7725 /* PlayerDetailsCareerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */; };
+		89EB9F4429A3847800ED7725 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +142,9 @@
 		89B6E6AF29A0B36600F50503 /* BrowsePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePlayerViewController.swift; sourceTree = "<group>"; };
 		89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowsePlayerViewController.xib; sourceTree = "<group>"; };
 		89B6E6B629A0D71000F50503 /* RealmDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBManager.swift; sourceTree = "<group>"; };
+		89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCareerViewController.swift; sourceTree = "<group>"; };
+		89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsCareerViewController.xib; sourceTree = "<group>"; };
+		89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,7 @@
 				5B21EB8F299A0C8F005EF98C /* MatchesView */,
 				89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */,
 				89ACE4E429A307DA008C5AF0 /* BrowsePlayersViewModel.swift */,
+				89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -387,6 +394,8 @@
 				89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */,
 				89ACE4E729A348DE008C5AF0 /* PlayerDetailsViewController.xib */,
 				89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */,
+				89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */,
+				89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -485,6 +494,7 @@
 				89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */,
 				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
 				89ACE4E929A348DE008C5AF0 /* PlayerDetailsViewController.xib in Resources */,
+				89EB9F4229A3814800ED7725 /* PlayerDetailsCareerViewController.xib in Resources */,
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
 				5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */,
 				5B076173299EB680007108DA /* MatchSquadViewController.xib in Resources */,
@@ -511,6 +521,7 @@
 			files = (
 				5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */,
 				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
+				89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */,
 				89ACE4E829A348DE008C5AF0 /* PlayerDetailsViewController.swift in Sources */,
 				5B08BD1C298CD7700012690C /* UIFunctions.swift in Sources */,
 				5B076172299EB680007108DA /* MatchSquadViewController.swift in Sources */,
@@ -518,6 +529,7 @@
 				5BA44A00299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift in Sources */,
 				8948B8ED299DD997007AE6E9 /* ScoreboardHeaderView.swift in Sources */,
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
+				89EB9F4429A3847800ED7725 /* PlayerDetailsViewModel.swift in Sources */,
 				89B6E6B729A0D71000F50503 /* RealmDBManager.swift in Sources */,
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5B21EB94299A37F9005EF98C /* MatchDetailsViewController.swift in Sources */,
