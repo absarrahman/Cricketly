@@ -69,8 +69,11 @@ class BrowsePlayersViewModel {
     
     func searchPlayers(query: String) {
         let queryResults = RealmDBManager.shared.filter(type: PlayerRealmModel.self) { playerModel in
-            query.isEmpty ? true : playerModel.fullname?.contains(query) ?? true
-        }
+            query.isEmpty ? true : playerModel.fullname?.lowercased().contains(query.lowercased()) ?? true
+        }.sorted(by: { p1, p2 in
+            guard let p1Name = p1.fullname, let p2Name = p2.fullname else { return false }
+            return p1Name < p2Name
+        })
         
         setDataToPlayerModelsFrom(queryResults)
         
