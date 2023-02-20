@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oji-tr-WDp" customClass="SearchField" customModule="Cricketly" customModuleProvider="target">
-                    <rect key="frame" x="10" y="69" width="373" height="85.333333333333314"/>
+                    <rect key="frame" x="10" y="69" width="373" height="59.666666666666657"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="searchBarBackgroundColor">
@@ -34,7 +34,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="I2k-ns-Gkn">
-                    <rect key="frame" x="0.0" y="164.33333333333331" width="393" height="653.66666666666674"/>
+                    <rect key="frame" x="0.0" y="138.66666666666669" width="393" height="679.33333333333326"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bEF-Zx-s8Y">
                         <size key="itemSize" width="128" height="128"/>
@@ -52,7 +52,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I2k-ns-Gkn" secondAttribute="trailing" id="H0z-Af-keK"/>
                 <constraint firstItem="Oji-tr-WDp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="P31-c6-TOX"/>
                 <constraint firstItem="I2k-ns-Gkn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SEd-zC-Qxe"/>
-                <constraint firstItem="Oji-tr-WDp" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.1" id="Xqj-yT-ls7"/>
+                <constraint firstItem="Oji-tr-WDp" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="Xqj-yT-ls7"/>
                 <constraint firstItem="I2k-ns-Gkn" firstAttribute="top" secondItem="Oji-tr-WDp" secondAttribute="bottom" constant="10" id="coP-b8-PZJ"/>
                 <constraint firstItem="Oji-tr-WDp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="fkw-eI-Frx"/>
             </constraints>
@@ -66,7 +66,7 @@
     </designables>
     <resources>
         <namedColor name="PrimaryActionColor">
-            <color red="0.0" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
