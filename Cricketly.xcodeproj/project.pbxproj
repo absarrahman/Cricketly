@@ -59,6 +59,7 @@
 		89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */; };
 		89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */; };
 		89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */; };
+		89ACE4E529A307DA008C5AF0 /* BrowsePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACE4E429A307DA008C5AF0 /* BrowsePlayersViewModel.swift */; };
 		89B6E6A729A0881D00F50503 /* MoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */; };
 		89B6E6A829A0881D00F50503 /* MoreTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */; };
 		89B6E6AB29A09CC400F50503 /* MoreTabNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6A929A09CC400F50503 /* MoreTabNavigationTableViewCell.swift */; };
@@ -122,6 +123,7 @@
 		89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
 		89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreViewController.swift; sourceTree = "<group>"; };
 		89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchScoreViewController.xib; sourceTree = "<group>"; };
+		89ACE4E429A307DA008C5AF0 /* BrowsePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePlayersViewModel.swift; sourceTree = "<group>"; };
 		89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabViewController.swift; sourceTree = "<group>"; };
 		89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTabViewController.xib; sourceTree = "<group>"; };
 		89B6E6A929A09CC400F50503 /* MoreTabNavigationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabNavigationTableViewCell.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				5B21EB8F299A0C8F005EF98C /* MatchesView */,
 				89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */,
+				89ACE4E429A307DA008C5AF0 /* BrowsePlayersViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				5BCD704F298CA79400EEF6F3 /* AppDelegate.swift in Sources */,
 				89B6E6AB29A09CC400F50503 /* MoreTabNavigationTableViewCell.swift in Sources */,
 				5BB9D71229989BA800280951 /* SegmentedControlExtension.swift in Sources */,
+				89ACE4E529A307DA008C5AF0 /* BrowsePlayersViewModel.swift in Sources */,
 				5B21EB882999DC3B005EF98C /* FixtureModel.swift in Sources */,
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,

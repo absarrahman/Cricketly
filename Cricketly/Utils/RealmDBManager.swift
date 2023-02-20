@@ -51,4 +51,18 @@ class RealmDBManager {
         
         return res
     }
+    
+    func filter<T:Object>(type: T.Type, filterCondition: (T) -> Bool) -> [T] {
+        let results = realmDB.objects(type).filter(filterCondition)
+        
+        var res: [T] = []
+        
+        for result in results {
+            res.append(result)
+        }
+        
+        return res
+        
+    }
+    
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class BrowsePlayerViewController: UIViewController {
     
@@ -13,6 +14,12 @@ class BrowsePlayerViewController: UIViewController {
     @IBOutlet weak var searchField: SearchField!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let viewModel = BrowsePlayersViewModel()
+    
+    var playersList: [SquadCollectionCellModel] = []
+    
+    var cancellables: Set<AnyCancellable> = []
     
     var gridLayout : UICollectionViewLayout {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
@@ -23,19 +30,12 @@ class BrowsePlayerViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: horizontalGroup)
         
-//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(80))
-//        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-//
-    
-        //section.boundarySupplementaryItems = [header]
         
         let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
         
         return compositionalLayout
     }
     
-    
-    var playersList: [PlayerRealmModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,17 +44,29 @@ class BrowsePlayerViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
         collectionView.dataSource = self
-       // collectionView.delegate = self
+        // collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
         
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: SquadPlayerCollectionHeaderView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier)
-        playersList = RealmDBManager.shared.read(type: PlayerRealmModel.self).sorted(by: { p1, p2 in
-            //p1.fullname ?? "" < p2.fullname ?? ""
-            guard let p1Name = p1.fullname, let p2Name = p2.fullname else { return false }
-            return p1Name < p2Name
-        })
         
+        searchField.textfield.delegate = self
+        
+        viewModel.getAllPlayers()
+        setupBinders()
+        
+    }
+    
+    func setupBinders() {
+        viewModel.$playerModels.sink {[weak self] players in
+            guard let self = self else {
+                return
+            }
+            self.playersList = players
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }.store(in: &cancellables)
     }
     
     
@@ -72,10 +84,16 @@ extension BrowsePlayerViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquardPlayerCollectionViewCell.identifier, for: indexPath) as! SquardPlayerCollectionViewCell
-        cell.rightTitleLabel.text = playersList[indexPath.row].fullname
-        cell.rightContentLabel.text = playersList[indexPath.row].countryName
+        let model = playersList[indexPath.row]
+        cell.setSquadPlayerCellModel(model: model)
         return cell
     }
     
     
+}
+
+extension BrowsePlayerViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        viewModel.searchPlayers(query: textField.text ?? "")
+    }
 }

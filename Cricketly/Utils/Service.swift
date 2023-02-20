@@ -9,6 +9,10 @@
 import Alamofire
 import Foundation
 
+enum LoadingStatus {
+    case loadingFailed, loading, finished, notStarted
+}
+
 class Service {
     
     enum ServiceError: Error {
