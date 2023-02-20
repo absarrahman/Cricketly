@@ -241,6 +241,7 @@
 				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
 				89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */,
+				89126AA929A37ECF00193073 /* PlayerDetailsViewControllers */,
 				5BBB2EBD299C1D160006A77C /* MatchDetailsViewControllers */,
 				5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */,
 				5BF49A03298CADB90051723E /* HomeViewController.swift */,
@@ -339,6 +340,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		89126AA929A37ECF00193073 /* PlayerDetailsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				89ACE4E629A348DE008C5AF0 /* PlayerDetailsViewController.swift */,
+				89126AA529A360BB00193073 /* PlayerDetailsInfoViewController.swift */,
+			);
+			path = PlayerDetailsViewControllers;
+			sourceTree = "<group>";
+		};
 		8937157E299F425B006D7FDD /* SquardPlayerCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,9 +385,7 @@
 				5B1544022997675F00DC70CF /* MatchesViewController.xib */,
 				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
 				89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */,
-				89ACE4E629A348DE008C5AF0 /* PlayerDetailsViewController.swift */,
 				89ACE4E729A348DE008C5AF0 /* PlayerDetailsViewController.xib */,
-				89126AA529A360BB00193073 /* PlayerDetailsInfoViewController.swift */,
 				89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */,
 			);
 			path = Screens;
