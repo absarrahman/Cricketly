@@ -362,6 +362,7 @@
 			children = (
 				89ACE4E729A348DE008C5AF0 /* PlayerDetailsViewController.xib */,
 				89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */,
+				89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */,
 			);
 			path = PlayerDetailsViews;
 			sourceTree = "<group>";
@@ -403,7 +404,6 @@
 				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
 				89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */,
 				8930091029A3B4EB0065CE1D /* PlayerDetailsViews */,
-				89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
