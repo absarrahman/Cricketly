@@ -24,21 +24,54 @@ class MatchesViewModel {
             guard let fixtureList = data else { return }
             self.fixtureDataList = fixtureList.compactMap({ model in
                 // TODO: Need cleanup. Create variables for the fields
-                if (type != .recent) {
-                    return FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: model.localteam?.code ?? "N/A", visitorTeamCode: model.visitorteam?.code ?? "N/A", localTeamRun: "", visitorTeamRun: "", localTeamWicket: "", visitorTeamWicket: "", localTeamOver: "", visitorTeamOver: "", matchNote: model.startingAt ?? "N/A", matchType: "\(model.league?.name ?? "N/A") - \(model.season?.name ?? "N/A")", localTeamImageUrl: model.localteam?.imagePath ?? "N/A", visitorTeamImageUrl: model.visitorteam?.imagePath ?? "N/A", isUpcoming: true)
+                switch type {
+                case .live:
+                    return getLiveFixtureModel(model: model)
+                case .recent:
+                    return getRecentFixtureModel(model: model)
+                case .upcoming:
+                    return getUpcomingFixtureModel(model: model)
                 }
-                return FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: model.runs?[0].team?.code ?? "N/A", visitorTeamCode: model.runs?[1].team?.code ?? "N/A", localTeamRun: model.runs?[0].score?.description ?? "N/A", visitorTeamRun: model.runs?[1].score?.description ?? "N/A", localTeamWicket: model.runs?[0].wickets?.description ?? "N/A", visitorTeamWicket: model.runs?[1].wickets?.description ?? "N/A", localTeamOver: model.runs?[0].overs?.description ?? "N/A", visitorTeamOver: model.runs?[1].overs?.description ?? "N/A", matchNote: model.note ?? "N/A", matchType: "\(model.league?.name ?? "N/A") - \(model.season?.name ?? "N/A")", localTeamImageUrl: model.runs?[0].team?.imagePath ?? "N/A", visitorTeamImageUrl: model.runs?[1].team?.imagePath ?? "N/A", isUpcoming: false)
             })
         case .failure(let error):
             self.error = error.localizedDescription
         }
     }
     
+    func getLiveFixtureModel(model: FixtureModel) -> FixtureCellModel {
+        guard let totalBattingTeamRuns = model.runs, let firstBattingTeamRuns = totalBattingTeamRuns.first else { return getUpcomingFixtureModel(model: model) }
+        
+        // Only first batting team ongoing (1st Innings)
+        if (totalBattingTeamRuns.first?.teamID == totalBattingTeamRuns.last?.teamID) {
+            return FixtureCellModel(id: model.id ?? -1, isLive: true, localTeamCode: firstBattingTeamRuns.team?.code ?? "N/A", visitorTeamCode: getVisitorTeamCode(battingTeam: firstBattingTeamRuns.team, localTeam: model.localteam, visitorTeam: model.visitorteam).code, localTeamRun: firstBattingTeamRuns.score?.description ?? "", visitorTeamRun: "Not started batting yet", localTeamWicket: firstBattingTeamRuns.wickets?.description ?? "", visitorTeamWicket: "", localTeamOver: firstBattingTeamRuns.overs?.description ?? "", visitorTeamOver: "", matchNote: model.note ?? "", matchType: model.type ?? "", localTeamImageUrl: firstBattingTeamRuns.team?.imagePath ?? "", visitorTeamImageUrl: getVisitorTeamCode(battingTeam: firstBattingTeamRuns.team, localTeam: model.localteam, visitorTeam: model.visitorteam).imgUrl, isUpcoming: false)
+        }
+        // Second innings
+        return FixtureCellModel(id: model.id ?? -1, isLive: true, localTeamCode: firstBattingTeamRuns.team?.code ?? "N/A", visitorTeamCode: totalBattingTeamRuns.last?.team?.code ?? "", localTeamRun: firstBattingTeamRuns.score?.description ?? "", visitorTeamRun: totalBattingTeamRuns.last?.score?.description ?? "", localTeamWicket: firstBattingTeamRuns.wickets?.description ?? "", visitorTeamWicket: totalBattingTeamRuns.last?.wickets?.description ?? "", localTeamOver: firstBattingTeamRuns.overs?.description ?? "", visitorTeamOver: totalBattingTeamRuns.last?.overs?.description ?? "", matchNote: model.note ?? "", matchType: model.type ?? "", localTeamImageUrl: firstBattingTeamRuns.team?.imagePath ?? "", visitorTeamImageUrl: totalBattingTeamRuns.last?.team?.imagePath ?? "", isUpcoming: false)
+    }
+    
+    func getVisitorTeamCode(battingTeam: Team?, localTeam: Team?, visitorTeam: Team?) -> (code: String, imgUrl: String) {
+        guard let battingTeam = battingTeam, let localTeam = localTeam, let visitorTeam = visitorTeam else { return ("N/A","") }
+        
+        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.code ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.code ?? ""),"")
+    }
+    
+    
+    func getUpcomingFixtureModel(model: FixtureModel) -> FixtureCellModel {
+        FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: model.localteam?.code ?? "N/A", visitorTeamCode: model.visitorteam?.code ?? "N/A", localTeamRun: "", visitorTeamRun: "", localTeamWicket: "", visitorTeamWicket: "", localTeamOver: "", visitorTeamOver: "", matchNote: model.startingAt ?? "N/A", matchType: "\(model.league?.name ?? "N/A") - \(model.season?.name ?? "N/A")", localTeamImageUrl: model.localteam?.imagePath ?? "N/A", visitorTeamImageUrl: model.visitorteam?.imagePath ?? "N/A", isUpcoming: true)
+    }
+    
+    func getRecentFixtureModel(model: FixtureModel) -> FixtureCellModel {
+        FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: model.runs?[0].team?.code ?? "N/A", visitorTeamCode: model.runs?[1].team?.code ?? "N/A", localTeamRun: model.runs?[0].score?.description ?? "N/A", visitorTeamRun: model.runs?[1].score?.description ?? "N/A", localTeamWicket: model.runs?[0].wickets?.description ?? "N/A", visitorTeamWicket: model.runs?[1].wickets?.description ?? "N/A", localTeamOver: model.runs?[0].overs?.description ?? "N/A", visitorTeamOver: model.runs?[1].overs?.description ?? "N/A", matchNote: model.note ?? "N/A", matchType: "\(model.league?.name ?? "N/A") - \(model.season?.name ?? "N/A")", localTeamImageUrl: model.runs?[0].team?.imagePath ?? "N/A", visitorTeamImageUrl: model.runs?[1].team?.imagePath ?? "N/A", isUpcoming: false)
+    }
+    
     func fetchFixtureData(for fixtureType: FixtureType) {
         switch fixtureType {
         case .live:
             print("LIVE")
-            fixtureDataList = []
+            Service.shared.getLiveMatch { [weak self] result in
+                guard let self = self else { return }
+                self.setDataBasedOnResult(result, .live)
+            }
         case .upcoming:
             Service.shared.getUpcomingMatchFixture {[weak self] result in
                 

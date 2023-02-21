@@ -144,12 +144,28 @@ class Service {
         
         fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixtureDetailsDataModel, Error>) in
             switch result {
-            case .failure(let error):
-                debugPrint(error)
-                completion(.failure(error))
             case .success(let data):
-                //dump(data)
                 completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getLiveMatch(completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.liveEndPoint
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "fields[fixtures]": "id,season_id,round,localteam_id,visitorteam_id,starting_at,league_id,type,status,note,toss_won_team_id,winner_team_id,man_of_match_id,man_of_series_id,elected,total_overs_played",
+            "include": "localteam,visitorteam,runs.team,venue,season,league"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixturesDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
