@@ -19,6 +19,8 @@ struct TeamViewDataModel {
 class MatchDetailsViewModel {
     var venueImageUrl: String?
     
+    var matchStatus: Status = .ns
+    
     // INFO
     var seriesInfoCellDataList: [MatchInfoTableViewCellModel] = []
     var venueInfoCellDataList: [MatchInfoTableViewCellModel] = []
@@ -44,6 +46,20 @@ class MatchDetailsViewModel {
     
     @Published var loadingStatus: LoadingStatus = .notStarted
     
+    func fetchMatchStatusBy(id: Int) {
+        fetchFixtureDetailsFrom(id: id) {[weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let data):
+                self.matchStatus = data?.status ?? .ns
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     private func fetchFixtureDetailsFrom(id: Int, completion: @escaping (Result<FixtureDetailsModel?,Error>) -> ()) {
         
         loadingStatus = .loading
@@ -57,18 +73,21 @@ class MatchDetailsViewModel {
             switch result {
             case .success(let data):
                 self.venueImageUrl = data?.venue?.imagePath
-                let firstTeamBatting = data?.batting?.first { batting in
-                    batting.teamID == data?.runs?.first?.teamID
+                
+                if (data?.runs?.count ?? 0) != 0 {
+                    let firstTeamBatting = data?.batting?.first { batting in
+                        batting.teamID == data?.runs?.first?.teamID
+                    }
+                    let secondTeamBatting = data?.batting?.first { batting in
+                        batting.teamID == data?.runs?.last?.teamID
+                    }
+                    
+                    let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.team?.name ?? "", teamImgUrl: firstTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.team?.code ?? "", teamID: firstTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
+                    
+                    let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
+                    
+                    self.teamModels = [localTeamDataModel, visitorTeamDataModel]
                 }
-                let secondTeamBatting = data?.batting?.first { batting in
-                    batting.teamID == data?.runs?.last?.teamID
-                }
-                
-                let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.team?.name ?? "", teamImgUrl: firstTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.team?.code ?? "", teamID: firstTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
-                
-                let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
-                
-                self.teamModels = [localTeamDataModel, visitorTeamDataModel]
                 
                 completion(.success(data))
                 self.loadingStatus = .finished
