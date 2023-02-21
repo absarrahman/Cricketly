@@ -96,10 +96,21 @@ enum DatumResource: String, Codable {
 
 
 enum Status: String, Codable {
+    case firstInnings = "1st Innings"
+    case secondInnings = "2nd Innings"
+    case thirdInnings = "3rd Innings"
+    case forthInnings = "4th Innings"
     case aban = "Aban."
     case finished = "Finished"
     case ns = "NS"
     case postponed = "Postp."
     case cancelled = "Cancl."
+    case stumpDay1 = "Stump Day 1"
+    case inningsBreak = "Innings Break"
+    case teamBreak = "Tea Break"
+    case lunch = "Lunch"
+    case dinner = "Dinner"
+    case delayed = "Delayed"
+    case interrupted = "Int."
 }
 
