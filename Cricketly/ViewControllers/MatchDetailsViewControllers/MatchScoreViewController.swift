@@ -92,18 +92,26 @@ class MatchScoreViewController: UIViewController {
         
         // Set names
         
-        viewModel.$teamModels.sink {[weak self] models in
+        viewModel.$loadingStatus.sink {[weak self] loadingStatus in
             guard let self = self else {
                 return
             }
-            if (!models.isEmpty) {
-                self.localTeamNameLabel.text = "\(models[0].teamName) \n \(models[0].teamScore)"
-                self.visitorTeamNameLabel.text = "\(models[1].teamName) \n \(models[1].teamScore)"
-            }
-            
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            if (loadingStatus == .finished) {
+                let models = self.viewModel.teamModels
+                if (!models.isEmpty) {
+                    self.localTeamNameLabel.text = "\(models[0].teamName) \n \(models[0].teamScore)"
+                    self.visitorTeamNameLabel.text = "\(models[1].teamName) \n \(models[1].teamScore)"
+                }
+                
+                self.firstTeamBattingCellModels = self.viewModel.firstTeamBattingCellModels
+                self.secondTeamBowlingCellModels = self.viewModel.secondTeamBowlingCellModels
+                
+                self.secondTeamBattingCellModels = self.viewModel.secondTeamBattingCellModels
+                self.firstTeamBowlingCellModels = self.viewModel.firstTeamBowlingCellModels
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }.store(in: &cancellables)
         
@@ -113,50 +121,50 @@ class MatchScoreViewController: UIViewController {
 //            }
 //            self.visitorTeamNameLabel.text = name
 //        }.store(in: &cancellables)
-        
-        
-        // LOCAL TEAM
-        viewModel.$firstTeamBattingCellModels.sink {[weak self] result in
-            guard let self = self else {
-                return
-            }
-            self.firstTeamBattingCellModels = result
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }.store(in: &cancellables)
-        
-        viewModel.$secondTeamBowlingCellModels.sink {[weak self] result in
-            guard let self = self else {
-                return
-            }
-            self.secondTeamBowlingCellModels = result
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }.store(in: &cancellables)
-        
-        // VISITOR TEAM
-        
-        viewModel.$secondTeamBattingCellModels.sink {[weak self] result in
-            guard let self = self else {
-                return
-            }
-            self.secondTeamBattingCellModels = result
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }.store(in: &cancellables)
-        
-        viewModel.$firstTeamBowlingCellModels.sink {[weak self] result in
-            guard let self = self else {
-                return
-            }
-            self.firstTeamBowlingCellModels = result
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }.store(in: &cancellables)
+//
+//
+//        // LOCAL TEAM
+//        viewModel.$firstTeamBattingCellModels.sink {[weak self] result in
+//            guard let self = self else {
+//                return
+//            }
+//            self.firstTeamBattingCellModels = result
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }.store(in: &cancellables)
+//
+//        viewModel.$secondTeamBowlingCellModels.sink {[weak self] result in
+//            guard let self = self else {
+//                return
+//            }
+//            self.secondTeamBowlingCellModels = result
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }.store(in: &cancellables)
+//
+//        // VISITOR TEAM
+//
+//        viewModel.$secondTeamBattingCellModels.sink {[weak self] result in
+//            guard let self = self else {
+//                return
+//            }
+//            self.secondTeamBattingCellModels = result
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }.store(in: &cancellables)
+//
+//        viewModel.$firstTeamBowlingCellModels.sink {[weak self] result in
+//            guard let self = self else {
+//                return
+//            }
+//            self.firstTeamBowlingCellModels = result
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }.store(in: &cancellables)
     }
 
 }

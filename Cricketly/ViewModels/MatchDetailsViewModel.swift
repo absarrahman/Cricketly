@@ -17,33 +17,37 @@ struct TeamViewDataModel {
 }
 
 class MatchDetailsViewModel {
-    @Published var venueImageUrl: String?
+    var venueImageUrl: String?
     
     // INFO
-    @Published var seriesInfoCellDataList: [MatchInfoTableViewCellModel] = []
-    @Published var venueInfoCellDataList: [MatchInfoTableViewCellModel] = []
+    var seriesInfoCellDataList: [MatchInfoTableViewCellModel] = []
+    var venueInfoCellDataList: [MatchInfoTableViewCellModel] = []
     
     // Scoreboard
-    @Published var firstTeamBattingCellModels: [ScoreTableViewCellModel] = []
-    @Published var secondTeamBattingCellModels: [ScoreTableViewCellModel] = []
-    @Published var firstTeamBowlingCellModels: [ScoreTableViewCellModel] = []
-    @Published var secondTeamBowlingCellModels: [ScoreTableViewCellModel] = []
+    var firstTeamBattingCellModels: [ScoreTableViewCellModel] = []
+    var secondTeamBattingCellModels: [ScoreTableViewCellModel] = []
+    var firstTeamBowlingCellModels: [ScoreTableViewCellModel] = []
+    var secondTeamBowlingCellModels: [ScoreTableViewCellModel] = []
     
     
-//    //TEAM NAMES
-//    @Published var localTeamName: String = ""
-//    @Published var visitorTeamName: String = ""
-    @Published var teamModels: [TeamViewDataModel] = []
+    //    //TEAM NAMES
+    //    @Published var localTeamName: String = ""
+    //    @Published var visitorTeamName: String = ""
+    var teamModels: [TeamViewDataModel] = []
     
     
     // SQUAD
-    @Published var localTeamSquadCellModels: [SquadCollectionCellModel] = []
-    @Published var visitorTeamSquadCellModels: [SquadCollectionCellModel] = []
+    var localTeamSquadCellModels: [SquadCollectionCellModel] = []
+    var visitorTeamSquadCellModels: [SquadCollectionCellModel] = []
     
     @Published var error: Error?
     
+    @Published var loadingStatus: LoadingStatus = .notStarted
     
     private func fetchFixtureDetailsFrom(id: Int, completion: @escaping (Result<FixtureDetailsModel?,Error>) -> ()) {
+        
+        loadingStatus = .loading
+        
         Service.shared.getFixtureById(id: id) {[weak self] result in
             
             guard let self = self else {
@@ -53,10 +57,26 @@ class MatchDetailsViewModel {
             switch result {
             case .success(let data):
                 self.venueImageUrl = data?.venue?.imagePath
+                let firstTeamBatting = data?.batting?.first { batting in
+                    batting.teamID == data?.runs?.first?.teamID
+                }
+                let secondTeamBatting = data?.batting?.first { batting in
+                    batting.teamID == data?.runs?.last?.teamID
+                }
+                
+                let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.team?.name ?? "", teamImgUrl: firstTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.team?.code ?? "", teamID: firstTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
+                
+                let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
+                
+                self.teamModels = [localTeamDataModel, visitorTeamDataModel]
+                
                 completion(.success(data))
+                self.loadingStatus = .finished
+                print("DONE")
             case .failure(let error):
                 print("ERROR OCCURRED \(error)")
                 completion(.failure(error))
+                self.loadingStatus = .loadingFailed
             }
             
         }
@@ -161,27 +181,19 @@ class MatchDetailsViewModel {
     }
     
     func fetchMatchScore(id: Int) {
+        
         fetchFixtureDetailsFrom(id: id) {[weak self] result in
             guard let self = self else {
                 return
             }
             switch result {
             case .success(let data):
-                print(data?.batting)
                 let firstTeamBatting = data?.batting?.filter({ batting in
                     batting.teamID == data?.runs?.first?.teamID
                 })
                 let secondTeamBatting = data?.batting?.filter({ batting in
                     batting.teamID == data?.runs?.last?.teamID
                 })
-                
-                let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.first?.team?.name ?? "", teamImgUrl: firstTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.first?.team?.code ?? "", teamID: firstTeamBatting?.first?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
-                
-                let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.first?.team?.name ?? "", teamImgUrl: secondTeamBatting?.first?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.first?.team?.code ?? "", teamID: secondTeamBatting?.first?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
-                self.teamModels = [localTeamDataModel, visitorTeamDataModel]
-//                self.localTeamName = "\(firstTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "")"
-//                self.visitorTeamName = "\(secondTeamBatting?.first?.team?.name ?? "") \n \(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "")"
-//                print(firstTeamBatting?.count,secondTeamBatting?.count)
                 
                 // last batting == first bowling
                 let firstTeamBowling = data?.bowling?.filter({ bowling in
@@ -194,13 +206,20 @@ class MatchDetailsViewModel {
                 
                 self.generateScoreBoard(firstTeamBatting, secondTeamBatting, firstTeamBowling, secondTeamBowling)
                 
-//                let firstTeamBatting = data?.batting?.filter({ batting in
-//                    batting.teamID == data?.runs?.first?.teamID
-//                })
-//                let secondTeamBatting = data?.batting?.filter({ batting in
-//                    batting.teamID == data?.runs?.last?.teamID
-//                })
                 
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchSquadDetails(id: Int)  {
+        
+        fetchFixtureDetailsFrom(id: id) {[weak self] results in
+            guard let self = self else { return }
+            
+            switch results {
+            case .success(let data):
                 let localTeamSquad = data?.lineup?.filter({ player in
                     player.lineup?.teamID == data?.runs?.first?.teamID
                 })
@@ -216,10 +235,10 @@ class MatchDetailsViewModel {
                 self.visitorTeamSquadCellModels = visitorTeamSquad?.compactMap({ player in
                     SquadCollectionCellModel(id: player.id ?? -1, name: player.lastname ?? "", position: player.position?.name?.rawValue ?? "", isCaptain: player.lineup?.captain ?? false, isWicketKeeper: player.lineup?.wicketkeeper ?? false, imageUrl: player.imagePath ?? "")
                 }) ?? []
-                
             case .failure(let error):
                 print(error)
             }
+            
         }
     }
     

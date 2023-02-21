@@ -55,46 +55,27 @@ class MatchSquadViewController: UIViewController {
         
         parentVC = self.parent as? MatchDetailsViewController
         print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
-        viewModel.fetchMatchScore(id: parentVC.selectedFixtureId ?? -1)
+        viewModel.fetchSquadDetails(id: parentVC.selectedFixtureId ?? -1)
         setupBinders()
     }
     
     func setupBinders() {
-        viewModel.$localTeamSquadCellModels.sink {[weak self] squad in
-            guard let self = self else {
-                return
-            }
-            self.localTeamSquadCellModels = squad
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-            
-        }.store(in: &cancellables)
         
-        viewModel.$visitorTeamSquadCellModels.sink {[weak self] squad in
+        viewModel.$loadingStatus.sink {[weak self] loadingStatus in
+            
             guard let self = self else {
                 return
             }
             
-            self.visitorTeamSquadCellModels = squad
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }.store(in: &cancellables)
-        
-        viewModel.$teamModels.sink {[weak self] models in
-            guard let self = self else {
-                return
-            }
-            if (!models.isEmpty) {
-                self.teamModels = models
+            if (loadingStatus == .finished) {
+                self.localTeamSquadCellModels = self.viewModel.localTeamSquadCellModels
+                self.visitorTeamSquadCellModels = self.viewModel.visitorTeamSquadCellModels
+                self.teamModels = self.viewModel.teamModels
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
             
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
         }.store(in: &cancellables)
     }
     

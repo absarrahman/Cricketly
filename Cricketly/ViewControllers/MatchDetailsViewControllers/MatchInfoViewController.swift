@@ -38,34 +38,14 @@ class MatchInfoViewController: UIViewController {
 
     
     func setupBinders() {
-        viewModel.$venueImageUrl.sink { [weak self] result in
+        viewModel.$loadingStatus.sink { [weak self] loadingStatus in
             guard let self = self else {
                 return
             }
             
-            self.parentVC.backgroundImageView.sd_setImage(with: URL(string: result ?? ""), placeholderImage: UIImage(named: "placeholderImage"),options: .progressiveLoad)
-        }.store(in: &cancellables)
-        
-        viewModel.$seriesInfoCellDataList.sink { [weak self] result in
-            
-            guard let self = self else {
-                return
-            }
-            
-            self.seriesCellList = result
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-        }.store(in: &cancellables)
-        
-        viewModel.$venueInfoCellDataList.sink { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            
-            self.venueCellList = result
+            self.parentVC.backgroundImageView.sd_setImage(with: URL(string: self.viewModel.venueImageUrl ?? ""), placeholderImage: UIImage(named: "placeholderImage"),options: .progressiveLoad)
+            self.seriesCellList = self.viewModel.seriesInfoCellDataList
+            self.venueCellList = self.viewModel.venueInfoCellDataList
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
