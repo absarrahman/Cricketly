@@ -351,6 +351,7 @@ class Team: Codable {
     let updatedAt: String?
     let seasonID: Int?
     let type: String?
+    let results: [FixtureDetailsModel]?
 
     enum CodingKeys: String, CodingKey {
         case resource, id, name, code
@@ -359,10 +360,10 @@ class Team: Codable {
         case nationalTeam = "national_team"
         case updatedAt = "updated_at"
         case seasonID = "season_id"
-        case type
+        case type, results
     }
 
-    init(resource: LeagueResource?, id: Int?, name: String?, code: String?, imagePath: String?, countryID: Int?, nationalTeam: Bool?, updatedAt: String?, seasonID: Int?, type: String?) {
+    init(resource: LeagueResource?, id: Int?, name: String?, code: String?, imagePath: String?, countryID: Int?, nationalTeam: Bool?, updatedAt: String?, seasonID: Int?, type: String?, results: [FixtureDetailsModel]) {
         self.resource = resource
         self.id = id
         self.name = name
@@ -373,6 +374,7 @@ class Team: Codable {
         self.updatedAt = updatedAt
         self.seasonID = seasonID
         self.type = type
+        self.results = results
     }
 }
 

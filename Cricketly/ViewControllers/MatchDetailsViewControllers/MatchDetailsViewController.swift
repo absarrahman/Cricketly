@@ -20,6 +20,7 @@ class MatchDetailsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var winningPercentageLabel: UILabel!
     
     @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
     
@@ -87,6 +88,14 @@ class MatchDetailsViewController: UIViewController {
                 self.view.isUserInteractionEnabled = true
             }
             
+        }.store(in: &cancellables)
+        
+        viewModel.$winningString.sink {[weak self] winningValue in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.winningPercentageLabel.text = winningValue
+            }
         }.store(in: &cancellables)
     }
 }

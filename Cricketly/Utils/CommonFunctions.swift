@@ -52,7 +52,7 @@ class CommonFunctions {
     static func getNextUpcomingDate() -> String{
         let today = Date()
         print(today)
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 60, to: today)!
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let dateString = df.string(from: modifiedDate)
@@ -60,12 +60,12 @@ class CommonFunctions {
         return dateString
     }
     
-    static func getPreviousDate() -> String{
+    static func getPreviousDate() -> String {
         let today = Date()
         print(today)
 //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
         
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: -20, to: today)!
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: -60, to: today)!
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let dateString = df.string(from: modifiedDate)
@@ -84,7 +84,8 @@ class CommonFunctions {
         return formattedTime.year?.description
     }
     
-    static func calculateWinningPercentage(winCount: Double, tiesCount: Double, totalGames: Double) -> Double{
-        (winCount + (0.5 * tiesCount)) / totalGames
+    static func calculateWinningPercentage(winCount: Int?, tiesCount: Int?, totalGames: Int?) -> Double {
+        guard let winCount = winCount, let tiesCount = tiesCount, let totalGames = totalGames else { return 0 }
+        return ((Double(winCount) + (0.5 * Double(tiesCount))) / Double(totalGames))
     }
 }

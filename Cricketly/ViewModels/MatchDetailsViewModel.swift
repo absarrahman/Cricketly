@@ -48,6 +48,29 @@ class MatchDetailsViewModel {
     
     @Published var loadingStatus: LoadingStatus = .notStarted
     
+    @Published var winningString = ""
+    
+//    func fetchWinningPercentage(id: Int, seasonId: Int, localTeamId: Int, status: Status? = .finished) {
+//        if (status == .ns) {
+//            Service.shared.getFixturePositionBy(seasonId: seasonId) { [weak self] result in
+//                guard let self = self else { return }
+//                switch result {
+//                case .success(let data):
+//                    guard let data = data else { return }
+//                    let standingTeam = data.first { standingTeam in
+//                        standingTeam.teamID == localTeamId
+//                    }
+//                    pri
+//                    let winningPercentageOfStandingTeam = CommonFunctions.calculateWinningPercentage(winCount: standingTeam?.won, tiesCount: standingTeam?.draw, totalGames: standingTeam?.played)
+//                    guard let standingTeamName = standingTeam?.team?.name else { return }
+//                    self.winningString = "\(standingTeamName) has winning chance of \(winningPercentageOfStandingTeam)"
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//        }
+//    }
+    
     func fetchMatchStatusBy(id: Int) {
         fetchFixtureDetailsFrom(id: id) {[weak self] result in
             
@@ -56,8 +79,39 @@ class MatchDetailsViewModel {
             switch result {
             case .success(let data):
                 guard let data = data, let runs = data.runs, let lineup = data.lineup else { return }
+                
                 self.isSquadAvailable = !lineup.isEmpty
                 self.isScoreboardAvailable = !runs.isEmpty
+                
+                // NS
+                guard let localTeamResults = data.localteam?.results, let visitorTeamResults = data.visitorteam?.results else { return }
+                if ((runs.isEmpty) && (!localTeamResults.isEmpty) && (!visitorTeamResults.isEmpty)) {
+                    let localTeamWinningCount = localTeamResults.reduce(0, { partialResult, fixtureModel in
+                        (fixtureModel.winnerTeamID == data.localteamID) ? partialResult + 1 : partialResult + 0
+                    })
+                    print(localTeamWinningCount, localTeamResults.count)
+                    
+                    let visitorTeamWinningCount = visitorTeamResults.reduce(0, { partialResult, fixtureModel in
+                        (fixtureModel.winnerTeamID == data.visitorteamID) ? partialResult + 1 : partialResult + 0
+                    })
+                    
+                    print(visitorTeamWinningCount, visitorTeamResults.count)
+                    
+                    let localTeamInitialPercentage = CommonFunctions.calculateWinningPercentage(winCount: localTeamWinningCount, tiesCount: 0, totalGames: localTeamResults.count)
+                    
+                    let visitorTeamInitialPercentage = CommonFunctions.calculateWinningPercentage(winCount: visitorTeamWinningCount, tiesCount: 0, totalGames: visitorTeamResults.count)
+                    
+                    let sum = localTeamInitialPercentage + visitorTeamInitialPercentage
+                    
+                    let localTeamFinalPercentage = localTeamInitialPercentage / sum
+                    
+                    //let visitorTeamFinalPercentage = visitorTeamInitialPercentage / sum
+                    
+                    self.winningString = "\(data.localteam?.name ?? "") has a winning chance of \(localTeamFinalPercentage.rounded(decimalPoint: 2) * 100)%"
+                    
+                    
+                }
+                
             case .failure(let error):
                 print(error)
             }

@@ -44,6 +44,7 @@ class Service {
         
         sessionManager.request(endpoint,parameters: parameters).validate().response { responseData in
             print("RESPONSE DATA IS \(responseData)")
+            print(responseData.request?.url)
             guard let data = responseData.data else {
                 completion(.failure(ServiceError.noDataError))
                 return
@@ -103,8 +104,8 @@ class Service {
         }
     }
     
-    func getFixturePositionBy(id: Int, completion: @escaping (Result<([StandingModel]?), Error>) -> ()) {
-        let endpoint = APIEndPoints.getStandingEndpointBased(on: id)
+    func getFixturePositionBy(seasonId: Int, completion: @escaping (Result<([StandingModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.getStandingEndpointBased(on: seasonId)
         let parameters = [
             "api_token": Secrets.apiKey,
             "include": "position"
@@ -147,7 +148,7 @@ class Service {
         let endpoint = APIEndPoints.getFixtureEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,
-            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam,batting.result"
+            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam,batting.result,localteam.results,visitorteam.results"
         ]
         
         fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixtureDetailsDataModel, Error>) in

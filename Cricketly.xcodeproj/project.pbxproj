@@ -32,6 +32,7 @@
 		5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */; };
 		5B21EB98299A4C95005EF98C /* MatchInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */; };
 		5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */; };
+		5B5359BC29A668A500F1B8DB /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5359BB29A668A500F1B8DB /* DoubleExtension.swift */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
 		5B7B825C298CAABD00A6BDA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */; };
@@ -106,6 +107,7 @@
 		5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailsViewController.xib; sourceTree = "<group>"; };
 		5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoTableViewCell.swift; sourceTree = "<group>"; };
 		5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchInfoTableViewCell.xib; sourceTree = "<group>"; };
+		5B5359BB29A668A500F1B8DB /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		5B7B825A298CAABD00A6BDA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				5BF01B95299C1787005DF5E9 /* UIViewControllerExtension.swift */,
 				8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */,
 				89B6E6B629A0D71000F50503 /* RealmDBManager.swift */,
+				5B5359BB29A668A500F1B8DB /* DoubleExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				5B08BD1A298CD7620012690C /* CommonFunctions.swift in Sources */,
 				5B21EB94299A37F9005EF98C /* MatchDetailsViewController.swift in Sources */,
 				5B21EB822999DA3A005EF98C /* Secrets+Endpoints.swift in Sources */,
+				5B5359BC29A668A500F1B8DB /* DoubleExtension.swift in Sources */,
 				892892FA29A5F4B000D839F7 /* StandingsModel.swift in Sources */,
 				89371581299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.swift in Sources */,
 				5B21EB91299A0DC7005EF98C /* MatchesViewModel.swift in Sources */,
