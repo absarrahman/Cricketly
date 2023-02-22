@@ -89,27 +89,36 @@ class Service {
             "api_token": Secrets.apiKey,
             "include": "country,career,career.season,teams,currentteams"
         ]
-        sessionManager.request(endpoint,parameters: parameters).validate().response { responseData in
-            print("RESPONSE DATA IS \(responseData)")
-            guard let data = responseData.data else {
-                return
-            }
+        
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) {  (result: Result<PlayerDetailsDataModel, Error>) in
             
-            do {
-                let playerData = try JSONDecoder().decode(PlayerDetailsDataModel.self, from: data)
-                
-                //dump(dictionary)
-                print(playerData.data!.fullname)
-                //print(playerData.data![0].fullname)
-                completion(.success(playerData.data))
-                
-            } catch {
-                print("Error occurred \(error)")
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
                 completion(.failure(error))
             }
             
-            
         }
+    }
+    
+    func getFixturePositionBy(id: Int, completion: @escaping (Result<([StandingModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.getStandingEndpointBased(on: id)
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "include": "position"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<StandingsDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    
     }
     
     func getAllFixtures(startDate: String, endDate: String, isRecent: Bool = false, completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {

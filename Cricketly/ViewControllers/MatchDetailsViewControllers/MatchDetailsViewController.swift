@@ -71,6 +71,7 @@ class MatchDetailsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         viewModel.fetchMatchStatusBy(id: selectedFixtureId ?? -1)
+        setupBinders()
         
     }
     

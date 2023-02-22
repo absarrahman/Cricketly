@@ -18,6 +18,7 @@ class APIEndPoints {
     static let playersEndPoint = "\(Secrets.baseUrl)/players"
     static let fixturesEndPoint = "\(Secrets.baseUrl)/fixtures"
     static let liveEndPoint = "\(Secrets.baseUrl)/livescores"
+    static let standingsEndPoint = "\(Secrets.baseUrl)/standings"
     static let apiToken = "api_token=\(Secrets.apiKey)"
     
     
@@ -29,4 +30,7 @@ class APIEndPoints {
         "\(fixturesEndPoint)/\(id)"
     }
     
+    static func getStandingEndpointBased(on id: Int) -> String {
+        "\(standingsEndPoint)/\(id)"
+    }
 }
