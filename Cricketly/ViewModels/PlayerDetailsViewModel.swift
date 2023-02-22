@@ -53,17 +53,17 @@ class PlayerDetailsViewModel {
                 guard let data = data else { return }
                 self.personalInfoCellsModel = [
                     // BORN
-                    MatchInfoTableViewCellModel(title: "Born", content: data.dateofbirth ?? ""),
+                    MatchInfoTableViewCellModel(title: "Born", content: data.dateofbirth ?? "N/A"),
                     // Nickname
-                    MatchInfoTableViewCellModel(title: "Nickname", content: data.lastname ?? ""),
+                    MatchInfoTableViewCellModel(title: "Nickname", content: data.lastname ?? "N/A"),
                     // ROLE
-                    MatchInfoTableViewCellModel(title: "Role", content: data.position?.name?.rawValue ?? ""),
+                    MatchInfoTableViewCellModel(title: "Role", content: data.position?.name?.rawValue ?? "N/A"),
                     
                     //Batting style
-                    MatchInfoTableViewCellModel(title: "Batting Style", content: data.battingstyle?.capitalized ?? ""),
+                    MatchInfoTableViewCellModel(title: "Batting Style", content: data.battingstyle?.capitalized ?? "N/A"),
                     
                     //Bowling Style
-                    MatchInfoTableViewCellModel(title: "Bowling Style", content: data.bowlingstyle?.capitalized ?? "")
+                    MatchInfoTableViewCellModel(title: "Bowling Style", content: data.bowlingstyle?.capitalized ?? "N/A")
                     
                 ]
                 self.loadStatus = .finished
