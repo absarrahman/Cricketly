@@ -20,6 +20,8 @@ class MatchDetailsViewModel {
     var venueImageUrl: String?
     
     var matchStatus: Status = .ns
+    var isSquadAvailable = false
+    var isScoreboardAvailable = false
     
     // INFO
     var seriesInfoCellDataList: [MatchInfoTableViewCellModel] = []
@@ -53,7 +55,9 @@ class MatchDetailsViewModel {
             
             switch result {
             case .success(let data):
-                self.matchStatus = data?.status ?? .ns
+                guard let data = data, let runs = data.runs, let lineup = data.lineup else { return }
+                self.isSquadAvailable = !lineup.isEmpty
+                self.isScoreboardAvailable = !runs.isEmpty
             case .failure(let error):
                 print(error)
             }

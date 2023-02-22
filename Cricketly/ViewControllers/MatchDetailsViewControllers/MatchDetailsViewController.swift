@@ -39,6 +39,8 @@ class MatchDetailsViewController: UIViewController {
     var selectedVC: UIViewController!
     
     var matchStatus: Status = .ns
+    var isSquadAvailable = false
+    var isScordboardAvailable = false
     
     var sectionsMap: [SectionTabs:UIViewController] = [
         .info: MatchInfoViewController(),
@@ -79,7 +81,8 @@ class MatchDetailsViewController: UIViewController {
             guard let self = self else { return }
             
             if status == .finished {
-                self.matchStatus = self.viewModel.matchStatus
+                self.isSquadAvailable = self.viewModel.isSquadAvailable
+                self.isScordboardAvailable = self.viewModel.isScoreboardAvailable
                 self.view.isUserInteractionEnabled = true
             }
             
@@ -110,7 +113,7 @@ extension MatchDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedTab = SectionTabs.allCases[indexPath.row]
         remove(asChildViewController: selectedVC)
-        if (selectedTab == .squad && matchStatus == .ns) {
+        if ((selectedTab == .squad && !isSquadAvailable) || (selectedTab == .scoreboard && !isScordboardAvailable)) {
             addChildVC(MatchSquadNotFoundViewController())
         } else {
             addChildVC(sectionsMap[selectedTab]!)
