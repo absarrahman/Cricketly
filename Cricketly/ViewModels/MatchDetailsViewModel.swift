@@ -160,10 +160,23 @@ class MatchDetailsViewModel {
         }
     }
     
+    fileprivate func getPlayerNoteUsing(batting: Batting) -> String {
+        let result = batting.result?.name ?? ""
+        var catchStumpName = ""
+        var bowlerName = ""
+        if let catchStumpLastName = batting.catchstump?.lastname {
+            catchStumpName = "c \(catchStumpLastName) "
+        }
+        if let bowlerLastName = batting.bowler?.lastname {
+            bowlerName = "b \(bowlerLastName)"
+        }
+        return "\(result)\n\(catchStumpName)\(bowlerName)"
+    }
+    
     fileprivate func generateScoreBoard(_ firstTeamBatting: [Batting]?, _ secondTeamBatting: [Batting]?, _ firstTeamBowling: [Bowling]?, _ secondTeamBowling: [Bowling]?) {
         
         firstTeamBattingCellModels = firstTeamBatting?.compactMap({ batting in
-            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: batting.result?.name ?? "", stackInfos: [
+            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: getPlayerNoteUsing(batting: batting), stackInfos: [
                 batting.score?.description,
                 batting.ball?.description,
                 batting.fourX?.description,
@@ -173,7 +186,7 @@ class MatchDetailsViewModel {
         }) ?? []
         
         secondTeamBattingCellModels = secondTeamBatting?.compactMap({ batting in
-            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: "", stackInfos: [
+            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: getPlayerNoteUsing(batting: batting), stackInfos: [
                 batting.score?.description,
                 batting.ball?.description,
                 batting.fourX?.description,
