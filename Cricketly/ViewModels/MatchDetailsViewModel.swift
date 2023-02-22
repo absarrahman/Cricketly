@@ -50,26 +50,26 @@ class MatchDetailsViewModel {
     
     @Published var winningString = ""
     
-//    func fetchWinningPercentage(id: Int, seasonId: Int, localTeamId: Int, status: Status? = .finished) {
-//        if (status == .ns) {
-//            Service.shared.getFixturePositionBy(seasonId: seasonId) { [weak self] result in
-//                guard let self = self else { return }
-//                switch result {
-//                case .success(let data):
-//                    guard let data = data else { return }
-//                    let standingTeam = data.first { standingTeam in
-//                        standingTeam.teamID == localTeamId
-//                    }
-//                    pri
-//                    let winningPercentageOfStandingTeam = CommonFunctions.calculateWinningPercentage(winCount: standingTeam?.won, tiesCount: standingTeam?.draw, totalGames: standingTeam?.played)
-//                    guard let standingTeamName = standingTeam?.team?.name else { return }
-//                    self.winningString = "\(standingTeamName) has winning chance of \(winningPercentageOfStandingTeam)"
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-//    }
+    //    func fetchWinningPercentage(id: Int, seasonId: Int, localTeamId: Int, status: Status? = .finished) {
+    //        if (status == .ns) {
+    //            Service.shared.getFixturePositionBy(seasonId: seasonId) { [weak self] result in
+    //                guard let self = self else { return }
+    //                switch result {
+    //                case .success(let data):
+    //                    guard let data = data else { return }
+    //                    let standingTeam = data.first { standingTeam in
+    //                        standingTeam.teamID == localTeamId
+    //                    }
+    //                    pri
+    //                    let winningPercentageOfStandingTeam = CommonFunctions.calculateWinningPercentage(winCount: standingTeam?.won, tiesCount: standingTeam?.draw, totalGames: standingTeam?.played)
+    //                    guard let standingTeamName = standingTeam?.team?.name else { return }
+    //                    self.winningString = "\(standingTeamName) has winning chance of \(winningPercentageOfStandingTeam)"
+    //                case .failure(let error):
+    //                    print(error)
+    //                }
+    //            }
+    //        }
+    //    }
     
     func fetchMatchStatusBy(id: Int) {
         fetchFixtureDetailsFrom(id: id) {[weak self] result in
@@ -118,6 +118,12 @@ class MatchDetailsViewModel {
         }
     }
     
+    func getVisitorTeamCode(battingTeam: Team?, localTeam: Team?, visitorTeam: Team?) -> (id: Int, code: String, name: String, imgUrl: String) {
+        guard let battingTeam = battingTeam, let localTeam = localTeam, let visitorTeam = visitorTeam else { return (-1,"N/A","","") }
+        
+        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.id ?? -1),(visitorTeam.code ?? ""),(visitorTeam.imagePath ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.id ?? -1),(localTeam.code ?? ""),(localTeam.name ?? ""),(localTeam.imagePath ?? ""))
+    }
+    
     private func fetchFixtureDetailsFrom(id: Int, completion: @escaping (Result<FixtureDetailsModel?,Error>) -> ()) {
         
         loadingStatus = .loading
@@ -130,19 +136,25 @@ class MatchDetailsViewModel {
             
             switch result {
             case .success(let data):
-                self.venueImageUrl = data?.venue?.imagePath
+                guard let data = data else { return }
+                self.venueImageUrl = data.venue?.imagePath
                 
-                if (data?.runs?.count ?? 0) != 0 {
-                    let firstTeamBatting = data?.batting?.first { batting in
-                        batting.teamID == data?.runs?.first?.teamID
+                if let firstTeamRuns = data.runs?.first, let lastTeamRuns = data.runs?.last {
+                    let firstTeamBatting = data.batting?.first { batting in
+                        batting.teamID == data.runs?.first?.teamID
                     }
-                    let secondTeamBatting = data?.batting?.first { batting in
-                        batting.teamID == data?.runs?.last?.teamID
+                    let secondTeamBatting = data.batting?.first { batting in
+                        batting.teamID == data.runs?.last?.teamID
                     }
                     
-                    let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.team?.name ?? "", teamImgUrl: firstTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[0].score?.description ?? "")-\(data?.runs?[0].wickets?.description ?? "") \n \(data?.runs?[0].overs?.description ?? "")", teamCode: firstTeamBatting?.team?.code ?? "", teamID: firstTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
+                    let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.team?.name ?? "", teamImgUrl: firstTeamBatting?.team?.imagePath ?? "", teamScore: "\(firstTeamRuns.score?.description ?? "")-\(firstTeamRuns.wickets?.description ?? "") \n \(firstTeamRuns.overs?.description ?? "")", teamCode: firstTeamBatting?.team?.code ?? "", teamID: firstTeamBatting?.team?.id ?? -1, matchStatus: data.status?.rawValue ?? "")
                     
-                    let visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(data?.runs?[1].score?.description ?? "")-\(data?.runs?[1].wickets?.description ?? "") \n \(data?.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data?.status?.rawValue ?? "")
+                    var visitorTeamDataModel = TeamViewDataModel(teamName: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).name, teamImgUrl: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).imgUrl, teamScore: "", teamCode: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).code, teamID: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).id, matchStatus: data.status?.rawValue ?? "")
+                    
+                    if ((data.runs?.first?.teamID ?? -1) != (data.runs?.last?.teamID ?? -1)) {
+                        visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(data.runs?[1].score?.description ?? "")-\(data.runs?[1].wickets?.description ?? "") \n \(data.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data.status?.rawValue ?? "")
+                    }
+                    
                     
                     self.teamModels = [localTeamDataModel, visitorTeamDataModel]
                 }

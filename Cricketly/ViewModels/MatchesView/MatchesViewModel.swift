@@ -52,7 +52,7 @@ class MatchesViewModel {
     func getVisitorTeamCode(battingTeam: Team?, localTeam: Team?, visitorTeam: Team?) -> (code: String, imgUrl: String) {
         guard let battingTeam = battingTeam, let localTeam = localTeam, let visitorTeam = visitorTeam else { return ("N/A","") }
         
-        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.code ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.code ?? ""),"")
+        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.code ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.code ?? ""),(localTeam.imagePath ?? ""))
     }
     
     
@@ -61,7 +61,17 @@ class MatchesViewModel {
     }
     
     func getRecentFixtureModel(model: FixtureModel) -> FixtureCellModel {
-        FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: model.runs?[0].team?.code ?? "N/A", visitorTeamCode: model.runs?[1].team?.code ?? "N/A", localTeamRun: model.runs?[0].score?.description ?? "N/A", visitorTeamRun: model.runs?[1].score?.description ?? "N/A", localTeamWicket: model.runs?[0].wickets?.description ?? "N/A", visitorTeamWicket: model.runs?[1].wickets?.description ?? "N/A", localTeamOver: model.runs?[0].overs?.description ?? "N/A", visitorTeamOver: model.runs?[1].overs?.description ?? "N/A", matchNote: model.note ?? "N/A", matchType: "\(model.league?.name ?? "N/A") - \(model.season?.name ?? "N/A")", localTeamImageUrl: model.runs?[0].team?.imagePath ?? "N/A", visitorTeamImageUrl: model.runs?[1].team?.imagePath ?? "N/A", isUpcoming: false)
+        guard let runs = model.runs else { return getUpcomingFixtureModel(model: model) }
+        
+        if (runs.isEmpty) {
+            return getUpcomingFixtureModel(model: model)
+        }
+        
+        // ONLY ONE TEAM PLAYED
+        if (runs.first?.teamID ?? -1 == runs.last?.teamID ?? -1) {
+            return FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: runs.first?.team?.code ?? "N/A", visitorTeamCode: getVisitorTeamCode(battingTeam: runs.first?.team, localTeam: model.localteam, visitorTeam: model.visitorteam).code, localTeamRun: runs.first?.score?.description ?? "", visitorTeamRun: "", localTeamWicket: runs.first?.wickets?.description ?? "", visitorTeamWicket: "", localTeamOver: runs.first?.overs?.description ?? "", visitorTeamOver: "", matchNote: model.note ?? "", matchType: model.type ?? "", localTeamImageUrl: runs.first?.team?.imagePath ?? "", visitorTeamImageUrl: getVisitorTeamCode(battingTeam: runs.first?.team, localTeam: model.localteam, visitorTeam: model.visitorteam).imgUrl, isUpcoming: false)
+        }
+        return FixtureCellModel(id: model.id ?? -1, isLive: false, localTeamCode: model.runs?[0].team?.code ?? "N/A", visitorTeamCode: model.runs?[1].team?.code ?? "N/A", localTeamRun: model.runs?[0].score?.description ?? "N/A", visitorTeamRun: model.runs?[1].score?.description ?? "N/A", localTeamWicket: model.runs?[0].wickets?.description ?? "N/A", visitorTeamWicket: model.runs?[1].wickets?.description ?? "N/A", localTeamOver: model.runs?[0].overs?.description ?? "N/A", visitorTeamOver: model.runs?[1].overs?.description ?? "N/A", matchNote: model.note ?? "N/A", matchType: "\(model.league?.name ?? "N/A") - \(model.season?.name ?? "N/A")", localTeamImageUrl: model.runs?[0].team?.imagePath ?? "N/A", visitorTeamImageUrl: model.runs?[1].team?.imagePath ?? "N/A", isUpcoming: false)
     }
     
     func fetchFixtureData(for fixtureType: FixtureType) {

@@ -260,6 +260,7 @@
 			children = (
 				89B6E6AF29A0B36600F50503 /* BrowsePlayerViewController.swift */,
 				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
+				5BFCAFC229A528430010F71D /* MatchSquadNotFoundViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
 				89B6E6A529A0881D00F50503 /* MoreTabViewController.swift */,
 				89126AA929A37ECF00193073 /* PlayerDetailsViewControllers */,
@@ -341,7 +342,6 @@
 				5BF01B98299C194C005DF5E9 /* MatchInfoViewController.xib */,
 				89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */,
 				5B076171299EB680007108DA /* MatchSquadViewController.xib */,
-				5BFCAFC229A528430010F71D /* MatchSquadNotFoundViewController.swift */,
 				5BFCAFC329A528430010F71D /* MatchSquadNotFoundViewController.xib */,
 			);
 			path = MatchDetailsViews;
