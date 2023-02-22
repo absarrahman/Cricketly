@@ -118,11 +118,7 @@ class MatchDetailsViewModel {
         }
     }
     
-    func getVisitorTeamCode(battingTeam: Team?, localTeam: Team?, visitorTeam: Team?) -> (id: Int, code: String, name: String, imgUrl: String) {
-        guard let battingTeam = battingTeam, let localTeam = localTeam, let visitorTeam = visitorTeam else { return (-1,"N/A","","") }
-        
-        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.id ?? -1),(visitorTeam.code ?? ""),(visitorTeam.imagePath ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.id ?? -1),(localTeam.code ?? ""),(localTeam.name ?? ""),(localTeam.imagePath ?? ""))
-    }
+    
     
     private func fetchFixtureDetailsFrom(id: Int, completion: @escaping (Result<FixtureDetailsModel?,Error>) -> ()) {
         
@@ -149,10 +145,10 @@ class MatchDetailsViewModel {
                     
                     let localTeamDataModel = TeamViewDataModel(teamName: firstTeamBatting?.team?.name ?? "", teamImgUrl: firstTeamBatting?.team?.imagePath ?? "", teamScore: "\(firstTeamRuns.score?.description ?? "")-\(firstTeamRuns.wickets?.description ?? "") \n \(firstTeamRuns.overs?.description ?? "")", teamCode: firstTeamBatting?.team?.code ?? "", teamID: firstTeamBatting?.team?.id ?? -1, matchStatus: data.status?.rawValue ?? "")
                     
-                    var visitorTeamDataModel = TeamViewDataModel(teamName: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).name, teamImgUrl: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).imgUrl, teamScore: "", teamCode: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).code, teamID: self.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).id, matchStatus: data.status?.rawValue ?? "")
+                    var visitorTeamDataModel = TeamViewDataModel(teamName: CommonFunctions.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).name, teamImgUrl: CommonFunctions.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).imgUrl, teamScore: "", teamCode: CommonFunctions.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).code, teamID: CommonFunctions.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).id, matchStatus: data.status?.rawValue ?? "")
                     
-                    if ((data.runs?.first?.teamID ?? -1) != (data.runs?.last?.teamID ?? -1)) {
-                        visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(data.runs?[1].score?.description ?? "")-\(data.runs?[1].wickets?.description ?? "") \n \(data.runs?[1].overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data.status?.rawValue ?? "")
+                    if ((firstTeamRuns.teamID ?? -1) != (lastTeamRuns.teamID ?? -1)) {
+                        visitorTeamDataModel = TeamViewDataModel(teamName: secondTeamBatting?.team?.name ?? "", teamImgUrl: secondTeamBatting?.team?.imagePath ?? "", teamScore: "\(lastTeamRuns.score?.description ?? "")-\(lastTeamRuns.wickets?.description ?? "") \n \(lastTeamRuns.overs?.description ?? "")", teamCode: secondTeamBatting?.team?.code ?? "", teamID: secondTeamBatting?.team?.id ?? -1, matchStatus: data.status?.rawValue ?? "")
                     }
                     
                     
@@ -290,23 +286,30 @@ class MatchDetailsViewModel {
             }
             switch result {
             case .success(let data):
-                let firstTeamBatting = data?.batting?.filter({ batting in
-                    batting.teamID == data?.runs?.first?.teamID
-                })
-                let secondTeamBatting = data?.batting?.filter({ batting in
-                    batting.teamID == data?.runs?.last?.teamID
-                })
+                guard let data = data else { return }
+                if let firstTeamRuns = data.runs?.first, let secondTeamRuns = data.runs?.last {
+                    // FIRST INNINGS
+                    let firstTeamBatting = data.batting?.filter({ batting in
+                        batting.teamID == firstTeamRuns.teamID
+                    })
+                    
+                    
+                    // last batting == first bowling
+                    let firstTeamBowling = data.bowling?.filter({ bowling in
+                        firstTeamRuns.teamID != secondTeamRuns.teamID ? bowling.teamID == secondTeamRuns.teamID : bowling.teamID == CommonFunctions.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).id
+                    })
+                    
+                    // SECOND INNINGS
+                    let secondTeamBatting = firstTeamRuns.teamID != secondTeamRuns.teamID ? data.batting?.filter({ batting in
+                        batting.teamID == secondTeamRuns.teamID
+                    }) : []
+                    let secondTeamBowling = firstTeamRuns.teamID != secondTeamRuns.teamID ? data.bowling?.filter({ bowling in
+                        bowling.teamID == firstTeamRuns.teamID
+                    }) : []
+                    
+                    self.generateScoreBoard(firstTeamBatting, secondTeamBatting, firstTeamBowling, secondTeamBowling)
+                }
                 
-                // last batting == first bowling
-                let firstTeamBowling = data?.bowling?.filter({ bowling in
-                    bowling.teamID == data?.runs?.last?.teamID
-                })
-                
-                let secondTeamBowling = data?.bowling?.filter({ bowling in
-                    bowling.teamID == data?.runs?.first?.teamID
-                })
-                
-                self.generateScoreBoard(firstTeamBatting, secondTeamBatting, firstTeamBowling, secondTeamBowling)
                 
                 
             case .failure(let error):
