@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import Combine
 
 class PlayerDetailsCareerViewController: UIViewController {
+    
+    let viewModel = PlayerDetailsViewModel()
+    
+    var cancellables: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let parentVC = parent as! PlayerDetailsViewController
+        viewModel.fetchPlayerCareerInfo(id: parentVC.id)
+        setupBinders()
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupBinders() {
+        viewModel.$loadStatus.sink {[weak self] status in
+            guard let self = self else {
+                return
+            }
+            if (status == .finished) {
+                dump(self.viewModel.careerData)
+            }
+        }.store(in: &cancellables)
     }
-    */
 
 }

@@ -84,7 +84,6 @@ class Service {
     }
     
     func getPlayerById(id: Int, completion: @escaping (Result<(PlayerDetailsModel?), Error>) -> ())  {
-        //?\(apiToken)&include=career
         let endpoint = APIEndPoints.getPlayerEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,

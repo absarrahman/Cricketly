@@ -72,4 +72,15 @@ class CommonFunctions {
         print(dateString)
         return dateString
     }
+    
+    static func getFormattedYear(from timeString: String) -> String? {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        guard let time = formatter.date(from: timeString) else { return nil }
+        
+        
+        let formattedTime = Calendar.current.dateComponents([.year], from: time)
+        
+        return formattedTime.year?.description
+    }
 }
