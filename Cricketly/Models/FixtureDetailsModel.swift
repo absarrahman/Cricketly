@@ -363,7 +363,7 @@ class Team: Codable {
         case type, results
     }
 
-    init(resource: LeagueResource?, id: Int?, name: String?, code: String?, imagePath: String?, countryID: Int?, nationalTeam: Bool?, updatedAt: String?, seasonID: Int?, type: String?, results: [FixtureDetailsModel]) {
+    init(resource: LeagueResource?, id: Int?, name: String?, code: String?, imagePath: String?, countryID: Int?, nationalTeam: Bool?, updatedAt: String?, seasonID: Int?, type: String?, results: [FixtureDetailsModel]?) {
         self.resource = resource
         self.id = id
         self.name = name
