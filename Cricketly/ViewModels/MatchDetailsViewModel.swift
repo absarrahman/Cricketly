@@ -163,7 +163,7 @@ class MatchDetailsViewModel {
     fileprivate func generateScoreBoard(_ firstTeamBatting: [Batting]?, _ secondTeamBatting: [Batting]?, _ firstTeamBowling: [Bowling]?, _ secondTeamBowling: [Bowling]?) {
         
         firstTeamBattingCellModels = firstTeamBatting?.compactMap({ batting in
-            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: "", stackInfos: [
+            ScoreTableViewCellModel(id: batting.playerID ?? -1, imgUrl: batting.batsman?.imagePath ?? "", playerName: batting.batsman?.lastname ?? "", playerNote: batting.result?.name ?? "", stackInfos: [
                 batting.score?.description,
                 batting.ball?.description,
                 batting.fourX?.description,
