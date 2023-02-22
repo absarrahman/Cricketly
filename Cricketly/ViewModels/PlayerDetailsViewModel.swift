@@ -7,21 +7,6 @@
 
 import Foundation
 
-//"matches": 3,
-//                   "overs": 10.5,
-//                   "innings": 3,
-//                   "average": 47.5,
-//                   "econ_rate": 9.05,
-//                   "medians": 0,
-//                   "runs": 95,
-//                   "wickets": 2,
-//                   "wide": 1,
-//                   "noball": 0,
-//                   "strike_rate": 5.25,
-//                   "four_wickets": 0,
-//                   "five_wickets": 0,
-//                   "ten_wickets": 0,
-//                   "rate": 837.9966666666666
 struct BowlingCareerModel {
     let matches: Int
     let overs: Double
@@ -37,13 +22,48 @@ struct BowlingCareerModel {
     let rate: Double
 }
 
+
+//"batting": {
+//                   "matches": 1,
+//                   "innings": 1,
+//                   "runs_scored": 9,
+//                   "not_outs": 0,
+//                   "highest_inning_score": 9,
+//                   "strike_rate": 90,
+//                   "balls_faced": 10,
+//                   "average": 9,
+//                   "four_x": 0,
+//                   "six_x": 0,
+//                   "fow_score": 137,
+//                   "fow_balls": 18.1,
+//                   "hundreds": 0,
+//                   "fifties": 0
+//               },
+
+struct BattingCareerModel {
+    let matches: Int
+    let innings: Int
+    let runsScored: Int
+    let notOuts: Int
+    let highestInningScore: Int
+    let strikeRate: Double
+    let ballsFaced: Int
+    let average: Double
+    let fourX: Int
+    let sixX: Int
+    let hundereds: Int
+    let fifties: Int
+}
+
 struct CareerCollectionCellModel {
     let careerType: String
     let season: String
     let bowlingCareer: BowlingCareerModel
+    let battingCareer: BattingCareerModel
     init(career: Career) {
         self.careerType = career.type ?? ""
         self.bowlingCareer = BowlingCareerModel(matches: Int(career.bowling?["matches"] ?? 0), overs: career.bowling?["overs"] ?? 0, innings: Int(career.bowling?["innings"] ?? 0), average: career.bowling?["average"] ?? 0, econRate: career.bowling?["econ_rate"] ?? 0, medians: Int(career.bowling?["medians"] ?? 0), runs: Int(career.bowling?["runs"] ?? 0), wickets: Int(career.bowling?["wickets"] ?? 0), wide: Int(career.bowling?["wide"] ?? 0), noBall: Int(career.bowling?["noball"] ?? 0), strikeRate: career.bowling?["strike_rate"] ?? 0, rate: career.bowling?["rate"] ?? 0)
+        self.battingCareer = BattingCareerModel(matches: Int(career.batting?["matches"] ?? 0), innings: Int(career.batting?["innings"] ?? 0), runsScored: Int(career.batting?["runs_scored"] ?? 0), notOuts: Int(career.batting?["not_outs"] ?? 0), highestInningScore: Int(career.batting?["highest_inning_score"] ?? 0), strikeRate: career.batting?["strike_rate"] ?? 0, ballsFaced: Int(career.batting?["balls_faced"] ?? 0), average: career.batting?["average"] ?? 0, fourX: Int(career.batting?["four_x"] ?? 0), sixX: Int(career.batting?["six_x"] ?? 0), hundereds: Int(career.batting?["hundreds"] ?? 0), fifties: Int(career.batting?["fifties"] ?? 0))
         self.season = CommonFunctions.getFormattedYear(from: career.updatedAt ?? "") ?? ""
     }
 }
