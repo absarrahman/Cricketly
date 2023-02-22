@@ -83,4 +83,8 @@ class CommonFunctions {
         
         return formattedTime.year?.description
     }
+    
+    static func calculateWinningPercentage(winCount: Double, tiesCount: Double, totalGames: Double) -> Double{
+        (winCount + (0.5 * tiesCount)) / totalGames
+    }
 }
