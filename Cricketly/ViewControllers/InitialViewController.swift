@@ -17,6 +17,16 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.getAllPlayers()
+        NotificationManager.getAllDeliveredNotification { notifications in
+            print("DELIVERED NOTIFICATIONS")
+            dump(notifications)
+        }
+        
+        NotificationManager.getAllPendingNotification { notifications in
+            print("PENDING NOTIFICATIONS")
+            dump(notifications)
+        }
+        
         setupBinders()
         //        let playerList = RealmDBManager.shared.read(type: PlayerRealmModel.self)
         //        print("PLAYER LIST COUNT FROM READ: \(playerList.count)")

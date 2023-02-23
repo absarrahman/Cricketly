@@ -39,7 +39,12 @@ class MatchDetailsViewModel {
     //    @Published var visitorTeamName: String = ""
     var teamModels: [TeamViewDataModel] = []
     
+    // NOTIFICATION SPECIFIC
     @Published var isNotificationAvailable = false
+    
+    var titleText = ""
+    var subtitleText = ""
+    var updatedTime = ""
     
     // SQUAD
     var localTeamSquadCellModels: [SquadCollectionCellModel] = []
@@ -116,6 +121,9 @@ class MatchDetailsViewModel {
                         NotificationManager.checkNotificationExists(id: data.id ?? -1) { exists in
                             self.isNotificationAvailable = !exists
                         }
+                        self.titleText = "Cricketly"
+                        self.subtitleText = "\(data.localteam?.name ?? "N/A") vs \(data.visitorteam?.name ?? "N/A")"
+                        self.updatedTime = data.startingAt ?? ""
                     }
                     
                 }

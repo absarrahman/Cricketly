@@ -86,7 +86,8 @@ class MatchDetailsViewController: UIViewController {
     
     
     @objc func addNotification() {
-        NotificationManager.addNotification(title: "Yeeet", subtitle: "LOL", targetNotificationTime: "2023-02-23T12:16:00.000000Z")
+        NotificationManager.addNotification(id: selectedFixtureId ?? -1,title: viewModel.titleText, subtitle: viewModel.subtitleText, targetNotificationTime: viewModel.updatedTime)
+        rightButton.isHidden = true
     }
     
     func setupBinders()  {
