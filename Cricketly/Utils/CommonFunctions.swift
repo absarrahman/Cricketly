@@ -69,7 +69,7 @@ class CommonFunctions {
     static func getPreviousDate() -> String {
         let today = Date()
         print(today)
-//        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
+        //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
         
         let modifiedDate = Calendar.current.date(byAdding: .day, value: -60, to: today)!
         let df = DateFormatter()
@@ -94,4 +94,19 @@ class CommonFunctions {
         guard let winCount = winCount, let tiesCount = tiesCount, let totalGames = totalGames else { return 0 }
         return ((Double(winCount) + (0.5 * Double(tiesCount))) / Double(totalGames))
     }
+    
+    static func getFormattedDateAndTime(date: Date) -> (date: String, time: String){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        
+        let localizedDateString = dateFormatter.string(from: date)
+        let localizedTimeString = timeFormatter.string(from: date)
+        
+        return (localizedDateString,localizedTimeString)
+    }
+    
+    
 }

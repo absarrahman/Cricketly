@@ -76,6 +76,11 @@ class MatchDetailsViewController: UIViewController {
         
     }
     
+    
+    @IBAction func addNotification(_ sender: UIButton) {
+        //NotificationManager.
+    }
+    
     func setupBinders()  {
         view.isUserInteractionEnabled = false
         viewModel.$loadingStatus.sink {[weak self] status in
@@ -116,6 +121,8 @@ extension MatchDetailsViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    
     
 }
 
