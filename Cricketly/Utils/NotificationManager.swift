@@ -28,6 +28,18 @@ class NotificationManager {
         }
     }
     
+    static func checkNotificationExists(id: Int, completion: @escaping(Bool)->()) {
+        userNotificationCenter.getPendingNotificationRequests { requests in
+            for request in requests {
+                if (request.identifier == id.description) {
+                    completion(true)
+                    return
+                }
+            }
+            completion(false)
+        }
+    }
+    
     static func addNotification(title: String, subtitle: String, targetNotificationTime: String) {
         let content = UNMutableNotificationContent()
         content.title = title
@@ -39,7 +51,7 @@ class NotificationManager {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         guard let time = formatter.date(from: targetNotificationTime) else { return }
-        
+        let fifteenMinsBefore = time.addingTimeInterval(-15 * 60)
         let timeInterval = time.timeIntervalSince(Date())
         print(timeInterval)
         if (timeInterval > 0) {

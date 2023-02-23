@@ -39,6 +39,7 @@ class MatchDetailsViewModel {
     //    @Published var visitorTeamName: String = ""
     var teamModels: [TeamViewDataModel] = []
     
+    @Published var isNotificationAvailable = false
     
     // SQUAD
     var localTeamSquadCellModels: [SquadCollectionCellModel] = []
@@ -109,6 +110,13 @@ class MatchDetailsViewModel {
                     
                     self.winningString = "\(data.localteam?.name ?? "") has a winning chance of \(localTeamFinalPercentage.rounded(decimalPoint: 2) * 100)%"
                     
+                    guard let status = data.status else { return }
+                    
+                    if (status == .ns) {
+                        NotificationManager.checkNotificationExists(id: data.id ?? -1) { exists in
+                            self.isNotificationAvailable = !exists
+                        }
+                    }
                     
                 }
                 

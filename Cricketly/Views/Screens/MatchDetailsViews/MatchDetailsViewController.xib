@@ -30,15 +30,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgf-bP-oZv">
-                    <rect key="frame" x="315.5" y="10" width="49.5" height="34"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="bell.fill" catalog="system"/>
-                    <connections>
-                        <action selector="addNotification:" destination="-1" eventType="touchUpInside" id="e4t-h5-D4L"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjN-xK-rZF">
                     <rect key="frame" x="10" y="20" width="355" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -71,7 +62,6 @@
                 <constraint firstItem="x2x-I0-YbW" firstAttribute="bottom" secondItem="Ude-ip-efg" secondAttribute="bottom" id="4fi-oy-2lX"/>
                 <constraint firstItem="XjN-xK-rZF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Gl-5W-fhW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZJh-0d-nM4" secondAttribute="trailing" id="DpM-kf-OzU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vgf-bP-oZv" secondAttribute="trailing" constant="10" id="FCx-WY-pFd"/>
                 <constraint firstItem="BCX-EG-OnU" firstAttribute="top" secondItem="Ude-ip-efg" secondAttribute="bottom" constant="-20" id="GlN-ht-vR0"/>
                 <constraint firstItem="x2x-I0-YbW" firstAttribute="leading" secondItem="Ude-ip-efg" secondAttribute="leading" id="J0i-YA-5qn"/>
                 <constraint firstItem="x2x-I0-YbW" firstAttribute="top" secondItem="Ude-ip-efg" secondAttribute="top" id="K1q-hW-bzK"/>
@@ -85,13 +75,11 @@
                 <constraint firstItem="XjN-xK-rZF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="iiJ-uM-XUl"/>
                 <constraint firstItem="BCX-EG-OnU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="m00-Zh-T9e"/>
                 <constraint firstItem="Ude-ip-efg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pGN-5N-JZI"/>
-                <constraint firstItem="Vgf-bP-oZv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="tId-WC-89B"/>
             </constraints>
             <point key="canvasLocation" x="-18.399999999999999" y="-13.043478260869566"/>
         </view>
     </objects>
     <resources>
-        <image name="bell.fill" catalog="system" width="123" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

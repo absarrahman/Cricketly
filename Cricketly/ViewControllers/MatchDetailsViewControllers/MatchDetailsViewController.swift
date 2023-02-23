@@ -43,6 +43,8 @@ class MatchDetailsViewController: UIViewController {
     var isSquadAvailable = false
     var isScordboardAvailable = false
     
+    var rightButton: UIBarButtonItem!
+    
     var sectionsMap: [SectionTabs:UIViewController] = [
         .info: MatchInfoViewController(),
         .scoreboard: MatchScoreViewController(),
@@ -56,6 +58,12 @@ class MatchDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rightButton = UIBarButtonItem(image: UIImage(systemName: "bell.fill"), style: .plain, target: self, action: #selector(addNotification))
+        
+        rightButton.isHidden = false
+        navigationItem.rightBarButtonItem = rightButton
+        
         collectionView.layer.cornerRadius = 20
         collectionView.clipsToBounds = true
         collectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -77,7 +85,7 @@ class MatchDetailsViewController: UIViewController {
     }
     
     
-    @IBAction func addNotification(_ sender: UIButton) {
+    @objc func addNotification() {
         NotificationManager.addNotification(title: "Yeeet", subtitle: "LOL", targetNotificationTime: "2023-02-23T12:16:00.000000Z")
     }
     
@@ -102,6 +110,16 @@ class MatchDetailsViewController: UIViewController {
                 self.winningPercentageLabel.text = winningValue
             }
         }.store(in: &cancellables)
+        
+        viewModel.$isNotificationAvailable.sink {[weak self] isAvailable in
+            guard let self = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.rightButton.isHidden = !isAvailable
+            }
+        }.store(in: &cancellables)
+        
     }
 }
 
