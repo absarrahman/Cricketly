@@ -15,13 +15,16 @@ class NotificationManager {
     
     private init() {}
     
-    static func getNotificationPermission(completion: (Bool)->()) {
+    static func getNotificationPermission(completion: @escaping(Bool)->()) {
         userNotificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if success {
-                print("All set!")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
+//            if success {
+//                print("All set!")
+//
+//            } else if let error = error {
+//                print(error.localizedDescription)
+//                completion(false)
+//            }
+            completion(success)
         }
     }
     
@@ -48,25 +51,24 @@ class NotificationManager {
         }
     }
     
-//    static func getAllPendingNotification() {
-//        userNotificationCenter.getPendingNotificationRequests { requests in
-//            let pendingNotificationList: [NotificationModel] = []
-//            for request in requests {
-//                //                print("Title: \(request.content.title)")
-//                //                print("Body: \(request.content.body)")
-//                //                print("Date: \(request.trigger?.nextTriggerDate() ?? Date())")
-//                //                print("Identifier: \(request.identifier)")
-//                //                print("---------------")
-//                //reques
-//                guard  let trigger = request.trigger as? UNCalendarNotificationTrigger,
-//                       let triggerDate = trigger.nextTriggerDate()  else { continue }
-//
-//                let notificationModel = NotificationModel(id: request.identifier, title: request.content.title, subtitle: request.content.subtitle, triggerDate: "\(CommonFunctions.getFormattedDateAndTime(date: triggerDate).date) \(CommonFunctions.getFormattedDateAndTime(date: triggerDate).time)")
-//
-//
-//
-//            }
-//        }
-//    }
+    static func getAllPendingNotification(completion: @escaping([NotificationModel]) -> ()) {
+        userNotificationCenter.getPendingNotificationRequests { requests in
+            var pendingNotificationList: [NotificationModel] = []
+            for request in requests {
+                //                print("Title: \(request.content.title)")
+                //                print("Body: \(request.content.body)")
+                //                print("Date: \(request.trigger?.nextTriggerDate() ?? Date())")
+                //                print("Identifier: \(request.identifier)")
+                //                print("---------------")
+                //reques
+                guard  let trigger = request.trigger as? UNCalendarNotificationTrigger,
+                       let triggerDate = trigger.nextTriggerDate()  else { continue }
+
+                let notificationModel = NotificationModel(id: request.identifier, title: request.content.title, subtitle: request.content.subtitle, triggerDate: "\(CommonFunctions.getFormattedDateAndTime(date: triggerDate).date) \(CommonFunctions.getFormattedDateAndTime(date: triggerDate).time)")
+                pendingNotificationList.append(notificationModel)
+            }
+            completion(pendingNotificationList)
+        }
+    }
 }
 

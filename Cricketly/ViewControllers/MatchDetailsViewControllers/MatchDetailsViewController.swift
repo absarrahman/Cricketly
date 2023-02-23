@@ -78,7 +78,7 @@ class MatchDetailsViewController: UIViewController {
     
     
     @IBAction func addNotification(_ sender: UIButton) {
-        //NotificationManager.
+        NotificationManager.addNotification(title: "Yeeet", subtitle: "LOL", targetNotificationTime: "2023-02-23T12:16:00.000000Z")
     }
     
     func setupBinders()  {

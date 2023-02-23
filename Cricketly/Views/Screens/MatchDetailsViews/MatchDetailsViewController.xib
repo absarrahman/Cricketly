@@ -31,9 +31,10 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgf-bP-oZv">
-                    <rect key="frame" x="290" y="10" width="75" height="35"/>
+                    <rect key="frame" x="315.5" y="10" width="49.5" height="34"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="bell.fill" catalog="system"/>
                     <connections>
                         <action selector="addNotification:" destination="-1" eventType="touchUpInside" id="e4t-h5-D4L"/>
                     </connections>
@@ -90,6 +91,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bell.fill" catalog="system" width="123" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

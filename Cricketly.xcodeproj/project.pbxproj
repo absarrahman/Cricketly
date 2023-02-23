@@ -79,6 +79,7 @@
 		89B6E6B529A0D65600F50503 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 89B6E6B429A0D65600F50503 /* RealmSwift */; };
 		89B6E6B729A0D71000F50503 /* RealmDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6E6B629A0D71000F50503 /* RealmDBManager.swift */; };
 		89E60E1629A77AF000B57C19 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E60E1529A77AF000B57C19 /* NotificationManager.swift */; };
+		89E60E1829A788AB00B57C19 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E60E1729A788AB00B57C19 /* NotificationModel.swift */; };
 		89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */; };
 		89EB9F4229A3814800ED7725 /* PlayerDetailsCareerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */; };
 		89EB9F4429A3847800ED7725 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */; };
@@ -156,6 +157,7 @@
 		89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowsePlayerViewController.xib; sourceTree = "<group>"; };
 		89B6E6B629A0D71000F50503 /* RealmDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBManager.swift; sourceTree = "<group>"; };
 		89E60E1529A77AF000B57C19 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		89E60E1729A788AB00B57C19 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCareerViewController.swift; sourceTree = "<group>"; };
 		89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsCareerViewController.xib; sourceTree = "<group>"; };
 		89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				5B21EB872999DC3B005EF98C /* FixtureModel.swift */,
 				5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */,
 				892892F929A5F4B000D839F7 /* StandingsModel.swift */,
+				89E60E1729A788AB00B57C19 /* NotificationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				8948B8EB299DD26D007AE6E9 /* UIViewExtension.swift in Sources */,
 				89B6E6B129A0B36600F50503 /* BrowsePlayerViewController.swift in Sources */,
 				5BF01B96299C1787005DF5E9 /* UIViewControllerExtension.swift in Sources */,
+				89E60E1829A788AB00B57C19 /* NotificationModel.swift in Sources */,
 				89E60E1629A77AF000B57C19 /* NotificationManager.swift in Sources */,
 				5B7240BD298D153A000DD128 /* SearchField.swift in Sources */,
 				5B9438592996DEE9000D546B /* TabbarController.swift in Sources */,
