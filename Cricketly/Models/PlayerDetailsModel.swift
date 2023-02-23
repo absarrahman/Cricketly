@@ -143,7 +143,7 @@ class Career: Codable {
     let resource: String?
     let type: String?
     let seasonID, playerID: Int?
-    let bowling, batting: [String: Double]?
+    let bowling, batting: [String: Double?]?
     let updatedAt: String?
     let season: Season?
 
@@ -156,7 +156,7 @@ class Career: Codable {
         case season
     }
 
-    init(resource: String?, type: String?, seasonID: Int?, playerID: Int?, bowling: [String: Double]?, batting: [String: Double]?, updatedAt: String?, season: Season?) {
+    init(resource: String?, type: String?, seasonID: Int?, playerID: Int?, bowling: [String: Double?]?, batting: [String: Double?]?, updatedAt: String?, season: Season?) {
         self.resource = resource
         self.type = type
         self.seasonID = seasonID
