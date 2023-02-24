@@ -98,9 +98,11 @@ class CommonFunctions {
     static func getFormattedDateAndTime(date: Date) -> (date: String, time: String){
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
+        dateFormatter.locale = .current
         
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
+        timeFormatter.locale = .current
         
         let localizedDateString = dateFormatter.string(from: date)
         let localizedTimeString = timeFormatter.string(from: date)
