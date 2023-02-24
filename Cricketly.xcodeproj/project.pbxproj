@@ -63,6 +63,8 @@
 		8909589229A8EE6B00F2FCD0 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8909589129A8EE6B00F2FCD0 /* TeamViewModel.swift */; };
 		8909589529A8FB9B00F2FCD0 /* TeamSquadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8909589329A8FB9B00F2FCD0 /* TeamSquadViewController.swift */; };
 		8909589629A8FB9B00F2FCD0 /* TeamSquadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8909589429A8FB9B00F2FCD0 /* TeamSquadViewController.xib */; };
+		8909589929A9030100F2FCD0 /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8909589729A9030100F2FCD0 /* PlayerStatsViewController.swift */; };
+		8909589A29A9030100F2FCD0 /* PlayerStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8909589829A9030100F2FCD0 /* PlayerStatsViewController.xib */; };
 		89126AA729A360BB00193073 /* PlayerDetailsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89126AA529A360BB00193073 /* PlayerDetailsInfoViewController.swift */; };
 		89126AA829A360BB00193073 /* PlayerDetailsInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */; };
 		892892FA29A5F4B000D839F7 /* StandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892892F929A5F4B000D839F7 /* StandingsModel.swift */; };
@@ -156,6 +158,8 @@
 		8909589129A8EE6B00F2FCD0 /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
 		8909589329A8FB9B00F2FCD0 /* TeamSquadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSquadViewController.swift; sourceTree = "<group>"; };
 		8909589429A8FB9B00F2FCD0 /* TeamSquadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamSquadViewController.xib; sourceTree = "<group>"; };
+		8909589729A9030100F2FCD0 /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
+		8909589829A9030100F2FCD0 /* PlayerStatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerStatsViewController.xib; sourceTree = "<group>"; };
 		89126AA529A360BB00193073 /* PlayerDetailsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsInfoViewController.swift; sourceTree = "<group>"; };
 		89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsInfoViewController.xib; sourceTree = "<group>"; };
 		892892F929A5F4B000D839F7 /* StandingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsModel.swift; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 				89ACE4E729A348DE008C5AF0 /* PlayerDetailsViewController.xib */,
 				89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */,
 				89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */,
+				8909589729A9030100F2FCD0 /* PlayerStatsViewController.swift */,
+				8909589829A9030100F2FCD0 /* PlayerStatsViewController.xib */,
 			);
 			path = PlayerDetailsViews;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
 				5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */,
 				8909589029A8E66700F2FCD0 /* TeamsViewController.xib in Resources */,
+				8909589A29A9030100F2FCD0 /* PlayerStatsViewController.xib in Resources */,
 				5B7240BB298D1523000DD128 /* SearchField.xib in Resources */,
 				89B6E6A829A0881D00F50503 /* MoreTabViewController.xib in Resources */,
 			);
@@ -612,6 +619,7 @@
 				895A572D29A84EE50079E549 /* RankingModel.swift in Sources */,
 				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
 				8909589529A8FB9B00F2FCD0 /* TeamSquadViewController.swift in Sources */,
+				8909589929A9030100F2FCD0 /* PlayerStatsViewController.swift in Sources */,
 				89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */,
 				8909588F29A8E66600F2FCD0 /* TeamsViewController.swift in Sources */,
 				89ACE4E829A348DE008C5AF0 /* PlayerDetailsViewController.swift in Sources */,

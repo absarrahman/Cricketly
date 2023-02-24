@@ -33,7 +33,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3q-Cy-Hfk">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3q-Cy-Hfk">
                     <rect key="frame" x="144" y="10" width="87" height="86.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="l3q-Cy-Hfk" secondAttribute="height" multiplier="1:1" id="Vls-gs-aZC"/>
@@ -103,7 +103,7 @@
     <resources>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
         <namedColor name="PrimaryActionColor">
-            <color red="0.0" green="0.0" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10428689403010585" green="0.087439558295701381" blue="0.33053927349321766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

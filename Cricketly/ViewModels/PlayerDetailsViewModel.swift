@@ -78,6 +78,9 @@ class PlayerDetailsViewModel {
     
     var careerData: [CareerCollectionCellModel] = []
     
+    var battingStatCareer: [MatchInfoTableViewCellModel] = []
+    var bowlingStatCareer: [MatchInfoTableViewCellModel] = []
+    
     func fetchPlayerBasicInfo(id: Int) {
         loadStatus = .loading
         Service.shared.getPlayerById(id: id) {[weak self] result in
@@ -156,4 +159,32 @@ class PlayerDetailsViewModel {
         }
         
     }
+    
+    
+    func fetchPlayerStatInfo(id: Int) {
+        loadStatus = .loading
+        
+        Service.shared.getPlayerById(id: id) {[weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let data):
+                guard let data = data else { return }
+                self.careerData = data.career?.compactMap({ career in
+                    CareerCollectionCellModel(career: career)
+                }) ?? []
+                let battingOdiSum = self.careerData.reduce(0) { partialResult, model in
+                    model.careerType.lowercased() == "odi" ? partialResult + model.battingCareer.matches : partialResult + 0
+                }
+                print(battingOdiSum)
+                self.loadStatus = .finished
+            case .failure(let error):
+                print(error)
+                self.loadStatus = .loadingFailed
+            }
+        }
+        
+    }
+    
 }

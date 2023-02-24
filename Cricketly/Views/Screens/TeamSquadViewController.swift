@@ -37,7 +37,7 @@ class TeamSquadViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
-        //collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
         
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
@@ -78,4 +78,12 @@ extension TeamSquadViewController: UICollectionViewDataSource {
     
 }
 
+extension TeamSquadViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = Routes.getViewControllerBy(routeMap: .playerDetailsViewController) as! PlayerDetailsViewController
+        let id = viewModel.teamsData[indexPath.row].id
+        vc.id = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
 

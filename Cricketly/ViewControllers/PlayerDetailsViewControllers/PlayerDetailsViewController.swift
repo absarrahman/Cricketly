@@ -37,7 +37,8 @@ class PlayerDetailsViewController: UIViewController {
     
     var sectionsMap: [PlayerSectionTabs:UIViewController] = [
         .info: PlayerDetailsInfoViewController(),
-        .career: PlayerDetailsCareerViewController()
+        .career: PlayerDetailsCareerViewController(),
+        .stats: PlayerStatsViewController()
     ]
     
     var id = -1
