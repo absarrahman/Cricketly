@@ -107,6 +107,8 @@ enum Status: String, Codable {
     case cancelled = "Cancl."
     case stumpDay1 = "Stump Day 1"
     case stumpDay2 = "Stump Day 2"
+    case stumpDay3 = "Stump Day 3"
+    case stumpDay4 = "Stump Day 4"
     case inningsBreak = "Innings Break"
     case teamBreak = "Tea Break"
     case lunch = "Lunch"
