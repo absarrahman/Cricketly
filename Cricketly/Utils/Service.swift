@@ -161,6 +161,24 @@ class Service {
         }
     }
     
+    func getAllRanking(completion: @escaping (Result<([RankModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.teamRankEndPoint
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "include": "teams"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<RankDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
+    }
+    
     func getLiveMatch(completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
         let endpoint = APIEndPoints.liveEndPoint
         let parameters = [

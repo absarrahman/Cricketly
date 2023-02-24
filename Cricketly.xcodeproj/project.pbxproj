@@ -64,6 +64,10 @@
 		8948B8EB299DD26D007AE6E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */; };
 		8948B8ED299DD997007AE6E9 /* ScoreboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948B8EC299DD997007AE6E9 /* ScoreboardHeaderView.swift */; };
 		8948B8EF299DDA18007AE6E9 /* ScoreboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8948B8EE299DDA18007AE6E9 /* ScoreboardHeaderView.xib */; };
+		895A572A29A84BC60079E549 /* IccRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A572829A84BC60079E549 /* IccRankingViewController.swift */; };
+		895A572B29A84BC60079E549 /* IccRankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895A572929A84BC60079E549 /* IccRankingViewController.xib */; };
+		895A572D29A84EE50079E549 /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A572C29A84EE50079E549 /* RankingModel.swift */; };
+		895A572F29A867C60079E549 /* IccRankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A572E29A867C60079E549 /* IccRankingViewModel.swift */; };
 		89A78836299C751F00B6FE8E /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */; };
 		89A78839299CFC3000B6FE8E /* MatchScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */; };
 		89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */; };
@@ -143,6 +147,10 @@
 		8948B8EA299DD26D007AE6E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8948B8EC299DD997007AE6E9 /* ScoreboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardHeaderView.swift; sourceTree = "<group>"; };
 		8948B8EE299DDA18007AE6E9 /* ScoreboardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreboardHeaderView.xib; sourceTree = "<group>"; };
+		895A572829A84BC60079E549 /* IccRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IccRankingViewController.swift; sourceTree = "<group>"; };
+		895A572929A84BC60079E549 /* IccRankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IccRankingViewController.xib; sourceTree = "<group>"; };
+		895A572C29A84EE50079E549 /* RankingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
+		895A572E29A867C60079E549 /* IccRankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IccRankingViewModel.swift; sourceTree = "<group>"; };
 		89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
 		89A78837299CFC3000B6FE8E /* MatchScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreViewController.swift; sourceTree = "<group>"; };
 		89A78838299CFC3000B6FE8E /* MatchScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchScoreViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +247,7 @@
 				5B21EB892999DC82005EF98C /* FixtureDetailsModel.swift */,
 				892892F929A5F4B000D839F7 /* StandingsModel.swift */,
 				89E60E1729A788AB00B57C19 /* NotificationModel.swift */,
+				895A572C29A84EE50079E549 /* RankingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 				89A78835299C751F00B6FE8E /* MatchDetailsViewModel.swift */,
 				89ACE4E429A307DA008C5AF0 /* BrowsePlayersViewModel.swift */,
 				89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */,
+				895A572E29A867C60079E549 /* IccRankingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -428,6 +438,8 @@
 				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
 				89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */,
 				8930091029A3B4EB0065CE1D /* PlayerDetailsViews */,
+				895A572829A84BC60079E549 /* IccRankingViewController.swift */,
+				895A572929A84BC60079E549 /* IccRankingViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -531,6 +543,7 @@
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
 				5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */,
 				5B076173299EB680007108DA /* MatchSquadViewController.xib in Resources */,
+				895A572B29A84BC60079E549 /* IccRankingViewController.xib in Resources */,
 				5BA44A01299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.xib in Resources */,
 				89B6E6AC29A09CC400F50503 /* MoreTabNavigationTableViewCell.xib in Resources */,
 				8930091429A3B92B0065CE1D /* CareerCollectionViewCell.xib in Resources */,
@@ -554,6 +567,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B154407299773F500DC70CF /* FixturesCollectionViewCell.swift in Sources */,
+				895A572A29A84BC60079E549 /* IccRankingViewController.swift in Sources */,
+				895A572D29A84EE50079E549 /* RankingModel.swift in Sources */,
 				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
 				89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */,
 				89ACE4E829A348DE008C5AF0 /* PlayerDetailsViewController.swift in Sources */,
@@ -583,6 +598,7 @@
 				89126AA729A360BB00193073 /* PlayerDetailsInfoViewController.swift in Sources */,
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
+				895A572F29A867C60079E549 /* IccRankingViewModel.swift in Sources */,
 				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
 				5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */,
 				5BCBF592299D9A9100B770D7 /* ScoreboardTableViewCell.swift in Sources */,

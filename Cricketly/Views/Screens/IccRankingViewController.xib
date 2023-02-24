@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IccRankingViewController" customModule="Cricketly" customModuleProvider="target">
+            <connections>
+                <outlet property="segmentedControl" destination="cyY-Aa-qp2" id="GwE-He-hbv"/>
+                <outlet property="tableView" destination="yGg-ao-x3B" id="NHd-3I-RzA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGZ-Cq-Okq" userLabel="Banner View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ICC Ranking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI3-dv-2Ow">
+                            <rect key="frame" x="10" y="49" width="355" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="PrimaryActionColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="133.5" id="RyJ-jT-6zK"/>
+                        <constraint firstItem="tI3-dv-2Ow" firstAttribute="leading" secondItem="sGZ-Cq-Okq" secondAttribute="leading" constant="10" id="gnC-3g-bxO"/>
+                        <constraint firstItem="tI3-dv-2Ow" firstAttribute="centerY" secondItem="sGZ-Cq-Okq" secondAttribute="centerY" id="jbb-bQ-jqY"/>
+                        <constraint firstAttribute="trailing" secondItem="tI3-dv-2Ow" secondAttribute="trailing" constant="10" id="kt4-6w-Vuc"/>
+                    </constraints>
+                </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cyY-Aa-qp2">
+                    <rect key="frame" x="10" y="143.5" width="355" height="32"/>
+                    <segments>
+                        <segment title="Live"/>
+                        <segment title="Recent"/>
+                        <segment title="Upcoming"/>
+                    </segments>
+                    <color key="selectedSegmentTintColor" name="PrimaryActionColor"/>
+                </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yGg-ao-x3B">
+                    <rect key="frame" x="0.0" y="184.5" width="375" height="482.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="sGZ-Cq-Okq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7WX-mA-3b0"/>
+                <constraint firstAttribute="trailing" secondItem="cyY-Aa-qp2" secondAttribute="trailing" constant="10" id="CG7-tU-Dqb"/>
+                <constraint firstItem="yGg-ao-x3B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jf4-UU-Jww"/>
+                <constraint firstItem="cyY-Aa-qp2" firstAttribute="top" secondItem="sGZ-Cq-Okq" secondAttribute="bottom" constant="10" id="Pzk-95-egg"/>
+                <constraint firstAttribute="bottom" secondItem="yGg-ao-x3B" secondAttribute="bottom" id="Ut4-sJ-eBo"/>
+                <constraint firstItem="cyY-Aa-qp2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="aT9-45-pcK"/>
+                <constraint firstItem="sGZ-Cq-Okq" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="btG-eN-Hlc"/>
+                <constraint firstItem="sGZ-Cq-Okq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mLi-1e-fgr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yGg-ao-x3B" secondAttribute="trailing" id="nzS-eZ-lHk"/>
+                <constraint firstItem="yGg-ao-x3B" firstAttribute="top" secondItem="cyY-Aa-qp2" secondAttribute="bottom" constant="10" id="qzW-UL-tRN"/>
+            </constraints>
+            <point key="canvasLocation" x="58.399999999999999" y="-12.143928035982009"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryActionColor">
+            <color red="0.0" green="0.0" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

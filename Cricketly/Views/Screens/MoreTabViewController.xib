@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2o0-qC-PcR">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-zv-Hix">
-                            <rect key="frame" x="10" y="47.5" width="355" height="36"/>
+                            <rect key="frame" x="10" y="49" width="355" height="36"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -33,12 +33,13 @@
                     <color key="backgroundColor" name="PrimaryActionColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="1hQ-zv-Hix" secondAttribute="trailing" constant="10" id="E5J-bu-84w"/>
+                        <constraint firstAttribute="height" constant="133.5" id="PeK-Pn-3oc"/>
                         <constraint firstItem="1hQ-zv-Hix" firstAttribute="centerY" secondItem="2o0-qC-PcR" secondAttribute="centerY" id="Vmm-5g-N0s"/>
                         <constraint firstItem="1hQ-zv-Hix" firstAttribute="leading" secondItem="2o0-qC-PcR" secondAttribute="leading" constant="10" id="has-v6-dY8"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ygo-GQ-BXO">
-                    <rect key="frame" x="0.0" y="110.5" width="375" height="556.5"/>
+                    <rect key="frame" x="0.0" y="113.5" width="375" height="553.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -47,7 +48,6 @@
             <constraints>
                 <constraint firstItem="2o0-qC-PcR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1SU-yj-tbF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ygo-GQ-BXO" secondAttribute="trailing" id="760-aa-URh"/>
-                <constraint firstItem="2o0-qC-PcR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.196009" id="DlQ-ZM-XuU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2o0-qC-PcR" secondAttribute="trailing" id="KoS-5K-FmF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ygo-GQ-BXO" secondAttribute="bottom" id="RP9-gg-ROU"/>
                 <constraint firstItem="Ygo-GQ-BXO" firstAttribute="top" secondItem="2o0-qC-PcR" secondAttribute="bottom" constant="-20" id="WFz-mw-x0g"/>
@@ -59,7 +59,7 @@
     </objects>
     <resources>
         <namedColor name="PrimaryActionColor">
-            <color red="0.0" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
