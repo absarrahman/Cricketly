@@ -63,7 +63,7 @@ class CommonFunctions {
     static func getVisitorTeamCode(battingTeam: Team?, localTeam: Team?, visitorTeam: Team?) -> (id: Int, code: String, name: String, imgUrl: String) {
         guard let battingTeam = battingTeam, let localTeam = localTeam, let visitorTeam = visitorTeam else { return (-1,"N/A","","") }
         
-        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.id ?? -1),(visitorTeam.code ?? ""),(visitorTeam.imagePath ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.id ?? -1),(localTeam.code ?? ""),(localTeam.name ?? ""),(localTeam.imagePath ?? ""))
+        return (battingTeam.id ?? -1) != (visitorTeam.id ?? -1) ? ((visitorTeam.id ?? -1),(visitorTeam.code ?? ""),(visitorTeam.name ?? ""),(visitorTeam.imagePath ?? "")) : ((localTeam.id ?? -1),(localTeam.code ?? ""),(localTeam.name ?? ""),(localTeam.imagePath ?? ""))
     }
     
     static func getPreviousDate() -> String {
