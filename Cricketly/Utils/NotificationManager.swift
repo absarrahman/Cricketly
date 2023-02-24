@@ -67,14 +67,6 @@ class NotificationManager {
         userNotificationCenter.getPendingNotificationRequests { requests in
             var pendingNotificationList: [NotificationModel] = []
             for request in requests {
-                //                print("Title: \(request.content.title)")
-                //                print("Body: \(request.content.body)")
-                //                print("Date: \(request.trigger?.nextTriggerDate() ?? Date())")
-                //                print("Identifier: \(request.identifier)")
-                //                print("---------------")
-                //reques
-//                guard  let trigger = request.trigger as? UNCalendarNotificationTrigger,
-//                       let triggerDate = trigger.nextTriggerDate()  else { continue }
                 var date = ""
                 if let trigger = request.trigger as? UNTimeIntervalNotificationTrigger {
                     let triggerDate = Date(timeIntervalSinceNow: trigger.timeInterval)
@@ -82,11 +74,6 @@ class NotificationManager {
                     
                 }
                 
-                //print(trigger)
-//                if let trigger = request.trigger as? UNCalendarNotificationTrigger, let triggerDate = trigger.nextTriggerDate() {
-//                    date = "\(CommonFunctions.getFormattedDateAndTime(date: triggerDate).date) \(CommonFunctions.getFormattedDateAndTime(date: triggerDate).time)"
-//                }
-
                 let notificationModel = NotificationModel(id: request.identifier, title: request.content.title, subtitle: request.content.subtitle, triggerDate: date)
                 pendingNotificationList.append(notificationModel)
             }
@@ -98,12 +85,6 @@ class NotificationManager {
         userNotificationCenter.getDeliveredNotifications { requests in
             var deliveredNotificationList: [NotificationModel] = []
             for request in requests {
-                //                print("Title: \(request.content.title)")
-                //                print("Body: \(request.content.body)")
-                //                print("Date: \(request.trigger?.nextTriggerDate() ?? Date())")
-                //                print("Identifier: \(request.identifier)")
-                //                print("---------------")
-                //reques
                 let date = request.date
                 
                 let notificationModel = NotificationModel(id: request.request.identifier, title: request.request.content.title, subtitle: request.request.content.subtitle, triggerDate: "\(CommonFunctions.getFormattedDateAndTime(date: date).date) \(CommonFunctions.getFormattedDateAndTime(date: date).time)")
