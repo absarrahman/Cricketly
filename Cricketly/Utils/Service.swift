@@ -227,8 +227,10 @@ class Service {
     
     func getTeamSquadBasedOn(id: Int, completion: @escaping (Result<(TeamDetailsModel?), Error>)->()) {
         let endpoint = APIEndPoints.getTeamSquadEndpointBased(on: id)
+        //squad
         let parameters = [
             "api_token": Secrets.apiKey,
+            "include": "squad"
         ]
         
         fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<TeamDetailsDataModel, Error>) in
