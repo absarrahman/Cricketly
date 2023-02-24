@@ -9,15 +9,15 @@ import Foundation
 
 // MARK: - TeamDetailsDataModel
 class TeamDetailsDataModel: Codable {
-    let data: DataClass?
+    let data: TeamDetailsModel?
 
-    init(data: DataClass?) {
+    init(data: TeamDetailsModel?) {
         self.data = data
     }
 }
 
 // MARK: - DataClass
-class DataClass: Codable {
+class TeamDetailsModel: Codable {
     let resource: String?
     let id: Int?
     let name, code: String?

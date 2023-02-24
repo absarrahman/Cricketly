@@ -35,4 +35,8 @@ class APIEndPoints {
     static func getStandingEndpointBased(on id: Int) -> String {
         "\(standingsEndPoint)/\(id)"
     }
+    
+    static func getTeamSquadEndpointBased(on id: Int) -> String {
+        "\(teamsEndPoint)/\(id)"
+    }
 }
