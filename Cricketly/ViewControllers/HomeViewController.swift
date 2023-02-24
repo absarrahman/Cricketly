@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
@@ -25,7 +26,10 @@ class HomeViewController: UIViewController {
     
     var lastContentOffset: CGFloat = 0
     
+    var totalFixtureList: [FixtureCellModel] = []
     
+    let viewModel = HomeViewModel()
+    var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,18 +49,61 @@ class HomeViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        viewModel.fetchData()
+        setupBinders()
+    }
+    
+    fileprivate func setDataToList() {
+        self.totalFixtureList = self.viewModel.liveMatches + self.viewModel.upcomingMatches + self.viewModel.recentMatches
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func setupBinders() {
+        viewModel.$isUpcomingLoaded.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                self.setDataToList()
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$isLiveLoaded.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                self.setDataToList()
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$isRecentLoaded.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                self.setDataToList()
+            }
+        }.store(in: &cancellables)
     }
     
 }
 
 extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        totalFixtureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixturesCollectionViewCell.identifier, for: indexPath) as! FixturesCollectionViewCell
-        
+        let model = totalFixtureList[indexPath.row]
+        cell.setup(model: model)
         return cell
     }
 }
