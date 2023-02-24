@@ -114,6 +114,17 @@ extension MatchSquadViewController: UICollectionViewDelegate {
         })
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = Routes.getViewControllerBy(routeMap: .playerDetailsViewController) as! PlayerDetailsViewController
+        
+        let index = Int(indexPath.row / 2)
+        let model = (indexPath.row % 2 == 0) ? localTeamSquadCellModels[index] : visitorTeamSquadCellModels[index]
+        let id = model.id
+        vc.id = id
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier, for: indexPath) as! SquadPlayerCollectionHeaderView
         headerView.setHeaderViewBasedOn(models: teamModels)

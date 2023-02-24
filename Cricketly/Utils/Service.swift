@@ -208,4 +208,21 @@ class Service {
         let endDate = CommonFunctions.getCurrentDate()
         getAllFixtures(startDate: startDate, endDate: endDate, isRecent: true, completion: completion)
     }
+    
+    func getAllTeams(completion: @escaping (Result<([TeamModel]?), Error>)->()) {
+        let endpoint = APIEndPoints.teamsEndPoint
+        let parameters = [
+            "api_token": Secrets.apiKey,
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<TeamDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }

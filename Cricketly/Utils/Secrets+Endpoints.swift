@@ -20,6 +20,7 @@ class APIEndPoints {
     static let liveEndPoint = "\(Secrets.baseUrl)/livescores"
     static let standingsEndPoint = "\(Secrets.baseUrl)/standings"
     static let teamRankEndPoint = "\(Secrets.baseUrl)/team-rankings"
+    static let teamsEndPoint = "\(Secrets.baseUrl)/teams"
     static let apiToken = "api_token=\(Secrets.apiKey)"
     
     
