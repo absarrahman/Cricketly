@@ -71,7 +71,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jNK-Ya-VkR">
-                    <rect key="frame" x="0.0" y="394" width="375" height="273"/>
+                    <rect key="frame" x="10" y="394" width="355" height="273"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -86,17 +86,17 @@
                 <constraint firstItem="Gcj-VZ-b7G" firstAttribute="top" secondItem="wAd-uW-Q78" secondAttribute="bottom" constant="10" id="deM-ca-AIz"/>
                 <constraint firstItem="Gcj-VZ-b7G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eqj-LM-ohR"/>
                 <constraint firstItem="wAd-uW-Q78" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="150" id="lOq-U9-yFm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jNK-Ya-VkR" secondAttribute="trailing" id="nLV-fo-Ukc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jNK-Ya-VkR" secondAttribute="trailing" constant="10" id="nLV-fo-Ukc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wAd-uW-Q78" secondAttribute="trailing" constant="20" id="nUt-6b-dwL"/>
                 <constraint firstItem="wAd-uW-Q78" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oFe-cp-pDb"/>
-                <constraint firstItem="jNK-Ya-VkR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qUI-HS-JN9"/>
+                <constraint firstItem="jNK-Ya-VkR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="qUI-HS-JN9"/>
             </constraints>
             <point key="canvasLocation" x="130.40000000000001" y="-12.143928035982009"/>
         </view>
     </objects>
     <resources>
         <namedColor name="PrimaryActionColor">
-            <color red="0.93800002336502075" green="0.1379999965429306" blue="0.23600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10400000214576721" green="0.086999997496604919" blue="0.33100000023841858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

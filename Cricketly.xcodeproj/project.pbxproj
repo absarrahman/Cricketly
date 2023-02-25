@@ -67,6 +67,10 @@
 		8909589A29A9030100F2FCD0 /* PlayerStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8909589829A9030100F2FCD0 /* PlayerStatsViewController.xib */; };
 		89126AA729A360BB00193073 /* PlayerDetailsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89126AA529A360BB00193073 /* PlayerDetailsInfoViewController.swift */; };
 		89126AA829A360BB00193073 /* PlayerDetailsInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */; };
+		8915898829AA240B005B994E /* NewsTypeOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8915898629AA240B005B994E /* NewsTypeOneTableViewCell.xib */; };
+		8915898929AA240B005B994E /* NewsTypeOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915898729AA240B005B994E /* NewsTypeOneTableViewCell.swift */; };
+		8915898D29AA2475005B994E /* NewsTypeTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915898B29AA2474005B994E /* NewsTypeTwoTableViewCell.swift */; };
+		8915898E29AA2475005B994E /* NewsTypeTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8915898C29AA2474005B994E /* NewsTypeTwoTableViewCell.xib */; };
 		892892FA29A5F4B000D839F7 /* StandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892892F929A5F4B000D839F7 /* StandingsModel.swift */; };
 		8930091329A3B92B0065CE1D /* CareerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930091129A3B92B0065CE1D /* CareerCollectionViewCell.swift */; };
 		8930091429A3B92B0065CE1D /* CareerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8930091229A3B92B0065CE1D /* CareerCollectionViewCell.xib */; };
@@ -162,6 +166,10 @@
 		8909589829A9030100F2FCD0 /* PlayerStatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerStatsViewController.xib; sourceTree = "<group>"; };
 		89126AA529A360BB00193073 /* PlayerDetailsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsInfoViewController.swift; sourceTree = "<group>"; };
 		89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsInfoViewController.xib; sourceTree = "<group>"; };
+		8915898629AA240B005B994E /* NewsTypeOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTypeOneTableViewCell.xib; sourceTree = "<group>"; };
+		8915898729AA240B005B994E /* NewsTypeOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTypeOneTableViewCell.swift; sourceTree = "<group>"; };
+		8915898B29AA2474005B994E /* NewsTypeTwoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTypeTwoTableViewCell.swift; sourceTree = "<group>"; };
+		8915898C29AA2474005B994E /* NewsTypeTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTypeTwoTableViewCell.xib; sourceTree = "<group>"; };
 		892892F929A5F4B000D839F7 /* StandingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsModel.swift; sourceTree = "<group>"; };
 		8930091129A3B92B0065CE1D /* CareerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerCollectionViewCell.swift; sourceTree = "<group>"; };
 		8930091229A3B92B0065CE1D /* CareerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CareerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -238,6 +246,8 @@
 		5B15440C299796D500DC70CF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8915898529AA240B005B994E /* NewsTypeOneTableViewCell */,
+				8915898A29AA2474005B994E /* NewsTypeTwoTableViewCell */,
 				5B16A7F5298D215B00D2AA77 /* SearchField */,
 				5B15440B299796C000DC70CF /* FixturesCollectionViewCell */,
 				5B21EB9A299A5329005EF98C /* MatchInfoTableViewCell */,
@@ -420,6 +430,24 @@
 			path = PlayerDetailsViewControllers;
 			sourceTree = "<group>";
 		};
+		8915898529AA240B005B994E /* NewsTypeOneTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8915898629AA240B005B994E /* NewsTypeOneTableViewCell.xib */,
+				8915898729AA240B005B994E /* NewsTypeOneTableViewCell.swift */,
+			);
+			path = NewsTypeOneTableViewCell;
+			sourceTree = "<group>";
+		};
+		8915898A29AA2474005B994E /* NewsTypeTwoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8915898B29AA2474005B994E /* NewsTypeTwoTableViewCell.swift */,
+				8915898C29AA2474005B994E /* NewsTypeTwoTableViewCell.xib */,
+			);
+			path = NewsTypeTwoTableViewCell;
+			sourceTree = "<group>";
+		};
 		8930091029A3B4EB0065CE1D /* PlayerDetailsViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BCBF593299D9A9100B770D7 /* ScoreboardTableViewCell.xib in Resources */,
+				8915898829AA240B005B994E /* NewsTypeOneTableViewCell.xib in Resources */,
 				89B6E6B229A0B36600F50503 /* BrowsePlayerViewController.xib in Resources */,
 				8948B8EF299DDA18007AE6E9 /* ScoreboardHeaderView.xib in Resources */,
 				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
@@ -582,6 +611,7 @@
 				89126AA829A360BB00193073 /* PlayerDetailsInfoViewController.xib in Resources */,
 				89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */,
 				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
+				8915898E29AA2475005B994E /* NewsTypeTwoTableViewCell.xib in Resources */,
 				89ACE4E929A348DE008C5AF0 /* PlayerDetailsViewController.xib in Resources */,
 				89EB9F4229A3814800ED7725 /* PlayerDetailsCareerViewController.xib in Resources */,
 				5BCD705B298CA79500EEF6F3 /* LaunchScreen.storyboard in Resources */,
@@ -619,6 +649,7 @@
 				895A572D29A84EE50079E549 /* RankingModel.swift in Sources */,
 				5B21EB7D2999D90F005EF98C /* Service.swift in Sources */,
 				8909589529A8FB9B00F2FCD0 /* TeamSquadViewController.swift in Sources */,
+				8915898929AA240B005B994E /* NewsTypeOneTableViewCell.swift in Sources */,
 				8909589929A9030100F2FCD0 /* PlayerStatsViewController.swift in Sources */,
 				89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */,
 				8909588F29A8E66600F2FCD0 /* TeamsViewController.swift in Sources */,
@@ -652,6 +683,7 @@
 				5BF49A08298CADE80051723E /* Routes.swift in Sources */,
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
 				895A572F29A867C60079E549 /* IccRankingViewModel.swift in Sources */,
+				8915898D29AA2475005B994E /* NewsTypeTwoTableViewCell.swift in Sources */,
 				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
 				5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */,
 				5BCBF592299D9A9100B770D7 /* ScoreboardTableViewCell.swift in Sources */,

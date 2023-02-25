@@ -47,6 +47,11 @@ class HomeViewController: UIViewController {
         
         collectionView.register(UINib(nibName: FixturesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: FixturesCollectionViewCell.identifier)
         
+        tableView.register(UINib(nibName: NewsTypeOneTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: NewsTypeOneTableViewCell.identifier)
+        
+        tableView.register(UINib(nibName: NewsTypeTwoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: NewsTypeTwoTableViewCell.identifier)
+        
+        
         tableView.dataSource = self
         tableView.delegate = self
         viewModel.fetchData()
@@ -115,8 +120,31 @@ extension HomeViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Yeet"
+        
+        if (indexPath.row % 5 == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeOneTableViewCell.identifier, for: indexPath) as! NewsTypeOneTableViewCell
+            
+            cell.authorTitleLabel.text = "model.authorName"
+            //cell.newsTitleLabel.text = model.newsTitle
+            //cell.dateLabel.text = model.publishedAt
+            //cell.dateLabel.text = "Published \(CommonFunctions.postedBefore(date: model.publishedAt)) ago"
+//            cell.sourceTitleLabel.text = model.sourceName
+//            cell.bookmarkImageView.tintColor = isBookmark ? UIColor(named: Constants.ColorConstants.selectedCollectionCell) : .opaqueSeparator
+//            cell.setBackgroundImageFrom(urlString: model.urlToImage ?? Constants.CommonConstants.imageNotFound)
+            
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeTwoTableViewCell.identifier, for: indexPath) as! NewsTypeTwoTableViewCell
+        //model.isBookmarkEnabled = isBookmark
+        cell.authorTitleLabel.text = "model.authorName"
+        //cell.newsTitleLabel.text = model.newsTitle
+        //cell.dateLabel.text = model.publishedAt
+        //cell.dateLabel.text = "Published \(CommonFunctions.postedBefore(date: model.publishedAt)) ago"
+       // cell.sourceTitleLabel.text = model.sourceName
+       // cell.bookmarkImageView.tintColor = isBookmark ? UIColor(named: Constants.ColorConstants.selectedCollectionCell) : .opaqueSeparator
+        //cell.setBackgroundImageFrom(urlString: model.urlToImage ?? Constants.CommonConstants.imageNotFound)
+        
         return cell
     }
     
