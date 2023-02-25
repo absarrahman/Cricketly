@@ -96,8 +96,18 @@ class CareerCollectionViewCell: UICollectionViewCell {
                 ]
             } else {
                 let battingCareer = model.battingCareer
-                titleLabelCollection[i].text = bowlingLabels[i]
-                
+                titleLabelCollection[i].text = battingLabels[i]
+//                "R",
+//                "Inn.",
+//                "NO",
+//                "HS",
+//                "SR",
+//                "BF",
+//                "Avg.",
+//                "4's",
+//                "6's",
+//                "50",
+//                "100",
                 dataScores = [
                     battingCareer.runsScored.description,
                     battingCareer.innings.description,
@@ -117,6 +127,7 @@ class CareerCollectionViewCell: UICollectionViewCell {
         
         for i in 0..<dataScores.count {
             infoLabelCollection[i].text = dataScores[i]
+            print(infoLabelCollection[i].text)
         }
     }
 

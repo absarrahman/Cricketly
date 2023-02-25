@@ -253,18 +253,6 @@
             <connections>
                 <outlet property="rootView" destination="Qeh-FP-kxY" id="Iox-IP-u4g"/>
                 <outlet property="seasonLabel" destination="5Aa-Bw-NKH" id="dgy-YF-8Kv"/>
-                <outletCollection property="infoLabelCollection" destination="pYP-5m-OA0" collectionClass="NSMutableArray" id="TPZ-1Q-MoS"/>
-                <outletCollection property="infoLabelCollection" destination="pYP-5m-OA0" collectionClass="NSMutableArray" id="UO4-Ts-v7f"/>
-                <outletCollection property="infoLabelCollection" destination="2Jt-r2-dJb" collectionClass="NSMutableArray" id="rad-Zp-wNe"/>
-                <outletCollection property="infoLabelCollection" destination="UTe-qe-vwP" collectionClass="NSMutableArray" id="t5n-ix-pl6"/>
-                <outletCollection property="infoLabelCollection" destination="D8t-PF-hXZ" collectionClass="NSMutableArray" id="a5i-EA-yCh"/>
-                <outletCollection property="infoLabelCollection" destination="Etp-OZ-IXF" collectionClass="NSMutableArray" id="vwY-AC-BPS"/>
-                <outletCollection property="infoLabelCollection" destination="rFV-cQ-PAT" collectionClass="NSMutableArray" id="IzT-rQ-kkK"/>
-                <outletCollection property="infoLabelCollection" destination="3Gb-nx-VSV" collectionClass="NSMutableArray" id="wKz-eG-OaJ"/>
-                <outletCollection property="infoLabelCollection" destination="QRK-hk-6Ci" collectionClass="NSMutableArray" id="i5f-iS-zX5"/>
-                <outletCollection property="infoLabelCollection" destination="tjH-Rm-ozs" collectionClass="NSMutableArray" id="dqk-Jy-mak"/>
-                <outletCollection property="infoLabelCollection" destination="jp0-5J-gtP" collectionClass="NSMutableArray" id="84y-Pe-eE0"/>
-                <outletCollection property="infoLabelCollection" destination="i1z-YU-bLM" collectionClass="NSMutableArray" id="Jbj-V8-E2L"/>
                 <outletCollection property="titleLabelCollection" destination="f9w-HI-cEP" collectionClass="NSMutableArray" id="aNo-OS-Gjv"/>
                 <outletCollection property="titleLabelCollection" destination="UhL-Lm-EDr" collectionClass="NSMutableArray" id="SbH-Jb-ICa"/>
                 <outletCollection property="titleLabelCollection" destination="HJg-8C-Vzf" collectionClass="NSMutableArray" id="2k7-Pk-CR1"/>
@@ -276,6 +264,17 @@
                 <outletCollection property="titleLabelCollection" destination="s6U-V2-Bts" collectionClass="NSMutableArray" id="4sG-Xl-lCC"/>
                 <outletCollection property="titleLabelCollection" destination="dcE-2e-y4S" collectionClass="NSMutableArray" id="pU1-z5-0yd"/>
                 <outletCollection property="titleLabelCollection" destination="wk5-kI-ScU" collectionClass="NSMutableArray" id="OK1-qL-bN2"/>
+                <outletCollection property="infoLabelCollection" destination="pYP-5m-OA0" collectionClass="NSMutableArray" id="xmV-BO-oeS"/>
+                <outletCollection property="infoLabelCollection" destination="2Jt-r2-dJb" collectionClass="NSMutableArray" id="Jsi-3k-vd7"/>
+                <outletCollection property="infoLabelCollection" destination="UTe-qe-vwP" collectionClass="NSMutableArray" id="UY6-RT-6gr"/>
+                <outletCollection property="infoLabelCollection" destination="D8t-PF-hXZ" collectionClass="NSMutableArray" id="cyO-TU-2wu"/>
+                <outletCollection property="infoLabelCollection" destination="Etp-OZ-IXF" collectionClass="NSMutableArray" id="SKE-Cu-jIu"/>
+                <outletCollection property="infoLabelCollection" destination="rFV-cQ-PAT" collectionClass="NSMutableArray" id="yFa-5f-Zd0"/>
+                <outletCollection property="infoLabelCollection" destination="3Gb-nx-VSV" collectionClass="NSMutableArray" id="jB8-ae-Ra5"/>
+                <outletCollection property="infoLabelCollection" destination="QRK-hk-6Ci" collectionClass="NSMutableArray" id="Okj-gG-cW8"/>
+                <outletCollection property="infoLabelCollection" destination="tjH-Rm-ozs" collectionClass="NSMutableArray" id="YiC-wC-xgy"/>
+                <outletCollection property="infoLabelCollection" destination="jp0-5J-gtP" collectionClass="NSMutableArray" id="OKi-Lp-dfJ"/>
+                <outletCollection property="infoLabelCollection" destination="i1z-YU-bLM" collectionClass="NSMutableArray" id="1gT-ee-Z49"/>
             </connections>
             <point key="canvasLocation" x="155.72519083969465" y="-12.67605633802817"/>
         </collectionViewCell>

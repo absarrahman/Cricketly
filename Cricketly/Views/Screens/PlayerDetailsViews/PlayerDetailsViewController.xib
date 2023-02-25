@@ -34,8 +34,9 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3q-Cy-Hfk">
-                    <rect key="frame" x="144" y="10" width="87" height="86.5"/>
+                    <rect key="frame" x="144.5" y="10" width="86.5" height="86.5"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="86.5" id="2NQ-5h-hkZ"/>
                         <constraint firstAttribute="width" secondItem="l3q-Cy-Hfk" secondAttribute="height" multiplier="1:1" id="Vls-gs-aZC"/>
                     </constraints>
                 </imageView>
@@ -52,11 +53,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH6-y2-8Tj" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="260" width="375" height="407"/>
+                    <rect key="frame" x="0.0" y="226.5" width="375" height="440.5"/>
                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ctu-AG-xqS">
-                    <rect key="frame" x="0.0" y="200" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="166.5" width="375" height="60"/>
                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="r8f-LH-P8P"/>
@@ -88,11 +89,10 @@
                 <constraint firstItem="4tg-tn-cfK" firstAttribute="top" secondItem="l3q-Cy-Hfk" secondAttribute="bottom" constant="10" id="TIt-Jk-U6F"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xX9-y8-KCj" secondAttribute="trailing" id="XzT-M6-jp5"/>
                 <constraint firstItem="eTC-3H-21M" firstAttribute="bottom" secondItem="xX9-y8-KCj" secondAttribute="bottom" id="aqW-TN-OOS"/>
+                <constraint firstItem="ctu-AG-xqS" firstAttribute="top" secondItem="xkI-up-NJ8" secondAttribute="bottom" constant="10" id="bgt-oA-KFV"/>
                 <constraint firstItem="xX9-y8-KCj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cQ8-9P-8hU"/>
                 <constraint firstItem="xkI-up-NJ8" firstAttribute="top" secondItem="4tg-tn-cfK" secondAttribute="bottom" constant="5" id="fCX-9t-Hmm"/>
                 <constraint firstItem="xX9-y8-KCj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iql-be-84j"/>
-                <constraint firstItem="ctu-AG-xqS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="jS4-L1-d2o"/>
-                <constraint firstItem="l3q-Cy-Hfk" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.13" id="mqJ-Gw-WyC"/>
                 <constraint firstItem="KH6-y2-8Tj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oqM-9P-Etd"/>
                 <constraint firstItem="l3q-Cy-Hfk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rWR-2J-XQ0"/>
                 <constraint firstItem="l3q-Cy-Hfk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="yx0-zw-HiW"/>
@@ -103,7 +103,7 @@
     <resources>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
         <namedColor name="PrimaryActionColor">
-            <color red="0.10428689403010585" green="0.087439558295701381" blue="0.33053927349321766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10400000214576721" green="0.086999997496604919" blue="0.33100000023841858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

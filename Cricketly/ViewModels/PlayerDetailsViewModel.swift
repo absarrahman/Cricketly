@@ -174,10 +174,32 @@ class PlayerDetailsViewModel {
                 self.careerData = data.career?.compactMap({ career in
                     CareerCollectionCellModel(career: career)
                 }) ?? []
-                let battingOdiSum = self.careerData.reduce(0) { partialResult, model in
-                    model.careerType.lowercased() == "odi" ? partialResult + model.battingCareer.matches : partialResult + 0
+                let battingCentury = self.careerData.reduce(0) { partialResult, model in
+                    partialResult + model.battingCareer.hundereds
                 }
-                print(battingOdiSum)
+                
+                let highestRun = self.careerData.reduce(0) { partialResult, model in
+                    max(partialResult,model.battingCareer.highestInningScore)
+                }
+                
+                let highestSix = self.careerData.reduce(0) { partialResult, model in
+                    max(partialResult,model.battingCareer.sixX)
+                }
+                
+                let highestFour = self.careerData.reduce(0) { partialResult, model in
+                    max(partialResult,model.battingCareer.fourX)
+                }
+                
+                let totalMatches = (self.careerData.reduce(0) { partialResult, model in
+                    partialResult + model.battingCareer.innings
+                }) + (self.careerData.reduce(0) { partialResult, model in
+                    partialResult + model.bowlingCareer.innings
+                })
+                
+//                let totalTestMatches
+//
+//                print(battingCentury, highestRun)
+                
                 self.loadStatus = .finished
             case .failure(let error):
                 print(error)
