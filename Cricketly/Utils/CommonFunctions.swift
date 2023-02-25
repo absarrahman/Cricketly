@@ -110,5 +110,16 @@ class CommonFunctions {
         return (localizedDateString,localizedTimeString)
     }
     
-    
+    static func setNavBarAttributes(navigationController: UINavigationController?) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.compactScrollEdgeAppearance?.backgroundColor = .kPrimaryActionColor
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .kPrimaryActionColor
+        
+        navigationController?.navigationBar.compactScrollEdgeAppearance?.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.compactScrollEdgeAppearance?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.standardAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 class TeamViewModel {
     @Published var loadingStatus: LoadingStatus = .notStarted
     var teamsData: [SquadCollectionCellModel] = []
+    var filteredTeamData: [SquadCollectionCellModel]  = []
     var teamName = ""
     
     func fetchTeamData() {
@@ -25,12 +26,24 @@ class TeamViewModel {
                 self.teamsData = data.compactMap({ teamModel in
                     SquadCollectionCellModel(id: teamModel.id ?? -1, name: teamModel.name ?? "", position: teamModel.code ?? "", isCaptain: false, isWicketKeeper: false, imageUrl: teamModel.imagePath ?? "")
                 })
+                self.filteredTeamData = self.teamsData
                 self.loadingStatus = .finished
             case .failure(let error):
                 print(error)
                 self.loadingStatus = .loadingFailed
             }
         }
+        
+    }
+    
+    func searchTeam(query: String) {
+        if (query.isEmpty) {
+            filteredTeamData = teamsData
+            return
+        }
+        filteredTeamData = teamsData.filter({ model in
+            model.name.lowercased().contains(query.lowercased()) || model.position.lowercased().contains(query.lowercased())
+        })
         
     }
     

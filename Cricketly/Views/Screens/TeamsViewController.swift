@@ -13,6 +13,9 @@ class TeamsViewController: UIViewController {
     let viewModel = TeamViewModel()
     var cancellables: Set<AnyCancellable> = []
     
+    
+    @IBOutlet weak var searchTextField: SearchField!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -39,6 +42,9 @@ class TeamsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
         
+        title = "Teams"
+        
+        searchTextField.textfield.delegate = self
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: SquadPlayerCollectionHeaderView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier)
         
@@ -57,7 +63,12 @@ class TeamsViewController: UIViewController {
             }
         }.store(in: &cancellables)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        CommonFunctions.setNavBarAttributes(navigationController: navigationController)
+    }
 
     /*
     // MARK: - Navigation
@@ -73,12 +84,12 @@ class TeamsViewController: UIViewController {
 
 extension TeamsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.teamsData.count
+        viewModel.filteredTeamData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquardPlayerCollectionViewCell.identifier, for: indexPath) as! SquardPlayerCollectionViewCell
-        let model = viewModel.teamsData[indexPath.row]
+        let model = viewModel.filteredTeamData[indexPath.row]
         cell.setSquadPlayerCellModel(model: model)
         return cell
     }
@@ -94,5 +105,12 @@ extension TeamsViewController: UICollectionViewDelegate {
         vc.id = id
 
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension TeamsViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        viewModel.searchTeam(query: textField.text ?? "")
+        collectionView.reloadData()
     }
 }

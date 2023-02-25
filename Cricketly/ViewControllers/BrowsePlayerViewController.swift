@@ -45,6 +45,7 @@ class BrowsePlayerViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = gridLayout
+        title = "Players"
         
         collectionView.register(UINib(nibName: SquardPlayerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SquardPlayerCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: SquadPlayerCollectionHeaderView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SquadPlayerCollectionHeaderView.identifier)
@@ -54,6 +55,12 @@ class BrowsePlayerViewController: UIViewController {
         viewModel.getAllPlayers()
         setupBinders()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        CommonFunctions.setNavBarAttributes(navigationController: navigationController)
     }
     
     func setupBinders() {
