@@ -191,14 +191,25 @@ class PlayerDetailsViewModel {
                 }
                 
                 let totalMatches = (self.careerData.reduce(0) { partialResult, model in
-                    partialResult + model.battingCareer.innings
-                }) + (self.careerData.reduce(0) { partialResult, model in
-                    partialResult + model.bowlingCareer.innings
+                    partialResult + model.battingCareer.innings + model.bowlingCareer.innings
                 })
+                
+                let totalTestMatches = self.careerData.reduce(0) { partialResult, model in
+                    ((model.careerType.lowercased() != "odi") || (model.careerType.lowercased() != "t20") || (model.careerType.lowercased() != "t20i")) ? (partialResult + model.battingCareer.matches + model.bowlingCareer.matches) : partialResult + 0
+                }
+                
+                let totalT20Matches = self.careerData.reduce(0) { partialResult, model in
+                    ((model.careerType.lowercased() == "t20") || (model.careerType.lowercased() == "t20i")) ? (partialResult + model.battingCareer.matches + model.bowlingCareer.matches) : partialResult + 0
+                }
+                
+                let totalOdiMatches = self.careerData.reduce(0) { partialResult, model in
+                    (model.careerType.lowercased() == "odi") ? (partialResult + model.battingCareer.matches + model.bowlingCareer.matches) : partialResult + 0
+                }
+                
                 
 //                let totalTestMatches
 //
-//                print(battingCentury, highestRun)
+                print(battingCentury, highestRun, highestSix, highestFour, highestSix, totalMatches, totalTestMatches, totalT20Matches, totalOdiMatches)
                 
                 self.loadStatus = .finished
             case .failure(let error):
