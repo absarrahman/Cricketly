@@ -8,13 +8,18 @@
 import UIKit
 import SDWebImage
 
-struct SquadCollectionCellModel {
+struct SquadCollectionCellModel: Equatable, Hashable {
     let id: Int
     let name: String
     let position: String
     let isCaptain: Bool
     let isWicketKeeper: Bool
     let imageUrl: String
+    
+    static func == (lhs: SquadCollectionCellModel, rhs: SquadCollectionCellModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
 }
 
 class SquardPlayerCollectionViewCell: UICollectionViewCell {
@@ -72,5 +77,5 @@ class SquardPlayerCollectionViewCell: UICollectionViewCell {
         }
         
     }
-
+    
 }

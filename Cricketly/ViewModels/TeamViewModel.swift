@@ -61,6 +61,9 @@ class TeamViewModel {
                 self.teamsData = squad.compactMap({ teamModel in
                     SquadCollectionCellModel(id: teamModel.id ?? -1, name: teamModel.fullname ?? "", position: teamModel.position?.name?.rawValue.capitalized ?? "", isCaptain: false, isWicketKeeper: false, imageUrl: teamModel.imagePath ?? "")
                 })
+                let uniqueData: Set<SquadCollectionCellModel> = Set(self.teamsData)
+                self.teamsData = Array(uniqueData)
+                self.filteredTeamData = self.teamsData
                 self.loadingStatus = .finished
             case .failure(let error):
                 print(error)

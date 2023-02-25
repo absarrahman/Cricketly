@@ -101,7 +101,7 @@ extension TeamsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = Routes.getViewControllerBy(routeMap: .teamSquadViewController) as! TeamSquadViewController
 
-        let id = viewModel.teamsData[indexPath.row].id
+        let id = viewModel.filteredTeamData[indexPath.row].id
         vc.id = id
 
         navigationController?.pushViewController(vc, animated: true)
