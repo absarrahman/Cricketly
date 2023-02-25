@@ -8,13 +8,16 @@
 import Foundation
 
 class HomeViewModel {
-    @Published var isLiveLoaded: LoadingStatus = .notStarted
-    @Published var isUpcomingLoaded: LoadingStatus = .notStarted
+    @Published var liveLoadingStatus: LoadingStatus = .notStarted
+    @Published var upcomingLoadingStatus: LoadingStatus = .notStarted
     @Published var isRecentLoaded: LoadingStatus = .notStarted
+    @Published var isNewsLoaded: LoadingStatus = .notStarted
     
     var liveMatches: [FixtureCellModel] = []
     var upcomingMatches: [FixtureCellModel] = []
     var recentMatches: [FixtureCellModel] = []
+    
+    var newsList: [Article] = []
     
     func getLiveFixtureModel(model: FixtureModel) -> FixtureCellModel {
         guard let totalBattingTeamRuns = model.runs, let firstBattingTeamRuns = totalBattingTeamRuns.first else { return getUpcomingFixtureModel(model: model) }
@@ -55,7 +58,7 @@ class HomeViewModel {
             switch results {
             case .success(let data):
                 guard let data = data else {
-                    self.isLiveLoaded = .finished
+                    self.liveLoadingStatus = .finished
                     return
                 }
                 
@@ -64,11 +67,11 @@ class HomeViewModel {
                     self.liveMatches.append(cellModel)
                 }
                 
-                self.isLiveLoaded = .finished
+                self.liveLoadingStatus = .finished
                 
             case .failure(let error):
                 print(error)
-                self.isLiveLoaded = .loadingFailed
+                self.liveLoadingStatus = .loadingFailed
             }
         }
     }
@@ -84,7 +87,7 @@ class HomeViewModel {
             switch results {
             case .success(let data):
                 guard let data = data else {
-                    self.isUpcomingLoaded = .finished
+                    self.upcomingLoadingStatus = .finished
                     return
                 }
                 
@@ -100,11 +103,11 @@ class HomeViewModel {
                     }
                 }
                 
-                self.isUpcomingLoaded = .finished
+                self.upcomingLoadingStatus = .finished
                 
             case .failure(let error):
                 print(error)
-                self.isUpcomingLoaded = .loadingFailed
+                self.upcomingLoadingStatus = .loadingFailed
             }
         }
     }
@@ -144,14 +147,34 @@ class HomeViewModel {
         }
     }
     
+    func fetchNewsData()  {
+        isNewsLoaded = .loading
+        Service.shared.getAllNews {[weak self] results in
+            guard let self = self else {
+                return
+            }
+            switch results {
+            case .success(let data):
+                guard let data = data else { return }
+                self.newsList = data
+                self.isNewsLoaded = .finished
+            case .failure(let error):
+                print(error)
+                self.isNewsLoaded = .finished
+            }
+        }
+    }
+    
     func fetchData() {
-        isLiveLoaded = .loading
-        isUpcomingLoaded = .loading
+        liveLoadingStatus = .loading
+        upcomingLoadingStatus = .loading
         isRecentLoaded = .loading
         
         fetchLiveData()
         fetchUpcomingData()
         
         fetchRecentData()
+        
+        fetchNewsData()
     }
 }

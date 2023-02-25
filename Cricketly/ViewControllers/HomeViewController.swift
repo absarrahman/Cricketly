@@ -67,8 +67,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupBinders() {
-        viewModel.$isUpcomingLoaded.sink {[weak self] loadStatus in
-            
+        viewModel.$upcomingLoadingStatus.sink { [weak self] loadStatus in
             guard let self = self else {
                 return
             }
@@ -77,7 +76,7 @@ class HomeViewController: UIViewController {
             }
         }.store(in: &cancellables)
         
-        viewModel.$isLiveLoaded.sink {[weak self] loadStatus in
+        viewModel.$liveLoadingStatus.sink {[weak self] loadStatus in
             
             guard let self = self else {
                 return
@@ -94,6 +93,18 @@ class HomeViewController: UIViewController {
             }
             if (loadStatus == .finished) {
                 self.setDataToList()
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$isNewsLoaded.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }.store(in: &cancellables)
     }
@@ -116,15 +127,15 @@ extension HomeViewController : UICollectionViewDataSource {
 
 extension HomeViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        100
+        viewModel.newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let model = viewModel.newsList[indexPath.row]
         if (indexPath.row % 5 == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeOneTableViewCell.identifier, for: indexPath) as! NewsTypeOneTableViewCell
             
-            cell.authorTitleLabel.text = "model.authorName"
+            cell.authorTitleLabel.text = model.title
             //cell.newsTitleLabel.text = model.newsTitle
             //cell.dateLabel.text = model.publishedAt
             //cell.dateLabel.text = "Published \(CommonFunctions.postedBefore(date: model.publishedAt)) ago"
@@ -137,7 +148,7 @@ extension HomeViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeTwoTableViewCell.identifier, for: indexPath) as! NewsTypeTwoTableViewCell
         //model.isBookmarkEnabled = isBookmark
-        cell.authorTitleLabel.text = "model.authorName"
+        cell.authorTitleLabel.text = model.author
         //cell.newsTitleLabel.text = model.newsTitle
         //cell.dateLabel.text = model.publishedAt
         //cell.dateLabel.text = "Published \(CommonFunctions.postedBefore(date: model.publishedAt)) ago"

@@ -243,4 +243,24 @@ class Service {
         }
     }
     
+    func getAllNews(completion: @escaping (Result<([Article]?), Error>)->()) {
+        let endpoint = APIEndPoints.newEndPoint
+        let parameters = [
+            "apiKey": Secrets.newAPIKey,
+            "q": "cricket",
+            "pageSize": "15"
+        ]
+        
+        fetchDataFromAPI(from: endpoint, using: parameters) { (result: Result<NewsDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                print(data)
+                completion(.success(data.articles))
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
