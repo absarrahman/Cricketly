@@ -87,6 +87,7 @@ class MatchDetailsViewController: UIViewController {
     
     @objc func addNotification() {
         NotificationManager.addNotification(id: selectedFixtureId ?? -1,title: viewModel.titleText, subtitle: viewModel.subtitleText, targetNotificationTime: viewModel.updatedTime)
+        NotificationManager.addNotificationNowNotify()
         rightButton.isHidden = true
     }
     

@@ -63,6 +63,24 @@ class NotificationManager {
         }
     }
     
+    static func addNotificationNowNotify() {
+        let content = UNMutableNotificationContent()
+        content.title = "Notification added"
+        content.subtitle = "You will be notified before 15 minutes"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.001, repeats: false)
+        let id = UUID().uuidString
+        let request = UNNotificationRequest(identifier: id.description, content: content, trigger: trigger)
+        
+        // add our notification request
+        userNotificationCenter.add(request)
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+            userNotificationCenter.removeDeliveredNotifications(withIdentifiers: [id.description])
+        }
+    }
+    
     static func getAllPendingNotification(completion: @escaping([NotificationModel]) -> ()) {
         userNotificationCenter.getPendingNotificationRequests { requests in
             var pendingNotificationList: [NotificationModel] = []
