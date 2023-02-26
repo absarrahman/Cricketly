@@ -203,11 +203,11 @@ class MatchDetailsViewModel {
                     
                     // Date
                     // TODO: Need to parse date and time
-                    MatchInfoTableViewCellModel(title: "Date", content: data?.startingAt ?? "N/A"),
+                    MatchInfoTableViewCellModel(title: "Date", content: CommonFunctions.getFormattedDateAndTime(stringDate: data?.startingAt ?? "N/A").date),
                     
                     // Time
                     // TODO: Need to parse date and time
-                    MatchInfoTableViewCellModel(title: "Time", content: "[2:03pm]"),
+                    MatchInfoTableViewCellModel(title: "Time", content: CommonFunctions.getFormattedDateAndTime(stringDate: data?.startingAt ?? "N/A").time),
                     
                     // Toss
                     MatchInfoTableViewCellModel(title: "Toss", content: "\(data?.tosswon?.name ?? "N/A") opt to \(data?.elected ?? "N/A")"),

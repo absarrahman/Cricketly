@@ -70,11 +70,8 @@ class CommonFunctions {
         //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 20, to: today)!
         
         let modifiedDate = Calendar.current.date(byAdding: .day, value: -60, to: today)!
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let dateString = df.string(from: modifiedDate)
-        print(dateString)
-        return dateString
+        
+        return modifiedDate.ISO8601Format()
     }
     
     static func getFormattedYear(from timeString: String) -> String? {
@@ -104,6 +101,25 @@ class CommonFunctions {
         
         let localizedDateString = dateFormatter.string(from: date)
         let localizedTimeString = timeFormatter.string(from: date)
+        
+        return (localizedDateString,localizedTimeString)
+    }
+    
+    static func getFormattedDateAndTime(stringDate: String) -> (date: String, time: String){
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        guard let time = formatter.date(from: stringDate) else { return ("", "") }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = .current
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        timeFormatter.locale = .current
+        
+        let localizedDateString = dateFormatter.string(from: time)
+        let localizedTimeString = timeFormatter.string(from: time)
         
         return (localizedDateString,localizedTimeString)
     }

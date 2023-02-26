@@ -30,6 +30,13 @@ class MatchDetailsViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    
+    
+    @IBOutlet weak var localTeamNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var visitorTeamNameLabel: UILabel!
+    
     let viewModel = MatchDetailsViewModel()
     var cancellables: Set<AnyCancellable> = []
     
@@ -100,6 +107,7 @@ class MatchDetailsViewController: UIViewController {
             if status == .finished {
                 self.isSquadAvailable = self.viewModel.isSquadAvailable
                 self.isScordboardAvailable = self.viewModel.isScoreboardAvailable
+                
                 self.view.isUserInteractionEnabled = true
             }
             
