@@ -47,6 +47,7 @@ class MatchesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.fetchFixtureData(for: FixtureType(rawValue: segmentedControl.selectedSegmentIndex) ?? .recent)
+        navigationController?.navigationBar.isHidden = true
         collectionView.reloadData()
     }
     
