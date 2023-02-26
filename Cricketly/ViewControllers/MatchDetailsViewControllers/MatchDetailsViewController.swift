@@ -109,6 +109,13 @@ class MatchDetailsViewController: UIViewController {
                 self.isScordboardAvailable = self.viewModel.isScoreboardAvailable
                 
                 self.view.isUserInteractionEnabled = true
+            } else if (status == .loadingFailed) {
+                
+                CommonFunctions.showAlertController(vc: self) {[weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.fetchMatchStatusBy(id: self.selectedFixtureId ?? -1)
+                }
+
             }
             
         }.store(in: &cancellables)

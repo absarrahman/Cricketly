@@ -74,6 +74,13 @@ class HomeViewController: UIViewController {
             }
             if (loadStatus == .finished) {
                 self.setDataToList()
+            } else if (loadStatus == .loadingFailed) {
+                
+                CommonFunctions.showAlertController(vc: self) {[weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.fetchData()
+                }
+                
             }
         }.store(in: &cancellables)
         

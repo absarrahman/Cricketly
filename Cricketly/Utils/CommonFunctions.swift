@@ -14,6 +14,7 @@ class Constants {
 
 class CommonFunctions {
     private init() {}
+    static let label = UILabel()
     static let dateComponentFormatter: DateComponentsFormatter = {
         let componentsFormatter = DateComponentsFormatter()
         componentsFormatter.allowedUnits = [.day, .hour, .minute, .second]
@@ -158,4 +159,20 @@ class CommonFunctions {
         
         return "\(hour == 0 ? "" : "\(hour) h") \(minute) m"
     }
+    
+    static func showAlertController(vc: UIViewController, completion: @escaping ()->()) {
+        let alertController = UIAlertController(title: "Something went wrong", message: "An error occurred while connecting to server. Please try again later", preferredStyle: .alert)
+
+        let successAction = UIAlertAction(title: "Try again", style: .default) {_ in
+            completion()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(successAction)
+        alertController.addAction(cancelAction)
+        vc.present(alertController, animated: true)
+    }
+    
+    
 }

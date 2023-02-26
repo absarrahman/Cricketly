@@ -46,6 +46,7 @@ class MatchesViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.fetchFixtureData(for: FixtureType(rawValue: segmentedControl.selectedSegmentIndex) ?? .recent)
         collectionView.reloadData()
     }
     
@@ -60,6 +61,10 @@ class MatchesViewController: UIViewController {
                 return
             }
             print("ERROR OCCURRED \(error)")
+            CommonFunctions.showAlertController(vc: self) {[weak self] in
+                guard let self = self else { return }
+                self.viewModel.fetchFixtureData(for: FixtureType(rawValue: self.segmentedControl.selectedSegmentIndex) ?? .recent)
+            }
         }.store(in: &cancellables)
         
         viewModel.$fixtureDataList.sink {[weak self] fixtureModels in

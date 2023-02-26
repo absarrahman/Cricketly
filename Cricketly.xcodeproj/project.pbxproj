@@ -336,6 +336,8 @@
 				895A572829A84BC60079E549 /* IccRankingViewController.swift */,
 				89F9439629AB705B00D356B1 /* WKViewController.swift */,
 				8909589329A8FB9B00F2FCD0 /* TeamSquadViewController.swift */,
+				8909589729A9030100F2FCD0 /* PlayerStatsViewController.swift */,
+				89F9439A29AB97BE00D356B1 /* DateFixtureViewController.swift */,
 				8909588D29A8E66600F2FCD0 /* TeamsViewController.swift */,
 				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
 				5BFCAFC229A528430010F71D /* MatchSquadNotFoundViewController.swift */,
@@ -483,7 +485,6 @@
 				89ACE4E729A348DE008C5AF0 /* PlayerDetailsViewController.xib */,
 				89126AA629A360BB00193073 /* PlayerDetailsInfoViewController.xib */,
 				89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */,
-				8909589729A9030100F2FCD0 /* PlayerStatsViewController.swift */,
 				8909589829A9030100F2FCD0 /* PlayerStatsViewController.xib */,
 			);
 			path = PlayerDetailsViews;
@@ -539,7 +540,6 @@
 				8909588E29A8E66600F2FCD0 /* TeamsViewController.xib */,
 				8909589429A8FB9B00F2FCD0 /* TeamSquadViewController.xib */,
 				89F9439729AB705B00D356B1 /* WKViewController.xib */,
-				89F9439A29AB97BE00D356B1 /* DateFixtureViewController.swift */,
 				89F9439B29AB97BE00D356B1 /* DateFixtureViewController.xib */,
 			);
 			path = Screens;

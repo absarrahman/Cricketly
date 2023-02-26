@@ -27,18 +27,12 @@ class MoreTabViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = "More"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.layer.cornerRadius = 20
         tableView.clipsToBounds = true
         tableView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         tableView.register(UINib(nibName: MoreTabNavigationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: MoreTabNavigationTableViewCell.identifier)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
     }
     
     
