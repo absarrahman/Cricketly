@@ -7,8 +7,13 @@
 
 import UIKit
 
+class Constants {
+    private init() {}
+    static let timerInterval = 1600.0
+}
+
 class CommonFunctions {
-    
+    private init() {}
     static let dateComponentFormatter: DateComponentsFormatter = {
         let componentsFormatter = DateComponentsFormatter()
         componentsFormatter.allowedUnits = [.day, .hour, .minute, .second]

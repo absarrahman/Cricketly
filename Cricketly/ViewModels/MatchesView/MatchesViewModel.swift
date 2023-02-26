@@ -18,6 +18,8 @@ class MatchesViewModel {
     @Published var fixtureDataList: [FixtureCellModel] = []
     @Published var error: String?
     
+    var timer: Timer = Timer()
+    
     private func setDataBasedOnResult(_ result: Result<([FixtureModel]?), Error>, _ type: FixtureType) {
         switch result {
         case .success(let data):
@@ -69,12 +71,15 @@ class MatchesViewModel {
     }
     
     func fetchFixtureData(for fixtureType: FixtureType) {
+        timer.invalidate()
         switch fixtureType {
         case .live:
             print("LIVE")
-            Service.shared.getLiveMatch { [weak self] result in
-                guard let self = self else { return }
-                self.setDataBasedOnResult(result, .live)
+            timer = Timer.scheduledTimer(withTimeInterval: Constants.timerInterval, repeats: true) { timer in
+                Service.shared.getLiveMatch { [weak self] result in
+                    guard let self = self else { return }
+                    self.setDataBasedOnResult(result, .live)
+                }
             }
         case .upcoming:
             Service.shared.getUpcomingMatchFixture {[weak self] result in

@@ -172,7 +172,7 @@ class HomeViewModel {
         upcomingLoadingStatus = .loading
         isRecentLoaded = .loading
         
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {[weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: Constants.timerInterval, repeats: true) {[weak self] timer in
             guard let self = self else {
                 return
             }
