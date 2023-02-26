@@ -59,6 +59,7 @@ class HomeViewController: UIViewController {
     }
     
     fileprivate func setDataToList() {
+        self.totalFixtureList = []
         self.totalFixtureList = self.viewModel.liveMatches + self.viewModel.upcomingMatches + self.viewModel.recentMatches
         
         DispatchQueue.main.async {
@@ -142,7 +143,7 @@ extension HomeViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeTwoTableViewCell.identifier, for: indexPath) as! NewsTypeTwoTableViewCell
         
-        cell.setNewsModel(model: model)        
+        cell.setNewsModel(model: model)
         return cell
     }
     

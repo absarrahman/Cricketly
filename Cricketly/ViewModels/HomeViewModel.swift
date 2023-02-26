@@ -49,6 +49,8 @@ class HomeViewModel {
     }
     
     fileprivate func fetchLiveData() {
+        liveLoadingStatus = .loading
+        self.liveMatches = []
         Service.shared.getLiveMatch {[weak self] results in
             
             guard let self = self else {
@@ -166,11 +168,16 @@ class HomeViewModel {
     }
     
     func fetchData() {
-        liveLoadingStatus = .loading
+        
         upcomingLoadingStatus = .loading
         isRecentLoaded = .loading
         
-        fetchLiveData()
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {[weak self] timer in
+            guard let self = self else {
+                return
+            }
+            self.fetchLiveData()
+        }
         fetchUpcomingData()
         
         fetchRecentData()

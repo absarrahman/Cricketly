@@ -341,12 +341,13 @@ class MatchDetailsViewModel {
             
             switch results {
             case .success(let data):
-                let localTeamSquad = data?.lineup?.filter({ player in
-                    player.lineup?.teamID == data?.runs?.first?.teamID
+                guard let data = data, let firstTeamRuns = data.runs?.first else { return }
+                let localTeamSquad = data.lineup?.filter({ player in
+                    player.lineup?.teamID == firstTeamRuns.teamID
                 })
-                
-                let visitorTeamSquad = data?.lineup?.filter({ player in
-                    player.lineup?.teamID == data?.runs?.last?.teamID
+                let visitorTeamID = CommonFunctions.getVisitorTeamCode(battingTeam: firstTeamRuns.team, localTeam: data.localteam, visitorTeam: data.visitorteam).id
+                let visitorTeamSquad = data.lineup?.filter({ player in
+                    player.lineup?.teamID == visitorTeamID
                 })
                 
                 self.localTeamSquadCellModels = localTeamSquad?.compactMap({ player in
