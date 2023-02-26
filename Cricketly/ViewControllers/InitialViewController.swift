@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Lottie
 
 class InitialViewController: UIViewController {
     
@@ -14,9 +15,15 @@ class InitialViewController: UIViewController {
     
     var cancellables: Set<AnyCancellable> = []
     
+    
+    @IBOutlet weak var logoAnimation: LottieAnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.getAllPlayers()
+        logoAnimation.loopMode = .playOnce
+        logoAnimation.animationSpeed = 1.5
+        logoAnimation.play()
         NotificationManager.getAllDeliveredNotification { notifications in
             print("DELIVERED NOTIFICATIONS")
             dump(notifications)

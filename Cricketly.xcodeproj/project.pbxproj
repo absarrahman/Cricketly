@@ -32,6 +32,8 @@
 		5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */; };
 		5B21EB98299A4C95005EF98C /* MatchInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */; };
 		5B21EB99299A4C95005EF98C /* MatchInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */; };
+		5B223CAF29ABCC5700B3F674 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5B223CAE29ABCC5700B3F674 /* Lottie */; };
+		5B223CB129ABD14000B3F674 /* ball.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B223CB029ABD14000B3F674 /* ball.json */; };
 		5B5359BC29A668A500F1B8DB /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5359BB29A668A500F1B8DB /* DoubleExtension.swift */; };
 		5B7240BB298D1523000DD128 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7240BA298D1523000DD128 /* SearchField.xib */; };
 		5B7240BD298D153A000DD128 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7240BC298D153A000DD128 /* SearchField.swift */; };
@@ -137,6 +139,7 @@
 		5B21EB93299A37F9005EF98C /* MatchDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailsViewController.xib; sourceTree = "<group>"; };
 		5B21EB96299A4C95005EF98C /* MatchInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoTableViewCell.swift; sourceTree = "<group>"; };
 		5B21EB97299A4C95005EF98C /* MatchInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchInfoTableViewCell.xib; sourceTree = "<group>"; };
+		5B223CB029ABD14000B3F674 /* ball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ball.json; sourceTree = "<group>"; };
 		5B5359BB29A668A500F1B8DB /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		5B7240BA298D1523000DD128 /* SearchField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		5B7240BC298D153A000DD128 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 				89B6E6B529A0D65600F50503 /* RealmSwift in Frameworks */,
 				5B21EB8E2999F0F8005EF98C /* SDWebImage in Frameworks */,
 				5B21EB802999D9FA005EF98C /* Alamofire in Frameworks */,
+				5B223CAF29ABCC5700B3F674 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +410,7 @@
 				5B4A94A8299C11D8000D66FA /* ViewControllers */,
 				5B7B825F298CAAE100A6BDA4 /* ViewModels */,
 				5BF49A09298CADEB0051723E /* Utils */,
+				5B223CB029ABD14000B3F674 /* ball.json */,
 				5BCD7057298CA79500EEF6F3 /* Assets.xcassets */,
 				5BCD7059298CA79500EEF6F3 /* LaunchScreen.storyboard */,
 				5BCD705C298CA79500EEF6F3 /* Info.plist */,
@@ -578,6 +583,7 @@
 				5B21EB7F2999D9FA005EF98C /* Alamofire */,
 				5B21EB8D2999F0F8005EF98C /* SDWebImage */,
 				89B6E6B429A0D65600F50503 /* RealmSwift */,
+				5B223CAE29ABCC5700B3F674 /* Lottie */,
 			);
 			productName = Cricketly;
 			productReference = 5BCD704B298CA79400EEF6F3 /* Cricketly.app */;
@@ -611,6 +617,7 @@
 				5B21EB7E2999D9FA005EF98C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				5B21EB8C2999F0F8005EF98C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				89B6E6B329A0D65500F50503 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				5B223CAD29ABCC5700B3F674 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 5BCD704C298CA79400EEF6F3 /* Products */;
 			projectDirPath = "";
@@ -633,6 +640,7 @@
 				5B1544042997675F00DC70CF /* MatchesViewController.xib in Resources */,
 				5BFCAFC529A528430010F71D /* MatchSquadNotFoundViewController.xib in Resources */,
 				89126AA829A360BB00193073 /* PlayerDetailsInfoViewController.xib in Resources */,
+				5B223CB129ABD14000B3F674 /* ball.json in Resources */,
 				89A7883A299CFC3000B6FE8E /* MatchScoreViewController.xib in Resources */,
 				5B21EB95299A37F9005EF98C /* MatchDetailsViewController.xib in Resources */,
 				8915898E29AA2475005B994E /* NewsTypeTwoTableViewCell.xib in Resources */,
@@ -962,6 +970,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		5B223CAD29ABCC5700B3F674 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		89B6E6B329A0D65500F50503 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
@@ -982,6 +998,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B21EB8C2999F0F8005EF98C /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		5B223CAE29ABCC5700B3F674 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B223CAD29ABCC5700B3F674 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		89B6E6B429A0D65600F50503 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
