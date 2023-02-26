@@ -11,7 +11,7 @@ import Foundation
 class Secrets {
     static let apiKey = "12ZsB3C2og5c7fhinci8yffaGN6OPMR8BvJpxqTJnCW6gLjrU97brzVm5wH1"
     static let baseUrl = "https://cricket.sportmonks.com/api/v2.0"
-    static let newAPIKey = "2c4f79f6d523420683ad2e558578ae20"
+    static let newAPIKey = "b8560f4000684a399224f2bde640f619"
     static let newsBaseUrl = "https://newsapi.org/v2"
 }
 
