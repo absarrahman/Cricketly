@@ -135,27 +135,14 @@ extension HomeViewController : UITableViewDataSource {
         if (indexPath.row % 5 == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeOneTableViewCell.identifier, for: indexPath) as! NewsTypeOneTableViewCell
             
-            cell.authorTitleLabel.text = model.title
-            //cell.newsTitleLabel.text = model.newsTitle
-            //cell.dateLabel.text = model.publishedAt
-            //cell.dateLabel.text = "Published \(CommonFunctions.postedBefore(date: model.publishedAt)) ago"
-//            cell.sourceTitleLabel.text = model.sourceName
-//            cell.bookmarkImageView.tintColor = isBookmark ? UIColor(named: Constants.ColorConstants.selectedCollectionCell) : .opaqueSeparator
-//            cell.setBackgroundImageFrom(urlString: model.urlToImage ?? Constants.CommonConstants.imageNotFound)
+            cell.setNewsModel(model: model)
             
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeTwoTableViewCell.identifier, for: indexPath) as! NewsTypeTwoTableViewCell
-        //model.isBookmarkEnabled = isBookmark
-        cell.authorTitleLabel.text = model.author
-        //cell.newsTitleLabel.text = model.newsTitle
-        //cell.dateLabel.text = model.publishedAt
-        //cell.dateLabel.text = "Published \(CommonFunctions.postedBefore(date: model.publishedAt)) ago"
-       // cell.sourceTitleLabel.text = model.sourceName
-       // cell.bookmarkImageView.tintColor = isBookmark ? UIColor(named: Constants.ColorConstants.selectedCollectionCell) : .opaqueSeparator
-        //cell.setBackgroundImageFrom(urlString: model.urlToImage ?? Constants.CommonConstants.imageNotFound)
         
+        cell.setNewsModel(model: model)        
         return cell
     }
     

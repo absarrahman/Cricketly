@@ -29,8 +29,6 @@ class NewsTypeOneTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     
-    @IBOutlet weak var bookmarkImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,6 +46,15 @@ class NewsTypeOneTableViewCell: UITableViewCell {
     
     func setBackgroundImageFrom(urlString: String) {
         newsImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveLoad])
+    }
+    
+    func setNewsModel(model: Article) {
+        setBackgroundImageFrom(urlString: model.urlToImage ?? "")
+        sourceTitleLabel.text = model.source?.name
+        newsTitleLabel.text = model.title
+        authorTitleLabel.text = model.author
+        dateLabel.text = CommonFunctions.postedBefore(date: model.publishedAt)
+        
     }
     
 }
