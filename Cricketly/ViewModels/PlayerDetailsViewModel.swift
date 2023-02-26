@@ -191,11 +191,11 @@ class PlayerDetailsViewModel {
                 }
                 
                 let totalMatches = (self.careerData.reduce(0) { partialResult, model in
-                    partialResult + model.battingCareer.innings + model.bowlingCareer.innings
+                    partialResult + model.battingCareer.matches + model.bowlingCareer.matches
                 })
                 
                 let totalTestMatches = self.careerData.reduce(0) { partialResult, model in
-                    ((model.careerType.lowercased() != "odi") || (model.careerType.lowercased() != "t20") || (model.careerType.lowercased() != "t20i")) ? (partialResult + model.battingCareer.matches + model.bowlingCareer.matches) : partialResult + 0
+                    ((model.careerType.lowercased() != "odi") && (model.careerType.lowercased() != "t20") && (model.careerType.lowercased() != "t20i")) ? (partialResult + model.battingCareer.matches + model.bowlingCareer.matches) : partialResult + 0
                 }
                 
                 let totalT20Matches = self.careerData.reduce(0) { partialResult, model in
@@ -209,7 +209,7 @@ class PlayerDetailsViewModel {
                 
 //                let totalTestMatches
 //
-                print(battingCentury, highestRun, highestSix, highestFour, highestSix, totalMatches, totalTestMatches, totalT20Matches, totalOdiMatches)
+                print(battingCentury, highestRun, highestSix, highestFour, totalMatches, totalTestMatches, totalT20Matches, totalOdiMatches)
                 
                 self.loadStatus = .finished
             case .failure(let error):
