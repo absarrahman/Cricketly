@@ -248,7 +248,8 @@ class Service {
         let parameters = [
             "apiKey": Secrets.newAPIKey,
             "q": "cricket",
-            "pageSize": "15"
+            "pageSize": "15",
+            "to": CommonFunctions.getCurrentDate()
         ]
         
         fetchDataFromAPI(from: endpoint, using: parameters) { (result: Result<NewsDataModel, Error>) in

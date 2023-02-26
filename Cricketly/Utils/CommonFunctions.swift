@@ -42,22 +42,15 @@ class CommonFunctions {
     
     static func getCurrentDate() -> String {
         let date = Date()
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let dateString = df.string(from: date)
-        print(dateString)
-        return dateString
+        return date.ISO8601Format()
     }
     
     static func getNextUpcomingDate() -> String{
         let today = Date()
         print(today)
         let modifiedDate = Calendar.current.date(byAdding: .day, value: 60, to: today)!
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let dateString = df.string(from: modifiedDate)
-        print(dateString)
-        return dateString
+        print(modifiedDate.ISO8601Format())
+        return modifiedDate.ISO8601Format()
     }
     
     static func getVisitorTeamCode(battingTeam: Team?, localTeam: Team?, visitorTeam: Team?) -> (id: Int, code: String, name: String, imgUrl: String) {
