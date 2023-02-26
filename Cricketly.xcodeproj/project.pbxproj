@@ -108,6 +108,9 @@
 		89EB9F4429A3847800ED7725 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */; };
 		89F9439829AB705B00D356B1 /* WKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9439629AB705B00D356B1 /* WKViewController.swift */; };
 		89F9439929AB705B00D356B1 /* WKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89F9439729AB705B00D356B1 /* WKViewController.xib */; };
+		89F9439C29AB97BE00D356B1 /* DateFixtureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9439A29AB97BE00D356B1 /* DateFixtureViewController.swift */; };
+		89F9439D29AB97BE00D356B1 /* DateFixtureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89F9439B29AB97BE00D356B1 /* DateFixtureViewController.xib */; };
+		89F9439F29AB9E5D00D356B1 /* DateFixtureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9439E29AB9E5D00D356B1 /* DateFixtureModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +214,9 @@
 		89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		89F9439629AB705B00D356B1 /* WKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewController.swift; sourceTree = "<group>"; };
 		89F9439729AB705B00D356B1 /* WKViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKViewController.xib; sourceTree = "<group>"; };
+		89F9439A29AB97BE00D356B1 /* DateFixtureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFixtureViewController.swift; sourceTree = "<group>"; };
+		89F9439B29AB97BE00D356B1 /* DateFixtureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateFixtureViewController.xib; sourceTree = "<group>"; };
+		89F9439E29AB9E5D00D356B1 /* DateFixtureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFixtureModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +329,10 @@
 			isa = PBXGroup;
 			children = (
 				89B6E6AF29A0B36600F50503 /* BrowsePlayerViewController.swift */,
+				895A572829A84BC60079E549 /* IccRankingViewController.swift */,
+				89F9439629AB705B00D356B1 /* WKViewController.swift */,
+				8909589329A8FB9B00F2FCD0 /* TeamSquadViewController.swift */,
+				8909588D29A8E66600F2FCD0 /* TeamsViewController.swift */,
 				5B1544012997675F00DC70CF /* MatchesViewController.swift */,
 				5BFCAFC229A528430010F71D /* MatchSquadNotFoundViewController.swift */,
 				5B9438582996DEE9000D546B /* TabbarController.swift */,
@@ -354,6 +364,7 @@
 				895A572E29A867C60079E549 /* IccRankingViewModel.swift */,
 				895A573129A878620079E549 /* HomeViewModel.swift */,
 				8909589129A8EE6B00F2FCD0 /* TeamViewModel.swift */,
+				89F9439E29AB9E5D00D356B1 /* DateFixtureModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -519,14 +530,12 @@
 				89B6E6A629A0881D00F50503 /* MoreTabViewController.xib */,
 				89B6E6B029A0B36600F50503 /* BrowsePlayerViewController.xib */,
 				8930091029A3B4EB0065CE1D /* PlayerDetailsViews */,
-				895A572829A84BC60079E549 /* IccRankingViewController.swift */,
 				895A572929A84BC60079E549 /* IccRankingViewController.xib */,
-				8909588D29A8E66600F2FCD0 /* TeamsViewController.swift */,
 				8909588E29A8E66600F2FCD0 /* TeamsViewController.xib */,
-				8909589329A8FB9B00F2FCD0 /* TeamSquadViewController.swift */,
 				8909589429A8FB9B00F2FCD0 /* TeamSquadViewController.xib */,
-				89F9439629AB705B00D356B1 /* WKViewController.swift */,
 				89F9439729AB705B00D356B1 /* WKViewController.xib */,
+				89F9439A29AB97BE00D356B1 /* DateFixtureViewController.swift */,
+				89F9439B29AB97BE00D356B1 /* DateFixtureViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -641,6 +650,7 @@
 				89371582299F42F4006D7FDD /* SquadPlayerCollectionHeaderView.xib in Resources */,
 				5B7B825D298CAABD00A6BDA4 /* InitialViewController.xib in Resources */,
 				5B07616F299EB537007108DA /* SquardPlayerCollectionViewCell.xib in Resources */,
+				89F9439D29AB97BE00D356B1 /* DateFixtureViewController.xib in Resources */,
 				8909589629A8FB9B00F2FCD0 /* TeamSquadViewController.xib in Resources */,
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
 				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
@@ -676,6 +686,7 @@
 				8909588A29A8E0AC00F2FCD0 /* TeamDetailsModel.swift in Sources */,
 				5B076172299EB680007108DA /* MatchSquadViewController.swift in Sources */,
 				5B21EB98299A4C95005EF98C /* MatchInfoTableViewCell.swift in Sources */,
+				89F9439F29AB9E5D00D356B1 /* DateFixtureModel.swift in Sources */,
 				8930091329A3B92B0065CE1D /* CareerCollectionViewCell.swift in Sources */,
 				5BA44A00299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift in Sources */,
 				8948B8ED299DD997007AE6E9 /* ScoreboardHeaderView.swift in Sources */,
@@ -704,6 +715,7 @@
 				5B1544032997675F00DC70CF /* MatchesViewController.swift in Sources */,
 				895A572F29A867C60079E549 /* IccRankingViewModel.swift in Sources */,
 				8915898D29AA2475005B994E /* NewsTypeTwoTableViewCell.swift in Sources */,
+				89F9439C29AB97BE00D356B1 /* DateFixtureViewController.swift in Sources */,
 				5B21EB842999DA80005EF98C /* PlayerModel.swift in Sources */,
 				5BF01B99299C194C005DF5E9 /* MatchInfoViewController.swift in Sources */,
 				5BCBF592299D9A9100B770D7 /* ScoreboardTableViewCell.swift in Sources */,
