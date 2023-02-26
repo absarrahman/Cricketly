@@ -106,6 +106,8 @@
 		89EB9F4129A3814800ED7725 /* PlayerDetailsCareerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */; };
 		89EB9F4229A3814800ED7725 /* PlayerDetailsCareerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */; };
 		89EB9F4429A3847800ED7725 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */; };
+		89F9439829AB705B00D356B1 /* WKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9439629AB705B00D356B1 /* WKViewController.swift */; };
+		89F9439929AB705B00D356B1 /* WKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89F9439729AB705B00D356B1 /* WKViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,8 @@
 		89EB9F3F29A3814800ED7725 /* PlayerDetailsCareerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCareerViewController.swift; sourceTree = "<group>"; };
 		89EB9F4029A3814800ED7725 /* PlayerDetailsCareerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsCareerViewController.xib; sourceTree = "<group>"; };
 		89EB9F4329A3847800ED7725 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
+		89F9439629AB705B00D356B1 /* WKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewController.swift; sourceTree = "<group>"; };
+		89F9439729AB705B00D356B1 /* WKViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +525,8 @@
 				8909588E29A8E66600F2FCD0 /* TeamsViewController.xib */,
 				8909589329A8FB9B00F2FCD0 /* TeamSquadViewController.swift */,
 				8909589429A8FB9B00F2FCD0 /* TeamSquadViewController.xib */,
+				89F9439629AB705B00D356B1 /* WKViewController.swift */,
+				89F9439729AB705B00D356B1 /* WKViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -639,6 +645,7 @@
 				5BF49A06298CADB90051723E /* HomeViewController.xib in Resources */,
 				5B154408299773F500DC70CF /* FixturesCollectionViewCell.xib in Resources */,
 				5BF01B9A299C194C005DF5E9 /* MatchInfoViewController.xib in Resources */,
+				89F9439929AB705B00D356B1 /* WKViewController.xib in Resources */,
 				8909589029A8E66700F2FCD0 /* TeamsViewController.xib in Resources */,
 				8909589A29A9030100F2FCD0 /* PlayerStatsViewController.xib in Resources */,
 				5B7240BB298D1523000DD128 /* SearchField.xib in Resources */,
@@ -672,6 +679,7 @@
 				8930091329A3B92B0065CE1D /* CareerCollectionViewCell.swift in Sources */,
 				5BA44A00299C1E3A0083080C /* MatchDetailsSectionLabelCollectionViewCell.swift in Sources */,
 				8948B8ED299DD997007AE6E9 /* ScoreboardHeaderView.swift in Sources */,
+				89F9439829AB705B00D356B1 /* WKViewController.swift in Sources */,
 				5B1543FF29975F9200DC70CF /* ViewControllerFactory.swift in Sources */,
 				89EB9F4429A3847800ED7725 /* PlayerDetailsViewModel.swift in Sources */,
 				89B6E6B729A0D71000F50503 /* RealmDBManager.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 
 enum RouteMap{
-    case initialViewController, tabBarViewController, matchDetailsViewController, browsePlayersViewController, playerDetailsViewController, teamsViewController, teamSquadViewController
+    case initialViewController, tabBarViewController, matchDetailsViewController, browsePlayersViewController, playerDetailsViewController, teamsViewController, teamSquadViewController, webViewController
 }
 
 class Routes {
@@ -40,6 +40,8 @@ class Routes {
             vc = TeamsViewController()
         case .teamSquadViewController:
             vc = TeamSquadViewController()
+        case .webViewController:
+            vc = WKViewController()
         }
         
         

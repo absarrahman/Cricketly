@@ -173,4 +173,11 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
         
         //self.lastContentOffset = scrollView.contentOffset.y
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = Routes.getViewControllerBy(routeMap: .webViewController) as! WKViewController
+        let model = viewModel.newsList[indexPath.row]
+        vc.urlString = model.url ?? ""
+        present(vc, animated: true)
+    }
 }

@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-ip-efg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                 </imageView>
                 <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2x-I0-YbW" userLabel="Shade View">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjN-xK-rZF">
@@ -37,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-EG-OnU">
-                    <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="180" width="375" height="60"/>
                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="H5j-5T-FFD"/>
@@ -50,7 +50,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-0d-nM4" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                    <rect key="frame" x="0.0" y="240" width="375" height="427"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
@@ -68,7 +68,7 @@
                 <constraint firstItem="Ude-ip-efg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LRr-B1-1H5"/>
                 <constraint firstItem="ZJh-0d-nM4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ND8-0Z-LgT"/>
                 <constraint firstItem="ZJh-0d-nM4" firstAttribute="top" secondItem="BCX-EG-OnU" secondAttribute="bottom" id="S2a-dH-v3P"/>
-                <constraint firstItem="BCX-EG-OnU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="WMT-fn-32x"/>
+                <constraint firstItem="BCX-EG-OnU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="180" id="WMT-fn-32x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ude-ip-efg" secondAttribute="trailing" id="Ybo-DI-wRt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZJh-0d-nM4" secondAttribute="bottom" id="beu-IL-kOh"/>
                 <constraint firstItem="XjN-xK-rZF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="e4m-P9-6uq"/>

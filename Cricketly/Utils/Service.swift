@@ -13,6 +13,12 @@ enum LoadingStatus {
     case loadingFailed, loading, finished, notStarted
 }
 
+class Connectivity {
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+}
+
 class Service {
     
     enum ServiceError: Error {
