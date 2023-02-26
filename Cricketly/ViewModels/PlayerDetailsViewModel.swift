@@ -81,6 +81,9 @@ class PlayerDetailsViewModel {
     var battingStatCareer: [MatchInfoTableViewCellModel] = []
     var bowlingStatCareer: [MatchInfoTableViewCellModel] = []
     
+    
+    var playerStat: [MatchInfoTableViewCellModel] = []
+    
     func fetchPlayerBasicInfo(id: Int) {
         loadStatus = .loading
         Service.shared.getPlayerById(id: id) {[weak self] result in
@@ -206,6 +209,17 @@ class PlayerDetailsViewModel {
                     (model.careerType.lowercased() == "odi") ? (partialResult + model.battingCareer.matches + model.bowlingCareer.matches) : partialResult + 0
                 }
                 
+                
+                self.playerStat = [
+                    MatchInfoTableViewCellModel(title: "Total century", content: battingCentury.description),
+                    MatchInfoTableViewCellModel(title: "Highest run", content: highestRun.description),
+                    MatchInfoTableViewCellModel(title: "Highest six", content: highestSix.description),
+                    MatchInfoTableViewCellModel(title: "Highest four", content: highestFour.description),
+                    MatchInfoTableViewCellModel(title: "Total Matches", content: totalMatches.description),
+                    MatchInfoTableViewCellModel(title: "Total T20", content: totalT20Matches.description),
+                    MatchInfoTableViewCellModel(title: "Total ODI", content: totalOdiMatches.description),
+                    MatchInfoTableViewCellModel(title: "Total Test", content: totalTestMatches.description),
+                ]
                 
 //                let totalTestMatches
 //
