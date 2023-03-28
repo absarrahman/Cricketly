@@ -9,7 +9,7 @@ import UIKit
 
 
 enum MoreTabBarType: CaseIterable {
-    case browsePlayers
+    case browsePlayers, teams, dateFixtures
 }
 
 class MoreTabViewController: UIViewController {
@@ -18,7 +18,9 @@ class MoreTabViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let navigationMap: [MoreTabBarType: MoreTabNavigationCellModel] = [
-        .browsePlayers: MoreTabNavigationCellModel(title: "Browse players", image: UIImage(systemName: "figure.cricket"), routeID: .browsePlayersViewController)
+        .browsePlayers: MoreTabNavigationCellModel(title: "Browse players", image: UIImage(systemName: "figure.cricket"), routeID: .browsePlayersViewController),
+        .teams: MoreTabNavigationCellModel(title: "Teams", image: UIImage(systemName: "person.3.fill"), routeID: .teamsViewController),
+        .dateFixtures: MoreTabNavigationCellModel(title: "Fixtures", image: UIImage(systemName: "calendar"), routeID: .dateFixturesController)
     ]
     
     override func viewDidLoad() {

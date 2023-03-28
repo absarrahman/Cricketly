@@ -20,6 +20,7 @@ class MatchDetailsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var winningPercentageLabel: UILabel!
     
     @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
     
@@ -29,6 +30,13 @@ class MatchDetailsViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    
+    
+    @IBOutlet weak var localTeamNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var visitorTeamNameLabel: UILabel!
+    
     let viewModel = MatchDetailsViewModel()
     var cancellables: Set<AnyCancellable> = []
     
@@ -37,6 +45,12 @@ class MatchDetailsViewController: UIViewController {
     var selectedTab: SectionTabs = .info
     
     var selectedVC: UIViewController!
+    
+    var matchStatus: Status = .ns
+    var isSquadAvailable = false
+    var isScordboardAvailable = false
+    
+    var rightButton: UIBarButtonItem!
     
     var sectionsMap: [SectionTabs:UIViewController] = [
         .info: MatchInfoViewController(),
@@ -51,6 +65,12 @@ class MatchDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rightButton = UIBarButtonItem(image: UIImage(systemName: "bell.fill"), style: .plain, target: self, action: #selector(addNotification))
+        
+        rightButton.isHidden = false
+        navigationItem.rightBarButtonItem = rightButton
+        
         collectionView.layer.cornerRadius = 20
         collectionView.clipsToBounds = true
         collectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -66,24 +86,58 @@ class MatchDetailsViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.dataSource = self
         collectionView.delegate = self
+        viewModel.fetchMatchStatusBy(id: selectedFixtureId ?? -1)
+        setupBinders()
+        
     }
     
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        for childVC in sectionsMap.values {
-//            // Remove the child view controller from the parent view controller
-//            childVC.removeFromParent()
-//
-//            // Remove the child view controller's view from the view hierarchy
-//            childVC.view.removeFromSuperview()
-//
-//            // Notify the child view controller that it has been removed from the parent view controller
-//            childVC.didMove(toParent: nil)
-//        }
-//    }
+    @objc func addNotification() {
+        NotificationManager.addNotification(id: selectedFixtureId ?? -1,title: viewModel.titleText, subtitle: viewModel.subtitleText, targetNotificationTime: viewModel.updatedTime)
+        NotificationManager.addNotificationNowNotify()
+        rightButton.isHidden = true
+    }
     
+    func setupBinders()  {
+        view.isUserInteractionEnabled = false
+        viewModel.$loadingStatus.sink {[weak self] status in
+            
+            guard let self = self else { return }
+            
+            if status == .finished {
+                self.isSquadAvailable = self.viewModel.isSquadAvailable
+                self.isScordboardAvailable = self.viewModel.isScoreboardAvailable
+                
+                self.view.isUserInteractionEnabled = true
+            } else if (status == .loadingFailed) {
+                
+                CommonFunctions.showAlertController(vc: self) {[weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.fetchMatchStatusBy(id: self.selectedFixtureId ?? -1)
+                }
+
+            }
+            
+        }.store(in: &cancellables)
+        
+        viewModel.$winningString.sink {[weak self] winningValue in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.winningPercentageLabel.text = winningValue
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$isNotificationAvailable.sink {[weak self] isAvailable in
+            guard let self = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.rightButton.isHidden = !isAvailable
+            }
+        }.store(in: &cancellables)
+        
+    }
 }
 
 extension MatchDetailsViewController: UICollectionViewDataSource {
@@ -103,20 +157,27 @@ extension MatchDetailsViewController: UICollectionViewDataSource {
         return cell
     }
     
+    
+    
 }
 
 extension MatchDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedTab = SectionTabs.allCases[indexPath.row]
         remove(asChildViewController: selectedVC)
-        addChildVC(sectionsMap[selectedTab]!)
+        if ((selectedTab == .squad && !isSquadAvailable) || (selectedTab == .scoreboard && !isScordboardAvailable)) {
+            addChildVC(MatchSquadNotFoundViewController())
+        } else {
+            addChildVC(sectionsMap[selectedTab]!)
+        }
+        
         collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-
+        
         UIView.animate(withDuration: 1, delay: 0.07 * Double(indexPath.row) / 3.5, options: [.curveEaseInOut], animations: {
             cell.alpha = 1
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)

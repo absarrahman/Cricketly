@@ -6,54 +6,88 @@
 //
 
 import UIKit
+import Combine
+import Lottie
 
 class InitialViewController: UIViewController {
     
+    let viewModel = BrowsePlayersViewModel()
+    
+    var cancellables: Set<AnyCancellable> = []
+    
+    
+    @IBOutlet weak var logoAnimation: LottieAnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let playerList = RealmDBManager.shared.read(type: PlayerRealmModel.self)
-        print("PLAYER LIST COUNT FROM READ: \(playerList.count)")
-        if (playerList.isEmpty) {
-            Service.shared.getAllPlayers { result in
-                switch result {
-                case .success(let success):
-                    print(success?.first?.fullname)
-                    guard let playerModels = success else { return }
-                    
-                    print("Model from server \(playerModels.count)")
-                    var realDBModel: [PlayerRealmModel] = []
-                    
-                    
-                    
-                    for player in playerModels {
-                        let playerRealmDB = PlayerRealmModel()
-                        playerRealmDB.id = player.id ?? -1
-                        playerRealmDB.fullname = player.fullname
-                        playerRealmDB.imagePath = player.imagePath
-                        playerRealmDB.countryName = player.country?.name
-                        
-                        realDBModel.append(playerRealmDB)
-                    }
-                    RealmDBManager.shared.addData(list: realDBModel) { error in
-                        print(error)
-                    }
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        self.navigationController?.pushViewController(Routes.getViewControllerBy(routeMap: .tabBarViewController), animated: true)
-                    }
-                case .failure(let failure):
-                    print(failure)
-                }
-            }
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-                guard let self = self else { return }
-                self.navigationController?.pushViewController(Routes.getViewControllerBy(routeMap: .tabBarViewController), animated: true)
-            }
+        viewModel.getAllPlayers()
+        logoAnimation.loopMode = .playOnce
+        logoAnimation.animationSpeed = 1.5
+        logoAnimation.play()
+        NotificationManager.getAllDeliveredNotification { notifications in
+            print("DELIVERED NOTIFICATIONS")
+            dump(notifications)
         }
         
+        NotificationManager.getAllPendingNotification { notifications in
+            print("PENDING NOTIFICATIONS")
+            dump(notifications)
+        }
         
+        setupBinders()
+        //        let playerList = RealmDBManager.shared.read(type: PlayerRealmModel.self)
+        //        print("PLAYER LIST COUNT FROM READ: \(playerList.count)")
+        //        if (playerList.isEmpty) {
+        //            Service.shared.getAllPlayers { result in
+        //                switch result {
+        //                case .success(let success):
+        //                    print(success?.first?.fullname)
+        //                    guard let playerModels = success else { return }
+        //
+        //                    print("Model from server \(playerModels.count)")
+        //                    var realDBModel: [PlayerRealmModel] = []
+        //
+        //
+        //
+        //                    for player in playerModels {
+        //                        let playerRealmDB = PlayerRealmModel()
+        //                        playerRealmDB.id = player.id ?? -1
+        //                        playerRealmDB.fullname = player.fullname
+        //                        playerRealmDB.imagePath = player.imagePath
+        //                        playerRealmDB.countryName = player.country?.name
+        //
+        //                        realDBModel.append(playerRealmDB)
+        //                    }
+        //                    RealmDBManager.shared.addData(list: realDBModel) { error in
+        //                        print(error)
+        //                    }
+        //                    DispatchQueue.main.async { [weak self] in
+        //                        guard let self = self else { return }
+        //                        self.navigationController?.pushViewController(Routes.getViewControllerBy(routeMap: .tabBarViewController), animated: true)
+        //                    }
+        //                case .failure(let failure):
+        //                    print(failure)
+        //                }
+        //            }
+        //        } else {
+        //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        //                guard let self = self else { return }
+        //                self.navigationController?.pushViewController(Routes.getViewControllerBy(routeMap: .tabBarViewController), animated: true)
+        //            }
+        //        }
+        
+        
+    }
+    
+    func setupBinders() {
+        viewModel.$loadingStatus.sink {[weak self] status in
+            if status == .finished {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                    guard let self = self else { return }
+                    self.navigationController?.pushViewController(Routes.getViewControllerBy(routeMap: .tabBarViewController), animated: true)
+                }
+            }
+        }.store(in: &cancellables)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

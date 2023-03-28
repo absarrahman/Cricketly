@@ -21,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mdj-eF-0lO">
-                    <rect key="frame" x="171" y="24.000000000000007" width="24" height="22.33333333333335"/>
+                    <rect key="frame" x="160" y="18.666666666666664" width="35" height="33.333333333333336"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Mdj-eF-0lO" secondAttribute="height" id="sTE-iX-Wqr"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-OP-SbS">
-                    <rect key="frame" x="5" y="23" width="161" height="24"/>
+                    <rect key="frame" x="5" y="17.666666666666671" width="150" height="35"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -35,11 +35,11 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Mdj-eF-0lO" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="1XC-DV-APe"/>
                 <constraint firstItem="Mdj-eF-0lO" firstAttribute="leading" secondItem="TtF-OP-SbS" secondAttribute="trailing" constant="5" id="7D7-ZV-8dA"/>
                 <constraint firstItem="Mdj-eF-0lO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="L5l-JD-NBd"/>
                 <constraint firstAttribute="trailing" secondItem="Mdj-eF-0lO" secondAttribute="trailing" constant="5" id="P5T-tp-hbt"/>
                 <constraint firstItem="TtF-OP-SbS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Sbb-7m-bAW"/>
-                <constraint firstItem="TtF-OP-SbS" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.805" id="jVC-v2-d8k"/>
                 <constraint firstItem="Mdj-eF-0lO" firstAttribute="top" secondItem="TtF-OP-SbS" secondAttribute="top" id="k0c-1A-RKs"/>
                 <constraint firstItem="TtF-OP-SbS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lkJ-Uf-zfp"/>
                 <constraint firstItem="Mdj-eF-0lO" firstAttribute="bottom" secondItem="TtF-OP-SbS" secondAttribute="bottom" id="sw8-qf-dN5"/>

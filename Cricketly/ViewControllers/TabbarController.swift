@@ -42,6 +42,7 @@ class TabbarController: UITabBarController {
         // Do any additional setup after loading the view.
         UITabBar.appearance().tintColor = .white
         self.viewControllers = [createHomeVC(), createMatchVC(), createMoreVC()]
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupTabBarLayout()
     }
     

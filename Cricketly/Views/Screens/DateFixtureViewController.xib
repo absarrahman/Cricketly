@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateFixtureViewController" customModule="Cricketly" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="eIn-i2-wYs" id="uh5-uk-f6e"/>
+                <outlet property="endDate" destination="xEi-OI-ZHp" id="2Af-KT-qYP"/>
+                <outlet property="startDate" destination="A9q-s0-J5D" id="Alf-ac-Do1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfr-Qz-Ixs">
+                    <rect key="frame" x="20" y="69" width="168" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="0t4-V1-qhu">
+                    <rect key="frame" x="20" y="99.333333333333329" width="353" height="49.999999999999986"/>
+                    <subviews>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="A9q-s0-J5D" userLabel="Start Date Picker">
+                            <rect key="frame" x="0.0" y="0.0" width="168" height="50"/>
+                            <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                <!--1970-01-01 11:00:00 +0000-->
+                            </date>
+                        </datePicker>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEi-OI-ZHp" userLabel="End Date Picker">
+                            <rect key="frame" x="185" y="0.0" width="168" height="50"/>
+                            <date key="date" timeIntervalSinceReferenceDate="699370584.83256304">
+                                <!--2023-03-01 13:36:24 +0000-->
+                            </date>
+                        </datePicker>
+                    </subviews>
+                </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-i2-wYs">
+                    <rect key="frame" x="10" y="198.66666666666669" width="373" height="619.33333333333326"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CeT-fs-CHK">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmG-Ei-8hs">
+                    <rect key="frame" x="133.33333333333334" y="154.33333333333334" width="126.33333333333334" height="34.333333333333343"/>
+                    <color key="backgroundColor" name="PrimaryActionColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Find matches"/>
+                    <connections>
+                        <action selector="findMatchTapped:" destination="-1" eventType="touchUpInside" id="O9F-eG-4t9"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq8-tc-2hz">
+                    <rect key="frame" x="205" y="69" width="168" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eIn-i2-wYs" secondAttribute="bottom" id="0Ie-CZ-Jgv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0t4-V1-qhu" secondAttribute="trailing" constant="20" id="11l-gH-oHi"/>
+                <constraint firstItem="Pfr-Qz-Ixs" firstAttribute="centerX" secondItem="A9q-s0-J5D" secondAttribute="centerX" id="5Lw-5k-ADh"/>
+                <constraint firstItem="pq8-tc-2hz" firstAttribute="centerX" secondItem="xEi-OI-ZHp" secondAttribute="centerX" id="7Kg-qQ-2xg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eIn-i2-wYs" secondAttribute="trailing" constant="10" id="C1f-yh-mAj"/>
+                <constraint firstItem="0t4-V1-qhu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="M87-wN-7sq"/>
+                <constraint firstItem="eIn-i2-wYs" firstAttribute="top" secondItem="QmG-Ei-8hs" secondAttribute="bottom" constant="10" id="NNR-nn-pIe"/>
+                <constraint firstItem="QmG-Ei-8hs" firstAttribute="top" secondItem="0t4-V1-qhu" secondAttribute="bottom" constant="5" id="NY2-KX-6e9"/>
+                <constraint firstItem="Pfr-Qz-Ixs" firstAttribute="trailing" secondItem="A9q-s0-J5D" secondAttribute="trailing" id="ZQl-yl-65s"/>
+                <constraint firstItem="Pfr-Qz-Ixs" firstAttribute="leading" secondItem="A9q-s0-J5D" secondAttribute="leading" id="ZfT-yR-UWC"/>
+                <constraint firstItem="pq8-tc-2hz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="av9-oV-ocH"/>
+                <constraint firstItem="pq8-tc-2hz" firstAttribute="leading" secondItem="xEi-OI-ZHp" secondAttribute="leading" id="bNu-QN-DId"/>
+                <constraint firstItem="0t4-V1-qhu" firstAttribute="top" secondItem="Pfr-Qz-Ixs" secondAttribute="bottom" constant="10" id="brr-Nq-1jW"/>
+                <constraint firstItem="pq8-tc-2hz" firstAttribute="trailing" secondItem="xEi-OI-ZHp" secondAttribute="trailing" id="eGZ-9U-8lE"/>
+                <constraint firstItem="QmG-Ei-8hs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jY3-g9-Gap"/>
+                <constraint firstItem="eIn-i2-wYs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="m5J-Hp-VNc"/>
+                <constraint firstItem="Pfr-Qz-Ixs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="qgd-C1-W56"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryActionColor">
+            <color red="0.10400000214576721" green="0.086999997496604919" blue="0.33100000023841858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

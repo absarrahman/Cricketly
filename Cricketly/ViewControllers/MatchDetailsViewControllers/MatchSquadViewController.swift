@@ -55,46 +55,27 @@ class MatchSquadViewController: UIViewController {
         
         parentVC = self.parent as? MatchDetailsViewController
         print("PARENT VC ID IS \(parentVC.selectedFixtureId)")
-        viewModel.fetchMatchScore(id: parentVC.selectedFixtureId ?? -1)
+        viewModel.fetchSquadDetails(id: parentVC.selectedFixtureId ?? -1)
         setupBinders()
     }
     
     func setupBinders() {
-        viewModel.$localTeamSquadCellModels.sink {[weak self] squad in
-            guard let self = self else {
-                return
-            }
-            self.localTeamSquadCellModels = squad
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-            
-        }.store(in: &cancellables)
         
-        viewModel.$visitorTeamSquadCellModels.sink {[weak self] squad in
+        viewModel.$loadingStatus.sink {[weak self] loadingStatus in
+            
             guard let self = self else {
                 return
             }
             
-            self.visitorTeamSquadCellModels = squad
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }.store(in: &cancellables)
-        
-        viewModel.$teamModels.sink {[weak self] models in
-            guard let self = self else {
-                return
-            }
-            if (!models.isEmpty) {
-                self.teamModels = models
+            if (loadingStatus == .finished) {
+                self.localTeamSquadCellModels = self.viewModel.localTeamSquadCellModels
+                self.visitorTeamSquadCellModels = self.viewModel.visitorTeamSquadCellModels
+                self.teamModels = self.viewModel.teamModels
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
             
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
         }.store(in: &cancellables)
     }
     
@@ -131,6 +112,17 @@ extension MatchSquadViewController: UICollectionViewDelegate {
             cell.alpha = 1
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = Routes.getViewControllerBy(routeMap: .playerDetailsViewController) as! PlayerDetailsViewController
+        
+        let index = Int(indexPath.row / 2)
+        let model = (indexPath.row % 2 == 0) ? localTeamSquadCellModels[index] : visitorTeamSquadCellModels[index]
+        let id = model.id
+        vc.id = id
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

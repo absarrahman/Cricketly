@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
@@ -25,7 +26,10 @@ class HomeViewController: UIViewController {
     
     var lastContentOffset: CGFloat = 0
     
+    var totalFixtureList: [FixtureCellModel] = []
     
+    let viewModel = HomeViewModel()
+    var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,20 +47,87 @@ class HomeViewController: UIViewController {
         
         collectionView.register(UINib(nibName: FixturesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: FixturesCollectionViewCell.identifier)
         
+        tableView.register(UINib(nibName: NewsTypeOneTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: NewsTypeOneTableViewCell.identifier)
+        
+        tableView.register(UINib(nibName: NewsTypeTwoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: NewsTypeTwoTableViewCell.identifier)
+        
+        
         tableView.dataSource = self
         tableView.delegate = self
+        viewModel.fetchData()
+        setupBinders()
+    }
+    
+    fileprivate func setDataToList() {
+        self.totalFixtureList = []
+        self.totalFixtureList = self.viewModel.liveMatches + self.viewModel.upcomingMatches + self.viewModel.recentMatches
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func setupBinders() {
+        viewModel.$upcomingLoadingStatus.sink { [weak self] loadStatus in
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                self.setDataToList()
+            } else if (loadStatus == .loadingFailed) {
+                
+                CommonFunctions.showAlertController(vc: self) {[weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.fetchData()
+                }
+                
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$liveLoadingStatus.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                self.setDataToList()
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$isRecentLoaded.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                self.setDataToList()
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.$isNewsLoaded.sink {[weak self] loadStatus in
+            
+            guard let self = self else {
+                return
+            }
+            if (loadStatus == .finished) {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }.store(in: &cancellables)
     }
     
 }
 
 extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        totalFixtureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixturesCollectionViewCell.identifier, for: indexPath) as! FixturesCollectionViewCell
-        
+        let model = totalFixtureList[indexPath.row]
+        cell.setup(model: model)
         return cell
     }
 }
@@ -64,12 +135,22 @@ extension HomeViewController : UICollectionViewDataSource {
 
 extension HomeViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        100
+        viewModel.newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Yeet"
+        let model = viewModel.newsList[indexPath.row]
+        if (indexPath.row % 5 == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeOneTableViewCell.identifier, for: indexPath) as! NewsTypeOneTableViewCell
+            
+            cell.setNewsModel(model: model)
+            
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsTypeTwoTableViewCell.identifier, for: indexPath) as! NewsTypeTwoTableViewCell
+        
+        cell.setNewsModel(model: model)
         return cell
     }
     
@@ -98,5 +179,12 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
         }
         
         //self.lastContentOffset = scrollView.contentOffset.y
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = Routes.getViewControllerBy(routeMap: .webViewController) as! WKViewController
+        let model = viewModel.newsList[indexPath.row]
+        vc.urlString = model.url ?? ""
+        present(vc, animated: true)
     }
 }

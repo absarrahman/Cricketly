@@ -119,13 +119,23 @@ class FixturesCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func removeMinusFrom(text: String) -> String {
+        var text = text
+        text.remove(at: text.startIndex)
+        return text
+    }
+    
     func updateTime(time: String) {
         let difference = CommonFunctions.getDifference(from: time)
         matchNoteLabel.text = "\(CommonFunctions.dateComponentFormatter.string(for: difference) ?? "")"
+        if let firstCharacter = matchNoteLabel.text?.first {
+            matchNoteLabel.text = firstCharacter == "-" ? "Match started \(removeMinusFrom(text: matchNoteLabel.text ?? "")) ago" : "\(matchNoteLabel.text ?? "") left"
+        }
+        
+        
         guard let differenceTime = difference else { return endTimer() }
         if let date = Calendar.current.date(from: differenceTime) {
             let timeInterval = date.timeIntervalSince1970
-            print("Time interval: \(timeInterval) seconds")
             if timeInterval == 0 {
                 endTimer()
             }

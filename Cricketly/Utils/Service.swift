@@ -9,6 +9,16 @@
 import Alamofire
 import Foundation
 
+enum LoadingStatus {
+    case loadingFailed, loading, finished, notStarted
+}
+
+class Connectivity {
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+}
+
 class Service {
     
     enum ServiceError: Error {
@@ -40,6 +50,7 @@ class Service {
         
         sessionManager.request(endpoint,parameters: parameters).validate().response { responseData in
             print("RESPONSE DATA IS \(responseData)")
+            print(responseData.request?.url)
             guard let data = responseData.data else {
                 completion(.failure(ServiceError.noDataError))
                 return
@@ -79,32 +90,42 @@ class Service {
         
     }
     
-    func getPlayerById(id: Int)  {
-        //?\(apiToken)&include=career
+    func getPlayerById(id: Int, completion: @escaping (Result<(PlayerDetailsModel?), Error>) -> ())  {
         let endpoint = APIEndPoints.getPlayerEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,
-            "include": "career"
+            "include": "country,career,career.season,teams,currentteams"
         ]
-        sessionManager.request(endpoint,parameters: parameters).validate().response { responseData in
-            print("RESPONSE DATA IS \(responseData)")
-            guard let data = responseData.data else {
-                return
-            }
+        
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) {  (result: Result<PlayerDetailsDataModel, Error>) in
             
-            do {
-                let playerData = try JSONDecoder().decode(PlayerDetailsDataModel.self, from: data)
-                
-                //dump(dictionary)
-                print(playerData.data!.fullname)
-                //print(playerData.data![0].fullname)
-                
-            } catch {
-                print("Error occurred \(error)")
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
             
         }
+    }
+    
+    func getFixturePositionBy(seasonId: Int, completion: @escaping (Result<([StandingModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.getStandingEndpointBased(on: seasonId)
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "include": "position"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<StandingsDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    
     }
     
     func getAllFixtures(startDate: String, endDate: String, isRecent: Bool = false, completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
@@ -133,17 +154,51 @@ class Service {
         let endpoint = APIEndPoints.getFixtureEndpointBased(on: id)
         let parameters = [
             "api_token": Secrets.apiKey,
-            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam,batting.result"
+            "include": "batting.team,batting.bowler,batting.batsman,manofseries,manofmatch,tosswon,venue,localteam,visitorteam,runs.team,season,league,firstumpire,secondumpire,tvumpire,referee,batting.batsmanout,batting.catchstump,batting.runoutby,bowling.team,bowling.bowler,lineup,winnerteam,batting.result,localteam.results,visitorteam.results"
         ]
         
         fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixtureDetailsDataModel, Error>) in
             switch result {
-            case .failure(let error):
-                debugPrint(error)
-                completion(.failure(error))
             case .success(let data):
-                //dump(data)
                 completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getAllRanking(completion: @escaping (Result<([RankModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.teamRankEndPoint
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "include": "teams"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<RankDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
+    }
+    
+    func getLiveMatch(completion: @escaping (Result<([FixtureModel]?), Error>) -> ()) {
+        let endpoint = APIEndPoints.liveEndPoint
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "fields[fixtures]": "id,season_id,round,localteam_id,visitorteam_id,starting_at,league_id,type,status,note,toss_won_team_id,winner_team_id,man_of_match_id,man_of_series_id,elected,total_overs_played",
+            "include": "localteam,visitorteam,runs.team,venue,season,league"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<FixturesDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
@@ -159,4 +214,60 @@ class Service {
         let endDate = CommonFunctions.getCurrentDate()
         getAllFixtures(startDate: startDate, endDate: endDate, isRecent: true, completion: completion)
     }
+    
+    func getAllTeams(completion: @escaping (Result<([TeamModel]?), Error>)->()) {
+        let endpoint = APIEndPoints.teamsEndPoint
+        let parameters = [
+            "api_token": Secrets.apiKey,
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<TeamDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getTeamSquadBasedOn(id: Int, completion: @escaping (Result<(TeamDetailsModel?), Error>)->()) {
+        let endpoint = APIEndPoints.getTeamSquadEndpointBased(on: id)
+        //squad
+        let parameters = [
+            "api_token": Secrets.apiKey,
+            "include": "squad"
+        ]
+        
+        fetchDataFromAPI(from: endpoint,using: parameters) { (result: Result<TeamDetailsDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getAllNews(completion: @escaping (Result<([Article]?), Error>)->()) {
+        let endpoint = APIEndPoints.newEndPoint
+        let parameters = [
+            "apiKey": Secrets.newAPIKey,
+            "q": "cricket",
+            "pageSize": "15",
+            "to": CommonFunctions.getCurrentDate()
+        ]
+        
+        fetchDataFromAPI(from: endpoint, using: parameters) { (result: Result<NewsDataModel, Error>) in
+            switch result {
+            case .success(let data):
+                print(data)
+                completion(.success(data.articles))
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
